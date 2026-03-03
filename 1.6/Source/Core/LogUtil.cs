@@ -12,7 +12,7 @@ namespace FactionColonies.UrbanRural
             switch (messageType)
             {
                 case LogMessageType.Message:
-                    if (UrbanRuralSettings.PrintDebug || forceLog)
+                    if (FCURSettings.PrintDebug || forceLog)
                     {
                         Log.Message(slug + " " + message);
                     }

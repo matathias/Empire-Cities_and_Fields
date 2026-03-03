@@ -3,7 +3,7 @@ using Verse;
 
 namespace FactionColonies.UrbanRural
 {
-    public class UrbanRuralSettings : ModSettings
+    public class FCURSettings : ModSettings
     {
         private static bool printDebug = false;
         public static bool PrintDebug => printDebug;
@@ -25,11 +25,11 @@ namespace FactionColonies.UrbanRural
 
     public class UrbanRuralMod : Mod
     {
-        public UrbanRuralSettings settings;
+        public FCURSettings settings;
 
         public UrbanRuralMod(ModContentPack content) : base(content)
         {
-            settings = GetSettings<UrbanRuralSettings>();
+            settings = GetSettings<FCURSettings>();
         }
 
         public override string SettingsCategory() => "Empire - Urban & Rural";
