@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ═══ City ═══ -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+		<defName>WorldSettlementDef_City</defName>
+		<label>city</label>
+		<description>A large urban center that depends on linked rural settlements for resource production. Must be founded near enough rural settlements.</description>
+		<defaultResources>true</defaultResources>
+		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
+		<planetLayers>
+			<li>Surface</li>
+		</planetLayers>
+		<comps>
+			<li Class="WorldObjectCompProperties_TradeRequest" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_UrbanSettlement" />
+		</comps>
+		<modExtensions>
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Urban" />
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
+</Defs>

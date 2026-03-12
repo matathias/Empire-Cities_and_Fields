@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Empty biome for urban settlements. All resources available but with zero biome production. -->
+	<FactionColonies.BiomeResourceDef>
+		<defName>UrbanRural_EmptyBiome</defName>
+		<label>urban center</label>
+		<descriptionKey>FCDescUrbanCenter</descriptionKey>
+		<canSettle>true</canSettle>
+		<resources>
+			<li>
+				<resourceDef>RTD_Food</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Weapons</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Apparel</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Animals</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Logging</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Mining</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Medicine</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Research</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Power</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+		</resources>
+	</FactionColonies.BiomeResourceDef>
+
+</Defs>
