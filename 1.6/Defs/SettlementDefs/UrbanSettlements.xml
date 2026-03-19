@@ -6,6 +6,7 @@
 		<defName>WorldSettlementDef_City</defName>
 		<label>city</label>
 		<description>A large urban center that depends on linked rural settlements for resource production. Must be founded near enough rural settlements.</description>
+		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
 		<defaultResources>true</defaultResources>
 		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
 		<planetLayers>

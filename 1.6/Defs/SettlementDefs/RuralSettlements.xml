@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<!-- ═══ Rural Base (hidden — used only for building allow/block list inheritance) ═══ -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+		<defName>WorldSettlementDef_Rural</defName>
+		<label>rural settlement</label>
+		<description>Base rural settlement type. Not directly buildable.</description>
+		<available>false</available>
+		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
+		<planetLayers>
+			<li>Surface</li>
+		</planetLayers>
+		<modExtensions>
+			<li Class="FactionColonies.SettlementTypeExtension" />
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
 	<!-- ═══ Farming Hamlet ═══ -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
 		<defName>WorldSettlementDef_Farm</defName>
 		<label>farming hamlet</label>
 		<description>A small rural settlement specializing in food production. Benefits from fertile biomes.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
 			<li>
@@ -34,6 +50,7 @@
 		<defName>WorldSettlementDef_Mine</defName>
 		<label>mining camp</label>
 		<description>A small rural settlement specializing in ore extraction. Benefits from mountainous biomes.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
 			<li>
@@ -62,6 +79,7 @@
 		<defName>WorldSettlementDef_LumberCamp</defName>
 		<label>lumber camp</label>
 		<description>A small rural settlement specializing in timber harvesting. Benefits from forested biomes.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
 			<li>
@@ -95,6 +113,7 @@
 		<defName>WorldSettlementDef_Ranch</defName>
 		<label>ranch</label>
 		<description>A small rural settlement specializing in animal husbandry. Benefits from grassland biomes.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
 			<li>
@@ -123,6 +142,7 @@
 		<defName>WorldSettlementDef_Refinery</defName>
 		<label>chemfuel refinery</label>
 		<description>A rural settlement specializing in chemfuel extraction and processing. Requires chemfuel extraction research.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
 			<li>
