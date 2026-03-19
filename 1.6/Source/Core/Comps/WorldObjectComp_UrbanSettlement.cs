@@ -122,16 +122,47 @@ namespace FactionColonies.UrbanRural
             }
         }
 
+        // ── Per-link efficiency ──
+
+        private float GetEffectiveLinkEfficiency(WorldSettlementFC rural)
+        {
+            float eff = FCURSettings.linkEfficiency;
+            // Bonus from urban-side buildings (e.g., Merchant Quarter)
+            if (Settlement != null)
+                eff += (float)Settlement.GetStatValue(URStatDefOf.urbanRural_linkEfficiencyBonus);
+            // Bonus from rural-side buildings (e.g., Trade Post)
+            if (rural != null)
+                eff += (float)rural.GetStatValue(URStatDefOf.urbanRural_linkEfficiencyBonus);
+            return Mathf.Clamp01(eff);
+        }
+
+        // ── Specialization bonus ──
+
+        private static float GetSpecializationMultiplier(int sameTypeCount)
+        {
+            switch (sameTypeCount)
+            {
+                case 1: return 1.0f;
+                case 2: return 1.10f;
+                case 3: return 1.15f;
+                default: return 1.20f;
+            }
+        }
+
         // ── IResourceProductionModifier ──
 
         public double GetResourceAdditiveModifier(ResourceFC resource)
         {
             double bonus = 0;
+            int sameTypeCount = 0;
             foreach (WorldSettlementFC rural in GetLinkedRurals())
             {
                 ResourceFC ruralResource = rural.GetResource(resource.def);
                 if (ruralResource == null) continue;
-                bonus += ruralResource.rawTotalProduction * FCURSettings.linkEfficiency;
+                sameTypeCount++;
+                bonus += ruralResource.rawTotalProduction
+                    * GetEffectiveLinkEfficiency(rural)
+                    * GetSpecializationMultiplier(sameTypeCount);
             }
             return bonus;
         }
@@ -144,16 +175,24 @@ namespace FactionColonies.UrbanRural
         public string GetResourceModifierDesc(ResourceFC resource)
         {
             double bonus = 0;
-            int count = 0;
+            int sameTypeCount = 0;
             foreach (WorldSettlementFC rural in GetLinkedRurals())
             {
                 ResourceFC ruralResource = rural.GetResource(resource.def);
                 if (ruralResource == null) continue;
-                bonus += ruralResource.rawTotalProduction * FCURSettings.linkEfficiency;
-                count++;
+                sameTypeCount++;
+                bonus += ruralResource.rawTotalProduction
+                    * GetEffectiveLinkEfficiency(rural)
+                    * GetSpecializationMultiplier(sameTypeCount);
             }
-            if (count == 0) return null;
-            return "Linked rural supply: +" + bonus.ToString("F1") + " (" + count + " linked)";
+            if (sameTypeCount == 0) return null;
+            string desc = "Linked rural supply: +" + bonus.ToString("F1") + " (" + sameTypeCount + " linked)";
+            if (sameTypeCount > 1)
+            {
+                int pct = (int)((GetSpecializationMultiplier(sameTypeCount) - 1f) * 100f);
+                desc += "\nSpecialization bonus: +" + pct + "%";
+            }
+            return desc;
         }
 
         // ── IStatModifierProvider ──

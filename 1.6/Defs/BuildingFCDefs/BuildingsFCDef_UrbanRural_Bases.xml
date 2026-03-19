@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ═══ Rural bases ═══ -->
+
+	<!-- Any rural settlement type -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Rural" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Farm</li>
+			<li>WorldSettlementDef_Mine</li>
+			<li>WorldSettlementDef_LumberCamp</li>
+			<li>WorldSettlementDef_Ranch</li>
+			<li>WorldSettlementDef_Refinery</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Farm only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Farm" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Farm</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Mine only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Mine" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Mine</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Lumber Camp only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_LumberCamp" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_LumberCamp</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Ranch only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Ranch" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Ranch</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Refinery only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Refinery" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Refinery</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ═══ Urban base ═══ -->
+
+	<!-- City only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Urban" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_City</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+</Defs>

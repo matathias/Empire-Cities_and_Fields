@@ -25,7 +25,7 @@
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_RuralSettlement" />
 		</comps>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -53,7 +53,7 @@
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_RuralSettlement" />
 		</comps>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -70,6 +70,11 @@
 				<multiplier>1.5</multiplier>
 			</li>
 		</resources>
+		<allowedBiomes>
+			<li>BorealForest</li>
+			<li>TemperateForest</li>
+			<li>TropicalRainforest</li>
+		</allowedBiomes>
 		<planetLayers>
 			<li>Surface</li>
 		</planetLayers>
@@ -81,7 +86,7 @@
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_RuralSettlement" />
 		</comps>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -109,7 +114,38 @@
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_RuralSettlement" />
 		</comps>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch" />
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
+	<!-- ═══ Chemfuel Refinery ═══ -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+		<defName>WorldSettlementDef_Refinery</defName>
+		<label>chemfuel refinery</label>
+		<description>A rural settlement specializing in chemfuel extraction and processing. Requires chemfuel extraction research.</description>
+		<defaultResources>false</defaultResources>
+		<resources>
+			<li>
+				<resourceDef>RTD_Chemfuel</resourceDef>
+				<additive>2</additive>
+				<multiplier>1.5</multiplier>
+			</li>
+		</resources>
+		<researchProjects>
+			<li>UR_ChemfuelExtraction</li>
+		</researchProjects>
+		<planetLayers>
+			<li>Surface</li>
+		</planetLayers>
+		<comps>
+			<li Class="WorldObjectCompProperties_TradeRequest" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_RuralSettlement" />
+		</comps>
+		<modExtensions>
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 

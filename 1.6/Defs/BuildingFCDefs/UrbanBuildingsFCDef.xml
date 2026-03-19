@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ═══════════════════════════════════════════════════════════
+	     City buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Market</defName>
+		<label>Market</label>
+		<desc>A bustling marketplace that increases tax revenue and trade variability.</desc>
+		<cost>1000</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>GUI/Buildings/UR_Market</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_TownHall</defName>
+		<label>Town Hall</label>
+		<desc>A civic building that allows more workers to be employed in the settlement.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>3</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<iconPath>GUI/Buildings/UR_TownHall</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Library</defName>
+		<label>Library</label>
+		<desc>A repository of knowledge that contributes to research output.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>GUI/Buildings/UR_Library</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_MerchantQuarter</defName>
+		<label>Merchant Quarter</label>
+		<desc>A district of warehouses and trading offices that improves the efficiency of all urban-rural links.</desc>
+		<cost>800</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>urbanRural_linkEfficiencyBonus</stat><value>0.1</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>GUI/Buildings/UR_MerchantQuarter</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Workshop</defName>
+		<label>Workshop</label>
+		<desc>A crafting workshop that provides modest weapons and apparel production for the city.</desc>
+		<cost>1000</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>GUI/Buildings/UR_Workshop</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+</Defs>
