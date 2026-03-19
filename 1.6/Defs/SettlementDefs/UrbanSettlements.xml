@@ -8,6 +8,11 @@
 		<description>A large urban center that depends on linked rural settlements for resource production. Must be founded near enough rural settlements.</description>
 		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
 		<defaultResources>true</defaultResources>
+		<resources>
+			<li>
+				<resourceDef>RTD_Chemfuel</resourceDef>
+			</li>
+		</resources>
 		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
 		<planetLayers>
 			<li>Surface</li>

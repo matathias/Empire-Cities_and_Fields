@@ -53,6 +53,11 @@
 				<additive>0</additive>
 				<multiplier>1</multiplier>
 			</li>
+			<li>
+				<resourceDef>RTD_Chemfuel</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
 		</resources>
 	</FactionColonies.BiomeResourceDef>
 

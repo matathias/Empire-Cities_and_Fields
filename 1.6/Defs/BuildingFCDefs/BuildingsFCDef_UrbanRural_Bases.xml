@@ -3,14 +3,10 @@
 
 	<!-- ═══ Rural bases ═══ -->
 
-	<!-- Any rural settlement type -->
+	<!-- Any rural settlement type (walks baseSettlementType inheritance chain) -->
 	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Rural" Abstract="true">
 		<settlementTypeAllowList>
-			<li>WorldSettlementDef_Farm</li>
-			<li>WorldSettlementDef_Mine</li>
-			<li>WorldSettlementDef_LumberCamp</li>
-			<li>WorldSettlementDef_Ranch</li>
-			<li>WorldSettlementDef_Refinery</li>
+			<li>WorldSettlementDef_Rural</li>
 		</settlementTypeAllowList>
 	</FactionColonies.BuildingFCDef>
 
