@@ -15,7 +15,7 @@
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
-		<iconPath>GUI/Buildings/UR_IrrigationDitch</iconPath>
+		<iconPath>Buildings/UR_IrrigationDitch</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
@@ -28,7 +28,7 @@
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
-		<iconPath>GUI/Buildings/UR_FertileFields</iconPath>
+		<iconPath>Buildings/UR_FertileFields</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
@@ -45,7 +45,7 @@
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
-		<iconPath>GUI/Buildings/UR_DeepMineShaft</iconPath>
+		<iconPath>Buildings/UR_DeepMineShaft</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
@@ -58,7 +58,7 @@
 			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
-		<iconPath>GUI/Buildings/UR_OreRefinery</iconPath>
+		<iconPath>Buildings/UR_OreRefinery</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
@@ -75,7 +75,7 @@
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
-		<iconPath>GUI/Buildings/UR_Sawmill</iconPath>
+		<iconPath>Buildings/UR_Sawmill</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
@@ -88,7 +88,7 @@
 			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
-		<iconPath>GUI/Buildings/UR_TimberYard</iconPath>
+		<iconPath>Buildings/UR_TimberYard</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
@@ -105,7 +105,7 @@
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
-		<iconPath>GUI/Buildings/UR_BreedingPens</iconPath>
+		<iconPath>Buildings/UR_BreedingPens</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
@@ -118,7 +118,7 @@
 			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
-		<iconPath>GUI/Buildings/UR_VeterinaryPost</iconPath>
+		<iconPath>Buildings/UR_VeterinaryPost</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
@@ -135,7 +135,7 @@
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
-		<iconPath>GUI/Buildings/UR_DistillationColumn</iconPath>
+		<iconPath>Buildings/UR_DistillationColumn</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
@@ -148,7 +148,7 @@
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
-		<iconPath>GUI/Buildings/UR_CrackingTower</iconPath>
+		<iconPath>Buildings/UR_CrackingTower</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 </Defs>

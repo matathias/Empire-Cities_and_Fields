@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Hide the standard Surface settlement from the picker.
+	     Players must choose between rural and urban settlement types instead. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Surface"]</xpath>
+		<value>
+			<available>false</available>
+		</value>
+	</Operation>
+
+</Patch>

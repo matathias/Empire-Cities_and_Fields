@@ -16,7 +16,7 @@
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
-		<iconPath>GUI/Buildings/UR_Market</iconPath>
+		<iconPath>Buildings/UR_Market</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
@@ -29,7 +29,7 @@
 			<li><stat>workerBaseMax</stat><value>3</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
-		<iconPath>GUI/Buildings/UR_TownHall</iconPath>
+		<iconPath>Buildings/UR_TownHall</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
@@ -42,7 +42,7 @@
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
-		<iconPath>GUI/Buildings/UR_Library</iconPath>
+		<iconPath>Buildings/UR_Library</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
@@ -69,7 +69,7 @@
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
-		<iconPath>GUI/Buildings/UR_University</iconPath>
+		<iconPath>Buildings/UR_University</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
@@ -93,7 +93,7 @@
 			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
-		<iconPath>GUI/Buildings/UR_Workshop</iconPath>
+		<iconPath>Buildings/UR_Workshop</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
