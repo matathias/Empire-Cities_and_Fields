@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Block high-tier civic buildings from rural settlements.
+	     These inherit allow=[Surface] from their abstract parents.
+	     With depth-aware resolution, block=[Rural] at depth 1 beats
+	     allow=[Surface] at depth 2 for any rural subtype. -->
+
+	<!-- Large worker housing (city-scale population density) -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="apartmentHousing"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="WorkerBots"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="UnionOffices"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<!-- High-tier economy (city-scale commerce) -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="intergalacticMarket"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="TransdimensionalMarket"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<!-- Entertainment districts (urban amenities) -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="adultEntertainmentCentre"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.BuildingFCDef[defName="RedlightDistrict"]</xpath>
+		<value>
+			<settlementTypeBlockList>
+				<li>WorldSettlementDef_Rural</li>
+			</settlementTypeBlockList>
+		</value>
+	</Operation>
+
+</Patch>
