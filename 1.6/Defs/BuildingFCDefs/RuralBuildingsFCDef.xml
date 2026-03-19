@@ -5,6 +5,8 @@
 	     Farm buildings
 	     ═══════════════════════════════════════════════════════════ -->
 
+	<!-- ── Irrigation Ditch chain ── -->
+
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_IrrigationDitch</defName>
 		<label>Irrigation Ditch</label>
@@ -16,7 +18,97 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_IrrigationDitch</iconPath>
+		<upgrades>
+			<li>UR_AqueductSystem</li>
+			<li>UR_TerracedFields</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_AqueductSystem</defName>
+		<label>Aqueduct System</label>
+		<desc>A stone-lined aqueduct that delivers a steady flow of water across the farmland, greatly increasing food yields.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AqueductSystem</iconPath>
+		<upgrades>
+			<li>UR_ReservoirNetwork</li>
+			<li>UR_HydroponicsWing</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_ReservoirNetwork</defName>
+		<label>Reservoir Network</label>
+		<desc>A system of interconnected reservoirs that stores and distributes water across all growing zones, maximizing food production. Requires power to operate pumping stations.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>3.0</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ReservoirNetwork</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>irrigation offline</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_HydroponicsWing</defName>
+		<label>Hydroponics Wing</label>
+		<desc>A climate-controlled greenhouse using hydroponic growing systems. Produces excellent food yields with an efficiency multiplier, but requires significant power.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.5</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.1</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_HydroponicsWing</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>1.0</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>greenhouse offline</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_TerracedFields</defName>
+		<label>Terraced Fields</label>
+		<desc>Carefully sculpted terraces that make use of hillside land, boosting food output and providing a pleasant landscape for workers.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_TerracedFields</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Fertile Fields chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_FertileFields</defName>
@@ -29,11 +121,103 @@
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_FertileFields</iconPath>
+		<upgrades>
+			<li>UR_EnrichedSoil</li>
+			<li>UR_CropRotation</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_EnrichedSoil</defName>
+		<label>Enriched Soil</label>
+		<desc>Soil enriched with carefully balanced nutrients that significantly boosts crop yields across the farm.</desc>
+		<cost>1000</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_EnrichedSoil</iconPath>
+		<upgrades>
+			<li>UR_GMOCrops</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_GMOCrops</defName>
+		<label>GMO Crops</label>
+		<desc>Genetically modified crop strains engineered for maximum yield. Requires a steady stream of research data to maintain the program.</desc>
+		<cost>2000</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_GMOCrops</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Research</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>research supply disrupted</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_CropRotation</defName>
+		<label>Crop Rotation</label>
+		<desc>A systematic rotation of crops that improves soil health, providing both a multiplier to existing yields and additional food output.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CropRotation</iconPath>
+		<upgrades>
+			<li>UR_AgriScience</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
+		<defName>UR_AgriScience</defName>
+		<label>Agricultural Science Center</label>
+		<desc>A research-driven agricultural facility that combines crop science with practical farming for outstanding yields. Requires ongoing research input.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AgriScience</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Research</resource><amount>0.1</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>research supply disrupted</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Mine buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Deep Mine Shaft chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
 		<defName>UR_DeepMineShaft</defName>
@@ -46,7 +230,80 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_DeepMineShaft</iconPath>
+		<upgrades>
+			<li>UR_ReinforcedTunnels</li>
+			<li>UR_SurveyorsOutpost</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_ReinforcedTunnels</defName>
+		<label>Reinforced Tunnels</label>
+		<desc>Timber-braced tunnels that allow miners to safely access richer veins deep underground. Requires a steady supply of lumber.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ReinforcedTunnels</iconPath>
+		<upgrades>
+			<li>UR_StripMine</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Logging</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>timber shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_StripMine</defName>
+		<label>Strip Mine</label>
+		<desc>A large-scale open-pit mining operation that extracts vast quantities of ore using powered equipment. Requires industrial technology and power.</desc>
+		<cost>2000</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_StripMine</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_SurveyorsOutpost</defName>
+		<label>Surveyor's Outpost</label>
+		<desc>A well-organized surveying station that improves mining efficiency and reduces worker unrest through better planning.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>-0.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SurveyorsOutpost</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Ore Refinery chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
 		<defName>UR_OreRefinery</defName>
@@ -59,11 +316,74 @@
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<iconPath>Buildings/UR_OreRefinery</iconPath>
+		<upgrades>
+			<li>UR_SmeltingWorks</li>
+			<li>UR_OreGrading</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_SmeltingWorks</defName>
+		<label>Smelting Works</label>
+		<desc>A large smelting facility with multiple furnaces that greatly improves ore processing efficiency.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SmeltingWorks</iconPath>
+		<upgrades>
+			<li>UR_AutoSmelter</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_AutoSmelter</defName>
+		<label>Automated Smelter</label>
+		<desc>A fully automated smelting facility that processes ore around the clock with minimal oversight. Requires power to operate.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AutoSmelter</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>equipment idle</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_OreGrading</defName>
+		<label>Ore Grading Station</label>
+		<desc>A sorting facility that grades ore by quality, improving both refining efficiency and tax revenue from premium materials.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_OreGrading</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Lumber Camp buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Sawmill chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_Sawmill</defName>
@@ -76,7 +396,99 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_Sawmill</iconPath>
+		<upgrades>
+			<li>UR_SteamSawmill</li>
+			<li>UR_ForestryOffice</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_SteamSawmill</defName>
+		<label>Steam Sawmill</label>
+		<desc>A power-driven sawmill that processes timber far faster than manual methods. Requires a modest power supply.</desc>
+		<cost>850</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SteamSawmill</iconPath>
+		<upgrades>
+			<li>UR_IndustrialMill</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_IndustrialMill</defName>
+		<label>Industrial Mill</label>
+		<desc>A fully mechanized lumber mill with conveyor systems and automated cutting. Requires significant power to operate.</desc>
+		<cost>2000</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_IndustrialMill</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_ForestryOffice</defName>
+		<label>Forestry Office</label>
+		<desc>A well-managed office that coordinates logging operations sustainably, improving output and worker satisfaction.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ForestryOffice</iconPath>
+		<upgrades>
+			<li>UR_NatureReserve</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_NatureReserve</defName>
+		<label>Nature Reserve</label>
+		<desc>A managed woodland reserve that balances sustainable logging with conservation, greatly improving worker morale.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_NatureReserve</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Timber Yard chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_TimberYard</defName>
@@ -89,11 +501,74 @@
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_TimberYard</iconPath>
+		<upgrades>
+			<li>UR_CuringFacility</li>
+			<li>UR_TimberExchange</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_CuringFacility</defName>
+		<label>Curing Facility</label>
+		<desc>A specialized facility for drying and treating lumber, producing higher-quality timber that fetches better prices.</desc>
+		<cost>1000</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CuringFacility</iconPath>
+		<upgrades>
+			<li>UR_LumberProcessing</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_LumberProcessing</defName>
+		<label>Lumber Processing Plant</label>
+		<desc>An industrial-scale lumber processing facility with power-driven planers and kilns. Requires a steady power supply.</desc>
+		<cost>2000</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_LumberProcessing</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
+		<defName>UR_TimberExchange</defName>
+		<label>Timber Exchange</label>
+		<desc>A trading post that connects the lumber camp to regional markets, improving logging efficiency and tax revenue.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_TimberExchange</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Ranch buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Breeding Pens chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_BreedingPens</defName>
@@ -106,7 +581,82 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_BreedingPens</iconPath>
+		<upgrades>
+			<li>UR_PastoralFields</li>
+			<li>UR_GameReserve</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_PastoralFields</defName>
+		<label>Pastoral Fields</label>
+		<desc>Expansive grazing pastures with improved fencing and water troughs. Requires a steady food supply for supplemental feeding.</desc>
+		<cost>850</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PastoralFields</iconPath>
+		<upgrades>
+			<li>UR_IndustrialRanching</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>feed shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_IndustrialRanching</defName>
+		<label>Industrial Ranching Complex</label>
+		<desc>A large-scale livestock operation with automated feeding systems and climate-controlled housing. Requires food and power.</desc>
+		<cost>2200</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>225</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_IndustrialRanching</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.5</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>feed shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_GameReserve</defName>
+		<label>Game Reserve</label>
+		<desc>A managed wildlife reserve that produces animal products while providing a pleasant environment for workers.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.3</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_GameReserve</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Veterinary Post chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_VeterinaryPost</defName>
@@ -119,11 +669,87 @@
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_VeterinaryPost</iconPath>
+		<upgrades>
+			<li>UR_AnimalHospital</li>
+			<li>UR_LivestockFair</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_AnimalHospital</defName>
+		<label>Animal Hospital</label>
+		<desc>A full-service animal hospital with surgical facilities and quarantine areas. Requires a supply of medicine.</desc>
+		<cost>1100</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AnimalHospital</iconPath>
+		<upgrades>
+			<li>UR_GeneticsLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Medicine</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>medicine shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_GeneticsLab</defName>
+		<label>Genetics Laboratory</label>
+		<desc>A cutting-edge facility for selective breeding and genetic analysis, dramatically improving livestock quality. Requires medicine and power.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_GeneticsLab</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>medicine shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_LivestockFair</defName>
+		<label>Livestock Fair</label>
+		<desc>A regional fair that showcases the ranch's finest animals, boosting production efficiency, morale, and tax revenue.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_LivestockFair</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Refinery buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Distillation Column chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_DistillationColumn</defName>
@@ -136,7 +762,121 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_DistillationColumn</iconPath>
+		<upgrades>
+			<li>UR_FractionalStill</li>
+			<li>UR_BiomassConverter</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_FractionalStill</defName>
+		<label>Fractional Still</label>
+		<desc>An advanced distillation apparatus that separates chemfuel components with greater precision. Requires power to maintain operating temperatures.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FractionalStill</iconPath>
+		<upgrades>
+			<li>UR_ChemicalPlant</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_ChemicalPlant</defName>
+		<label>Chemical Plant</label>
+		<desc>A full-scale industrial chemical processing facility. Requires significant power and a supply of raw minerals.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ChemicalPlant</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_BiomassConverter</defName>
+		<label>Biomass Converter</label>
+		<desc>A converter that processes organic waste into chemfuel. Requires a supply of food as feedstock.</desc>
+		<cost>700</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_BiomassConverter</iconPath>
+		<upgrades>
+			<li>UR_Biodigester</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>feedstock shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_Biodigester</defName>
+		<label>Biodigester</label>
+		<desc>An industrial biodigester that converts large quantities of organic material into chemfuel through anaerobic decomposition. Requires food and animal products.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.5</value></li>
+		</statModifiers>
+		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_Biodigester</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.4</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>feedstock shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>organic material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Cracking Tower chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_CrackingTower</defName>
@@ -149,11 +889,90 @@
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<iconPath>Buildings/UR_CrackingTower</iconPath>
+		<upgrades>
+			<li>UR_CatalyticCracker</li>
+			<li>UR_FuelDepotUR</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_CatalyticCracker</defName>
+		<label>Catalytic Cracker</label>
+		<desc>A high-efficiency catalytic cracking unit that breaks down heavy hydrocarbons into usable chemfuel. Requires power.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CatalyticCracker</iconPath>
+		<upgrades>
+			<li>UR_PetrochemComplex</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_PetrochemComplex</defName>
+		<label>Petrochemical Complex</label>
+		<desc>A sprawling industrial complex that processes raw materials into chemfuel at maximum efficiency. Requires significant power.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>300</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PetrochemComplex</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_FuelDepotUR</defName>
+		<label>Fuel Depot</label>
+		<desc>A secure storage facility for chemfuel reserves, improving production efficiency and providing additional stockpile capacity.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.25</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FuelDepotUR</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<capBonuses>
+					<li><resource>RTD_Chemfuel</resource><amount>20</amount></li>
+				</capBonuses>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Herbalist Camp buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Herb Garden chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
 		<defName>UR_HerbGarden</defName>
@@ -166,7 +985,102 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_HerbGarden</iconPath>
+		<upgrades>
+			<li>UR_MedicinalGreenhouse</li>
+			<li>UR_HealersSanctuary</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_MedicinalGreenhouse</defName>
+		<label>Medicinal Greenhouse</label>
+		<desc>A controlled greenhouse environment for growing rare medicinal herbs year-round. Requires food as a growing medium.</desc>
+		<cost>850</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_MedicinalGreenhouse</iconPath>
+		<upgrades>
+			<li>UR_PharmaLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>growing medium shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_PharmaLab</defName>
+		<label>Pharmaceutical Laboratory</label>
+		<desc>An advanced laboratory for synthesizing and refining medicinal compounds. Requires power and food-based raw materials.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PharmaLab</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>supply shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HealersSanctuary</defName>
+		<label>Healer's Sanctuary</label>
+		<desc>A peaceful sanctuary where healers practice traditional medicine, boosting both medicine output and worker happiness.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.3</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_HealersSanctuary</iconPath>
+		<upgrades>
+			<li>UR_WellnessCenter</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_WellnessCenter</defName>
+		<label>Wellness Center</label>
+		<desc>A holistic wellness facility that combines traditional healing with modern comforts, improving medicine output, happiness, and prosperity.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>prosperityGainedBase</stat><value>0.2</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_WellnessCenter</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Apothecary chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
 		<defName>UR_Apothecary</defName>
@@ -179,11 +1093,84 @@
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_Apothecary</iconPath>
+		<upgrades>
+			<li>UR_CompoundingPharmacy</li>
+			<li>UR_HerbalExport</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_CompoundingPharmacy</defName>
+		<label>Compounding Pharmacy</label>
+		<desc>A specialized pharmacy that compounds custom medicinal preparations, improving overall medicine efficiency. Requires food-based ingredients.</desc>
+		<cost>1100</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CompoundingPharmacy</iconPath>
+		<upgrades>
+			<li>UR_BiotechClinic</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>supply shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_BiotechClinic</defName>
+		<label>Biotech Clinic</label>
+		<desc>A high-tech medical clinic using biotechnology to produce advanced medicines. Requires power to operate its equipment.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_BiotechClinic</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HerbalExport</defName>
+		<label>Herbal Export Office</label>
+		<desc>A trade office that markets herbal products to distant buyers, improving production efficiency and tax revenue.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_HerbalExport</iconPath>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══════════════════════════════════════════════════════════
 	     Power Plant buildings
 	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Generator chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
 		<defName>UR_Generator</defName>
@@ -196,7 +1183,97 @@
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_Generator</iconPath>
+		<upgrades>
+			<li>UR_TurbineHall</li>
+			<li>UR_WindFarm</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_TurbineHall</defName>
+		<label>Turbine Hall</label>
+		<desc>A large facility housing fuel-burning turbines for power generation. Requires a steady supply of chemfuel.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_TurbineHall</iconPath>
+		<upgrades>
+			<li>UR_FusionReactor</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Chemfuel</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>fuel shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_FusionReactor</defName>
+		<label>Fusion Reactor</label>
+		<desc>A spacer-tech fusion reactor that generates enormous amounts of power. Requires a large supply of chemfuel for plasma ignition.</desc>
+		<cost>3000</cost>
+		<constructionDuration>180000</constructionDuration>
+		<techLevel>Spacer</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>4.0</value></li>
+		</statModifiers>
+		<upkeep>400</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FusionReactor</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Chemfuel</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.5</penaltyPerUnit><label>fuel shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_WindFarm</defName>
+		<label>Wind Farm</label>
+		<desc>A cluster of wind turbines that harness natural air currents to generate clean power with minimal upkeep.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>25</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_WindFarm</iconPath>
+		<upgrades>
+			<li>UR_SolarArray</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_SolarArray</defName>
+		<label>Solar Array</label>
+		<desc>A large array of solar panels that converts sunlight into substantial electrical power with very low maintenance costs.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.5</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SolarArray</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Transformer chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
 		<defName>UR_Transformer</defName>
@@ -209,6 +1286,83 @@
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<iconPath>Buildings/UR_Transformer</iconPath>
+		<upgrades>
+			<li>UR_PowerGridHub</li>
+			<li>UR_CapacitorBank</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_PowerGridHub</defName>
+		<label>Power Grid Hub</label>
+		<desc>A centralized grid management hub that optimizes power distribution across the settlement. Requires mined materials for maintenance.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PowerGridHub</iconPath>
+		<upgrades>
+			<li>UR_SmartGrid</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_SmartGrid</defName>
+		<label>Smart Grid</label>
+		<desc>An intelligent power grid with automated load balancing and predictive distribution algorithms. Requires mined materials for component fabrication.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>275</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SmartGrid</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_CapacitorBank</defName>
+		<label>Capacitor Bank</label>
+		<desc>A large bank of capacitors that smooths power delivery and provides additional storage capacity, improving overall grid efficiency.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.3</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CapacitorBank</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<capBonuses>
+					<li><resource>RTD_Power</resource><amount>20</amount></li>
+				</capBonuses>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 </Defs>
