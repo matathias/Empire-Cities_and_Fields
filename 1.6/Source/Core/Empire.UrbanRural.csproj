@@ -46,6 +46,11 @@
         <HintPath>..\..\..\..\Empire\1.6\Assemblies\Empire.dll</HintPath>
         <Private>False</Private>
       </Reference>
+      <!-- Empire Supply Chain submod -->
+      <Reference Include="Empire.SupplyChain">
+        <HintPath>..\..\..\..\Empire-SupplyChain\1.6\Assemblies\Empire.SupplyChain.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
     </ItemGroup>
     <ItemGroup>
       <Reference Update="mscorlib">

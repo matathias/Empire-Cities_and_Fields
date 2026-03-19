@@ -151,21 +151,4 @@
 		<iconPath>GUI/Buildings/UR_CrackingTower</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══════════════════════════════════════════════════════════
-	     Cross-type rural building
-	     ═══════════════════════════════════════════════════════════ -->
-
-	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Rural">
-		<defName>UR_TradePost</defName>
-		<label>Trade Post</label>
-		<desc>A trading outpost that improves the efficiency of resource transfers to linked cities.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
-		<statModifiers>
-			<li><stat>urbanRural_linkEfficiencyBonus</stat><value>0.1</value></li>
-		</statModifiers>
-		<upkeep>100</upkeep>
-		<iconPath>GUI/Buildings/UR_TradePost</iconPath>
-	</FactionColonies.BuildingFCDef>
-
 </Defs>

@@ -18,8 +18,12 @@
 			<packageId>Saakra.Empire</packageId>
 			<displayName>Empire</displayName>
 		</li>
+		<li>
+			<packageId>Matathias.Empire.SupplyChain</packageId>
+			<displayName>Empire - Supply Chain</displayName>
+		</li>
 	</modDependencies>
 
-	<description>A sub-mod for Empire adding urban and rural settlement mechanics.</description>
+	<description>A sub-mod for Empire adding urban and rural settlement types. Requires Empire - Supply Chain for resource logistics.</description>
 
 </ModMetaData>

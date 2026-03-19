@@ -35,7 +35,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Library</defName>
 		<label>Library</label>
-		<desc>A repository of knowledge that contributes to research output.</desc>
+		<desc>A repository of knowledge that contributes to research output. Requires a steady supply of base resources for analysis.</desc>
 		<cost>1200</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
@@ -43,25 +43,49 @@
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<iconPath>GUI/Buildings/UR_Library</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Mining</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Logging</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.1</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Library undersupplied</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
-		<defName>UR_MerchantQuarter</defName>
-		<label>Merchant Quarter</label>
-		<desc>A district of warehouses and trading offices that improves the efficiency of all urban-rural links.</desc>
-		<cost>800</cost>
-		<constructionDuration>75000</constructionDuration>
+		<defName>UR_University</defName>
+		<label>University</label>
+		<desc>An advanced institution of learning and research. Requires a reliable power supply to operate its equipment.</desc>
+		<cost>2000</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>urbanRural_linkEfficiencyBonus</stat><value>0.1</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
 		</statModifiers>
-		<upkeep>100</upkeep>
-		<iconPath>GUI/Buildings/UR_MerchantQuarter</iconPath>
+		<upkeep>200</upkeep>
+		<iconPath>GUI/Buildings/UR_University</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>University without power</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Workshop</defName>
 		<label>Workshop</label>
-		<desc>A crafting workshop that provides modest weapons and apparel production for the city.</desc>
+		<desc>A crafting workshop that converts raw materials into weapons and apparel. Requires a supply of ore and timber.</desc>
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
@@ -70,6 +94,17 @@
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<iconPath>GUI/Buildings/UR_Workshop</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Workshop without materials</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 </Defs>

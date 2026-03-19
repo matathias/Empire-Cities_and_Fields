@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Urban settlements have higher food demands than normal settlements.
+	     This stacks on top of the base Need_Food (0.5/worker) from Supply Chain,
+	     giving cities 0.8 food/worker total. -->
+	<FactionColonies.SupplyChain.SettlementNeedDef>
+		<defName>UR_Need_UrbanFood</defName>
+		<label>urban food demand</label>
+		<description>Cities require more food to sustain their larger, denser populations.</description>
+		<resource>RTD_Food</resource>
+		<baseAmount>0.3</baseAmount>
+		<scaling>PerWorker</scaling>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<penalties>
+			<li>
+				<stat>happinessLostBase</stat>
+				<penaltyPerUnit>0.8</penaltyPerUnit>
+				<label>Urban food shortage</label>
+			</li>
+		</penalties>
+	</FactionColonies.SupplyChain.SettlementNeedDef>
+
+</Defs>
