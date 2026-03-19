@@ -45,6 +45,20 @@
 		</settlementTypeAllowList>
 	</FactionColonies.BuildingFCDef>
 
+	<!-- Herbalist Camp only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Herbalist" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_Herbalist</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- Power Plant only -->
+	<FactionColonies.BuildingFCDef Name="BuildingFCDef_PowerPlant" Abstract="true">
+		<settlementTypeAllowList>
+			<li>WorldSettlementDef_PowerPlant</li>
+		</settlementTypeAllowList>
+	</FactionColonies.BuildingFCDef>
+
 	<!-- ═══ Urban base ═══ -->
 
 	<!-- City only -->

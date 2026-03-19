@@ -151,4 +151,64 @@
 		<iconPath>Buildings/UR_CrackingTower</iconPath>
 	</FactionColonies.BuildingFCDef>
 
+	<!-- ═══════════════════════════════════════════════════════════
+	     Herbalist Camp buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HerbGarden</defName>
+		<label>Herb Garden</label>
+		<desc>A carefully tended garden of medicinal plants that boosts medicine output.</desc>
+		<cost>350</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_HerbGarden</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_Apothecary</defName>
+		<label>Apothecary</label>
+		<desc>A workshop for preparing and refining herbal remedies, improving overall medicine production.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<iconPath>Buildings/UR_Apothecary</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ═══════════════════════════════════════════════════════════
+	     Power Plant buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_Generator</defName>
+		<label>Generator</label>
+		<desc>A basic power generator that increases the settlement's energy output.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_Generator</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_Transformer</defName>
+		<label>Transformer Station</label>
+		<desc>A power distribution facility that amplifies total energy output.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_Transformer</iconPath>
+	</FactionColonies.BuildingFCDef>
+
 </Defs>

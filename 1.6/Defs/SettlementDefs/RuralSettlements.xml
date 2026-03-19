@@ -8,6 +8,7 @@
 		<description>Base rural settlement type. Not directly buildable.</description>
 		<available>false</available>
 		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
+		<maxBuildingCount>4</maxBuildingCount>
 		<planetLayers>
 			<li>Surface</li>
 		</planetLayers>
@@ -166,6 +167,65 @@
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery" />
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
+	<!-- ═══ Herbalist Camp ═══ -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+		<defName>WorldSettlementDef_Herbalist</defName>
+		<label>herbalist camp</label>
+		<description>A rural settlement specializing in growing and preparing medicinal herbs.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
+		<defaultResources>false</defaultResources>
+		<resources>
+			<li>
+				<resourceDef>RTD_Medicine</resourceDef>
+				<additive>2</additive>
+				<multiplier>1.5</multiplier>
+			</li>
+		</resources>
+		<planetLayers>
+			<li>Surface</li>
+		</planetLayers>
+		<comps>
+			<li Class="WorldObjectCompProperties_TradeRequest" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+		</comps>
+		<modExtensions>
+			<li Class="FactionColonies.SettlementTypeExtension" />
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
+	<!-- ═══ Power Plant ═══ -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+		<defName>WorldSettlementDef_PowerPlant</defName>
+		<label>power plant</label>
+		<description>A rural settlement dedicated to power generation. Requires electricity research.</description>
+		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
+		<defaultResources>false</defaultResources>
+		<resources>
+			<li>
+				<resourceDef>RTD_Power</resourceDef>
+				<additive>2</additive>
+				<multiplier>1.5</multiplier>
+			</li>
+		</resources>
+		<researchProjects>
+			<li>Electricity</li>
+		</researchProjects>
+		<planetLayers>
+			<li>Surface</li>
+		</planetLayers>
+		<comps>
+			<li Class="WorldObjectCompProperties_TradeRequest" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+		</comps>
+		<modExtensions>
+			<li Class="FactionColonies.SettlementTypeExtension" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 

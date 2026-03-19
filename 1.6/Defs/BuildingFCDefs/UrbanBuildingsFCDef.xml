@@ -107,4 +107,77 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Clinic</defName>
+		<label>Clinic</label>
+		<desc>A small medical facility that produces basic medicine from food and animal products.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>Buildings/UR_Clinic</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Clinic undersupplied</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Hospital</defName>
+		<label>Hospital</label>
+		<desc>A full-scale medical facility with advanced equipment. Requires a reliable power supply.</desc>
+		<cost>2000</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<iconPath>Buildings/UR_Hospital</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>Hospital without power</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_PowerStation</defName>
+		<label>Power Station</label>
+		<desc>A city-scale power generation facility that burns fuel and uses mined materials. Requires industrial technology.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<iconPath>Buildings/UR_PowerStation</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>Power station without fuel</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
 </Defs>
