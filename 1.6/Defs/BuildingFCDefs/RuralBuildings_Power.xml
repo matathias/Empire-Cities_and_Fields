@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ═══════════════════════════════════════════════════════════
+	     Power Plant buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Generator chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_Generator</defName>
+		<label>Generator</label>
+		<desc>A basic power generator that increases the settlement's energy output.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_Generator</iconPath>
+		<upgrades>
+			<li>UR_TurbineHall</li>
+			<li>UR_WindFarm</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_TurbineHall</defName>
+		<label>Turbine Hall</label>
+		<desc>A large facility housing fuel-burning turbines for power generation. Requires a steady supply of chemfuel.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_TurbineHall</iconPath>
+		<upgrades>
+			<li>UR_FusionReactor</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Chemfuel</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>fuel shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_FusionReactor</defName>
+		<label>Fusion Reactor</label>
+		<desc>A spacer-tech fusion reactor that generates enormous amounts of power. Requires a large supply of chemfuel for plasma ignition.</desc>
+		<cost>3000</cost>
+		<constructionDuration>180000</constructionDuration>
+		<techLevel>Spacer</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>4.0</value></li>
+		</statModifiers>
+		<upkeep>400</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FusionReactor</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Chemfuel</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.5</penaltyPerUnit><label>fuel shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_WindFarm</defName>
+		<label>Wind Farm</label>
+		<desc>A cluster of wind turbines that harness natural air currents to generate clean power with minimal upkeep.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>25</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_WindFarm</iconPath>
+		<upgrades>
+			<li>UR_SolarArray</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_SolarArray</defName>
+		<label>Solar Array</label>
+		<desc>A large array of solar panels that converts sunlight into substantial electrical power with very low maintenance costs.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.5</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SolarArray</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Transformer chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_Transformer</defName>
+		<label>Transformer Station</label>
+		<desc>A power distribution facility that amplifies total energy output.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_Transformer</iconPath>
+		<upgrades>
+			<li>UR_PowerGridHub</li>
+			<li>UR_CapacitorBank</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_PowerGridHub</defName>
+		<label>Power Grid Hub</label>
+		<desc>A centralized grid management hub that optimizes power distribution across the settlement. Requires mined materials for maintenance.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PowerGridHub</iconPath>
+		<upgrades>
+			<li>UR_SmartGrid</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_SmartGrid</defName>
+		<label>Smart Grid</label>
+		<desc>An intelligent power grid with automated load balancing and predictive distribution algorithms. Requires mined materials for component fabrication.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>275</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SmartGrid</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
+		<defName>UR_CapacitorBank</defName>
+		<label>Capacitor Bank</label>
+		<desc>A large bank of capacitors that smooths power delivery and provides additional storage capacity, improving overall grid efficiency.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.3</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CapacitorBank</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<capBonuses>
+					<li><resource>RTD_Power</resource><amount>20</amount></li>
+				</capBonuses>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+
+</Defs>

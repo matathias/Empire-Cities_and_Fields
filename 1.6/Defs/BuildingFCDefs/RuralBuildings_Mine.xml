@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ═══════════════════════════════════════════════════════════
+	     Mine buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Deep Mine Shaft chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_DeepMineShaft</defName>
+		<label>Deep Mine Shaft</label>
+		<desc>An extended mine shaft that reaches deeper ore deposits.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_DeepMineShaft</iconPath>
+		<upgrades>
+			<li>UR_ReinforcedTunnels</li>
+			<li>UR_SurveyorsOutpost</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_ReinforcedTunnels</defName>
+		<label>Reinforced Tunnels</label>
+		<desc>Timber-braced tunnels that allow miners to safely access richer veins deep underground. Requires a steady supply of lumber.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ReinforcedTunnels</iconPath>
+		<upgrades>
+			<li>UR_StripMine</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Logging</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>timber shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_StripMine</defName>
+		<label>Strip Mine</label>
+		<desc>A large-scale open-pit mining operation that extracts vast quantities of ore using powered equipment. Requires industrial technology and power.</desc>
+		<cost>2000</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_StripMine</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_SurveyorsOutpost</defName>
+		<label>Surveyor's Outpost</label>
+		<desc>A well-organized surveying station that improves mining efficiency and reduces worker unrest through better planning.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>unrestGainedBase</stat><value>-0.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SurveyorsOutpost</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Ore Refinery chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_OreRefinery</defName>
+		<label>Ore Refinery</label>
+		<desc>A processing facility that refines raw ore into higher-quality materials.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_OreRefinery</iconPath>
+		<upgrades>
+			<li>UR_SmeltingWorks</li>
+			<li>UR_OreGrading</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_SmeltingWorks</defName>
+		<label>Smelting Works</label>
+		<desc>A large smelting facility with multiple furnaces that greatly improves ore processing efficiency.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_SmeltingWorks</iconPath>
+		<upgrades>
+			<li>UR_AutoSmelter</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_AutoSmelter</defName>
+		<label>Automated Smelter</label>
+		<desc>A fully automated smelting facility that processes ore around the clock with minimal oversight. Requires power to operate.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AutoSmelter</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>equipment idle</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
+		<defName>UR_OreGrading</defName>
+		<label>Ore Grading Station</label>
+		<desc>A sorting facility that grades ore by quality, improving both refining efficiency and tax revenue from premium materials.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_OreGrading</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+
+</Defs>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ═══════════════════════════════════════════════════════════
+	     Herbalist Camp buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Herb Garden chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HerbGarden</defName>
+		<label>Herb Garden</label>
+		<desc>A carefully tended garden of medicinal plants that boosts medicine output.</desc>
+		<cost>350</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_HerbGarden</iconPath>
+		<upgrades>
+			<li>UR_MedicinalGreenhouse</li>
+			<li>UR_HealersSanctuary</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_MedicinalGreenhouse</defName>
+		<label>Medicinal Greenhouse</label>
+		<desc>A controlled greenhouse environment for growing rare medicinal herbs year-round. Requires food as a growing medium.</desc>
+		<cost>850</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_MedicinalGreenhouse</iconPath>
+		<upgrades>
+			<li>UR_PharmaLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>growing medium shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_PharmaLab</defName>
+		<label>Pharmaceutical Laboratory</label>
+		<desc>An advanced laboratory for synthesizing and refining medicinal compounds. Requires power and food-based raw materials.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PharmaLab</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>supply shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HealersSanctuary</defName>
+		<label>Healer's Sanctuary</label>
+		<desc>A peaceful sanctuary where healers practice traditional medicine, boosting both medicine output and worker happiness.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.3</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_HealersSanctuary</iconPath>
+		<upgrades>
+			<li>UR_WellnessCenter</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_WellnessCenter</defName>
+		<label>Wellness Center</label>
+		<desc>A holistic wellness facility that combines traditional healing with modern comforts, improving medicine output, happiness, and prosperity.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>prosperityGainedBase</stat><value>0.2</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_WellnessCenter</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Apothecary chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_Apothecary</defName>
+		<label>Apothecary</label>
+		<desc>A workshop for preparing and refining herbal remedies, improving overall medicine production.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<iconPath>Buildings/UR_Apothecary</iconPath>
+		<upgrades>
+			<li>UR_CompoundingPharmacy</li>
+			<li>UR_HerbalExport</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_CompoundingPharmacy</defName>
+		<label>Compounding Pharmacy</label>
+		<desc>A specialized pharmacy that compounds custom medicinal preparations, improving overall medicine efficiency. Requires food-based ingredients.</desc>
+		<cost>1100</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CompoundingPharmacy</iconPath>
+		<upgrades>
+			<li>UR_BiotechClinic</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>supply shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_BiotechClinic</defName>
+		<label>Biotech Clinic</label>
+		<desc>A high-tech medical clinic using biotechnology to produce advanced medicines. Requires power to operate its equipment.</desc>
+		<cost>2200</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_BiotechClinic</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
+		<defName>UR_HerbalExport</defName>
+		<label>Herbal Export Office</label>
+		<desc>A trade office that markets herbal products to distant buyers, improving production efficiency and tax revenue.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_HerbalExport</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+
+</Defs>

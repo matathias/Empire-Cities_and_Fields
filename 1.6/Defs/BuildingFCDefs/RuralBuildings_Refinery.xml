@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ═══════════════════════════════════════════════════════════
+	     Refinery buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Distillation Column chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_DistillationColumn</defName>
+		<label>Distillation Column</label>
+		<desc>A tall fractional distillation column that extracts more chemfuel from raw biomass.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_DistillationColumn</iconPath>
+		<upgrades>
+			<li>UR_FractionalStill</li>
+			<li>UR_BiomassConverter</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_FractionalStill</defName>
+		<label>Fractional Still</label>
+		<desc>An advanced distillation apparatus that separates chemfuel components with greater precision. Requires power to maintain operating temperatures.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FractionalStill</iconPath>
+		<upgrades>
+			<li>UR_ChemicalPlant</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_ChemicalPlant</defName>
+		<label>Chemical Plant</label>
+		<desc>A full-scale industrial chemical processing facility. Requires significant power and a supply of raw minerals.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_ChemicalPlant</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_BiomassConverter</defName>
+		<label>Biomass Converter</label>
+		<desc>A converter that processes organic waste into chemfuel. Requires a supply of food as feedstock.</desc>
+		<cost>700</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_BiomassConverter</iconPath>
+		<upgrades>
+			<li>UR_Biodigester</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>feedstock shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_Biodigester</defName>
+		<label>Biodigester</label>
+		<desc>An industrial biodigester that converts large quantities of organic material into chemfuel through anaerobic decomposition. Requires food and animal products.</desc>
+		<cost>1800</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.5</value></li>
+		</statModifiers>
+		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_Biodigester</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.4</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>feedstock shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>organic material shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Cracking Tower chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_CrackingTower</defName>
+		<label>Cracking Tower</label>
+		<desc>A catalytic cracking facility that dramatically improves chemfuel yield.</desc>
+		<cost>900</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_CrackingTower</iconPath>
+		<upgrades>
+			<li>UR_CatalyticCracker</li>
+			<li>UR_FuelDepotUR</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_CatalyticCracker</defName>
+		<label>Catalytic Cracker</label>
+		<desc>A high-efficiency catalytic cracking unit that breaks down heavy hydrocarbons into usable chemfuel. Requires power.</desc>
+		<cost>1200</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_CatalyticCracker</iconPath>
+		<upgrades>
+			<li>UR_PetrochemComplex</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_PetrochemComplex</defName>
+		<label>Petrochemical Complex</label>
+		<desc>A sprawling industrial complex that processes raw materials into chemfuel at maximum efficiency. Requires significant power.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>300</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PetrochemComplex</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
+		<defName>UR_FuelDepotUR</defName>
+		<label>Fuel Depot</label>
+		<desc>A secure storage facility for chemfuel reserves, improving production efficiency and providing additional stockpile capacity.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.25</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_FuelDepotUR</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<capBonuses>
+					<li><resource>RTD_Chemfuel</resource><amount>20</amount></li>
+				</capBonuses>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+
+</Defs>

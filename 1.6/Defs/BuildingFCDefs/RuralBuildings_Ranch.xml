@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ═══════════════════════════════════════════════════════════
+	     Ranch buildings
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- ── Breeding Pens chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_BreedingPens</defName>
+		<label>Breeding Pens</label>
+		<desc>Enclosed pens designed for controlled breeding programs.</desc>
+		<cost>350</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>0</upkeep>
+		<iconPath>Buildings/UR_BreedingPens</iconPath>
+		<upgrades>
+			<li>UR_PastoralFields</li>
+			<li>UR_GameReserve</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_PastoralFields</defName>
+		<label>Pastoral Fields</label>
+		<desc>Expansive grazing pastures with improved fencing and water troughs. Requires a steady food supply for supplemental feeding.</desc>
+		<cost>850</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_PastoralFields</iconPath>
+		<upgrades>
+			<li>UR_IndustrialRanching</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>feed shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_IndustrialRanching</defName>
+		<label>Industrial Ranching Complex</label>
+		<desc>A large-scale livestock operation with automated feeding systems and climate-controlled housing. Requires food and power.</desc>
+		<cost>2200</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>3.5</value></li>
+		</statModifiers>
+		<upkeep>225</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_IndustrialRanching</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.5</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>feed shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_GameReserve</defName>
+		<label>Game Reserve</label>
+		<desc>A managed wildlife reserve that produces animal products while providing a pleasant environment for workers.</desc>
+		<cost>600</cost>
+		<constructionDuration>75000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.3</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_GameReserve</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ── Veterinary Post chain ── -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_VeterinaryPost</defName>
+		<label>Veterinary Post</label>
+		<desc>A small clinic that keeps animals healthy and productive.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.2</value></li>
+		</statModifiers>
+		<upkeep>50</upkeep>
+		<iconPath>Buildings/UR_VeterinaryPost</iconPath>
+		<upgrades>
+			<li>UR_AnimalHospital</li>
+			<li>UR_LivestockFair</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_AnimalHospital</defName>
+		<label>Animal Hospital</label>
+		<desc>A full-service animal hospital with surgical facilities and quarantine areas. Requires a supply of medicine.</desc>
+		<cost>1100</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.35</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_AnimalHospital</iconPath>
+		<upgrades>
+			<li>UR_GeneticsLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Medicine</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>medicine shortage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_GeneticsLab</defName>
+		<label>Genetics Laboratory</label>
+		<desc>A cutting-edge facility for selective breeding and genetic analysis, dramatically improving livestock quality. Requires medicine and power.</desc>
+		<cost>2500</cost>
+		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>250</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_GeneticsLab</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>medicine shortage</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
+		<defName>UR_LivestockFair</defName>
+		<label>Livestock Fair</label>
+		<desc>A regional fair that showcases the ranch's finest animals, boosting production efficiency, morale, and tax revenue.</desc>
+		<cost>800</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+			<li><stat>taxBasePercentage</stat><value>5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<baseBuilding>false</baseBuilding>
+		<iconPath>Buildings/UR_LivestockFair</iconPath>
+	</FactionColonies.BuildingFCDef>
+
+
+</Defs>
