@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 1. Urban Sprawl                   -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl</defName>
+		<label>Urban Sprawl</label>
+		<desc>The city is growing faster than its infrastructure can support. Overcrowding strains housing, sanitation, and public order.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumProsperity>60</minimumProsperity>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_urbanSprawl_opt1</li>
+			<li>ur_urbanSprawl_opt2</li>
+			<li>ur_urbanSprawl_opt3</li>
+		</options>
+		<optionDescription>The city is bursting at the seams. Streets are clogged, housing is scarce, and tempers are rising. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_urbanSprawl</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Urban Sprawl Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt1</defName>
+		<label>Expand the housing districts. It will cost silver but accommodate the growth.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_expanded</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt2</defName>
+		<label>Restrict immigration. Stability over growth.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_restricted</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt3</defName>
+		<label>Let it sort itself out. We have bigger concerns.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_ignored</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Urban Sprawl Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_expanded</defName>
+		<label>Housing Expansion</label>
+		<desc>New housing districts are under construction. The disruption is temporary, but the city will emerge stronger for it.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>prosperityGainedBase</stat><value>3</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_restricted</defName>
+		<label>Immigration Restricted</label>
+		<desc>Guards turn away newcomers at the gates. The city stabilizes, but growth stalls and some residents grumble about missed opportunities.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>prosperityLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_ignored</defName>
+		<label>Overcrowding Worsens</label>
+		<desc>Without intervention, conditions have deteriorated. Slums have sprung up and discontent festers in the packed streets.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>3</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 2. Market Festival                -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_marketFestival</defName>
+		<label>Market Festival</label>
+		<desc>Merchants and performers flock to the city's market district. The settlement buzzes with trade and merriment.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumHappiness>50</minimumHappiness>
+		<minimumProsperity>40</minimumProsperity>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>3</value></li>
+			<li><stat>prosperityGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<randomThingValue>300</randomThingValue>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<incompatibleEvents>
+			<li>ur_marketFestival</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 3. Crime Wave                     -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave</defName>
+		<label>Crime Wave</label>
+		<desc>Criminal elements have taken hold in the city's underbelly. Theft and extortion are rampant, and citizens fear walking the streets at night.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>12</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumUnrest>30</minimumUnrest>
+		<maximumLoyalty>60</maximumLoyalty>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_crimeWave_opt1</li>
+			<li>ur_crimeWave_opt2</li>
+			<li>ur_crimeWave_opt3</li>
+		</options>
+		<optionDescription>Criminal gangs are terrorizing the city. Citizens demand action. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_crimeWave</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Crime Wave Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt1</defName>
+		<label>Crack down hard. Hire enforcers and sweep the streets.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_crackdown</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt2</defName>
+		<label>Offer amnesty and rehabilitation programs.</label>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_reformed</successEvent>
+		<failEvent>ur_crimeWave_emboldened</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt3</defName>
+		<label>Increase city watch patrols and fund informants.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_patrols</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Crime Wave Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_crackdown</defName>
+		<label>Order Restored</label>
+		<desc>Enforcers have swept through the city's back alleys. The gangs are broken, though some citizens resent the heavy-handed approach.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
+			<li><stat>unrestLostBase</stat><value>2</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_reformed</defName>
+		<label>Criminal Reform</label>
+		<desc>The amnesty program has worked. Former criminals have found honest work, and the streets are calmer. A surprising success.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestLostBase</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_emboldened</defName>
+		<label>Emboldened Criminals</label>
+		<desc>The amnesty was seen as weakness. Criminal gangs have grown bolder, and citizens have lost faith in the city's leadership.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>4</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_patrols</defName>
+		<label>City Watch Active</label>
+		<desc>Regular patrols and a network of informants have pushed criminal activity underground. The streets are safer, though the cost is not insignificant.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestLostBase</stat><value>3</value></li>
+			<li><stat>prosperityLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 4. Industrial Accident            -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_industrialAccident</defName>
+		<label>Industrial Accident</label>
+		<desc>An explosion at the workshop has injured workers and damaged equipment. Production grinds to a halt as the settlement reels.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>3</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_accident_opt1</li>
+			<li>ur_accident_opt2</li>
+		</options>
+		<optionDescription>A workshop explosion has left workers injured and equipment in ruins. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_industrialAccident</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Industrial Accident Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_accident_opt1</defName>
+		<label>Invest in safety improvements. Rebuild better than before.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>600</silverCost>
+		<parentEvent>ur_industrialAccident</parentEvent>
+		<successEvent>ur_accident_safety</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_accident_opt2</defName>
+		<label>Push through. Get production back on line immediately.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_industrialAccident</parentEvent>
+		<successEvent>ur_accident_pushed</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Industrial Accident Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_accident_safety</defName>
+		<label>Safety Improvements</label>
+		<desc>The workshop has been rebuilt with improved safety measures. Workers are more confident, and production has actually improved.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>workerProductionMult</stat><value>0.05</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_accident_pushed</defName>
+		<label>Unsafe Conditions</label>
+		<desc>Workers are forced back to the damaged workshop. Morale plummets as they toil among the wreckage, fearful of another collapse.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 5. Plague / Epidemic              -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague</defName>
+		<label>Epidemic</label>
+		<desc>A sickness sweeps through the densely packed city. Workers fall ill by the dozen, and fear grips the populace.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_plague_opt1</li>
+			<li>ur_plague_opt2</li>
+			<li>ur_plague_opt3</li>
+		</options>
+		<optionDescription>Disease is spreading rapidly through the city's crowded districts. The sick cry out for aid while the healthy flee indoors. What are your orders?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_plague</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Plague Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt1</defName>
+		<label>Quarantine the affected districts. Contain it at any cost.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_quarantined</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt2</defName>
+		<label>Distribute medicine freely to all citizens.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_treated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt3</defName>
+		<label>Let it run its course. The strong will survive.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_untreated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Plague Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_quarantined</defName>
+		<label>District Quarantine</label>
+		<desc>Entire city blocks have been sealed off. The disease is contained, but productivity has cratered as workers are confined to their homes.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>workerProductionMult</stat><value>-0.2</value></li>
+			<li><stat>prosperityLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_treated</defName>
+		<label>Medicine Distributed</label>
+		<desc>Healers and herbalists work around the clock, distributing remedies to the afflicted. The epidemic subsides quickly, and citizens are grateful for the intervention.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_untreated</defName>
+		<label>Epidemic Unchecked</label>
+		<desc>Without intervention, the disease has ravaged the city. The death toll mounts, and survivors are bitter about the lack of response.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>10</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>4</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 6. Cultural Renaissance           -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_renaissance</defName>
+		<label>Cultural Renaissance</label>
+		<desc>Scholars and artists are producing remarkable works. The city's intellectual and cultural influence is growing, drawing admirers from across the region.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumProsperity>60</minimumProsperity>
+		<minimumHappiness>60</minimumHappiness>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>0.2</value></li>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<incompatibleEvents>
+			<li>ur_renaissance</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

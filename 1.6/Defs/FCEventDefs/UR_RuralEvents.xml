@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 7. Bountiful Harvest              -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_bountifulHarvest</defName>
+		<label>Bountiful Harvest</label>
+		<desc>Perfect weather and fertile soil have produced an exceptional harvest. Granaries overflow and workers celebrate a season of plenty.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Food</requiredResource>
+		<applicableBiomes>
+			<li>TemperateForest</li>
+			<li>TemperateSwamp</li>
+			<li>TropicalRainforest</li>
+			<li>TropicalSwamp</li>
+			<li>AridShrubland</li>
+		</applicableBiomes>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>0.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<randomThingValue>200</randomThingValue>
+		<randomThingRewardDef>RERD_Food</randomThingRewardDef>
+		<incompatibleEvents>
+			<li>ur_bountifulHarvest</li>
+			<li>ur_cropBlight</li>
+			<li>ur_drought</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 8. Crop Blight                    -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_cropBlight</defName>
+		<label>Crop Blight</label>
+		<desc>A mysterious blight has struck the fields. Crops wither and blacken before they can be harvested, and a foul smell hangs over the farmland.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Food</requiredResource>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_blight_opt1</li>
+			<li>ur_blight_opt2</li>
+			<li>ur_blight_opt3</li>
+		</options>
+		<optionDescription>A blight is sweeping through the crops. Fields that were green and full yesterday are now black and rotting. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_cropBlight</li>
+			<li>ur_bountifulHarvest</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Crop Blight Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_blight_opt1</defName>
+		<label>Burn the affected fields and replant from scratch.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<parentEvent>ur_cropBlight</parentEvent>
+		<successEvent>ur_blight_burned</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_blight_opt2</defName>
+		<label>Attempt to salvage what you can. It's risky, but we can't afford to lose everything.</label>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_cropBlight</parentEvent>
+		<successEvent>ur_blight_salvaged</successEvent>
+		<failEvent>ur_blight_spread</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_blight_opt3</defName>
+		<label>Request agricultural aid from the faction. Experts may know how to stop this.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_cropBlight</parentEvent>
+		<successEvent>ur_blight_aided</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Crop Blight Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_blight_burned</defName>
+		<label>Fields Cleared</label>
+		<desc>The infected crops have been burned to ash. The loss is painful, but the blight is contained. New seedlings will take time to grow.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.3</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_blight_salvaged</defName>
+		<label>Partial Salvage</label>
+		<desc>Workers managed to save a portion of the harvest. It's not a good season, but it could have been far worse.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.15</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_blight_spread</defName>
+		<label>Blight Spreads</label>
+		<desc>The salvage attempt failed catastrophically. Workers inadvertently spread the blight to healthy fields. The entire harvest is lost.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.5</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_blight_aided</defName>
+		<label>Expert Intervention</label>
+		<desc>Agricultural experts arrived and identified the blight. With targeted treatment, much of the crop was saved and protocols are in place to prevent recurrence.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 9. Mine Collapse                  -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_mineCollapse</defName>
+		<label>Mine Collapse</label>
+		<desc>A tunnel has collapsed deep in the mines. Workers are trapped beneath tons of rock, and the settlement holds its breath.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>3</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Mining</requiredResource>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_collapse_opt1</li>
+			<li>ur_collapse_opt2</li>
+		</options>
+		<optionDescription>A mine shaft has collapsed, trapping workers underground. Time is running out. What are your orders?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_mineCollapse</li>
+			<li>ur_veinDiscovery</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Mine Collapse Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_collapse_opt1</defName>
+		<label>Mount a rescue operation. Dig them out, whatever it takes.</label>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<parentEvent>ur_mineCollapse</parentEvent>
+		<successEvent>ur_collapse_rescued</successEvent>
+		<failEvent>ur_collapse_rescueFailed</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_collapse_opt2</defName>
+		<label>Seal the collapsed section and redirect mining operations.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_mineCollapse</parentEvent>
+		<successEvent>ur_collapse_sealed</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Mine Collapse Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_collapse_rescued</defName>
+		<label>Miners Rescued</label>
+		<desc>After hours of desperate digging, the trapped miners are pulled to safety. The settlement erupts in cheers. Their loyalty to the empire is unshakable.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>4</value></li>
+			<li><stat>happinessGainedBase</stat><value>3</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_collapse_rescueFailed</defName>
+		<label>Rescue Failed</label>
+		<desc>The rescue attempt triggered a second collapse. More workers were lost. The settlement mourns its dead and questions the empire's competence.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>8</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>4</value></li>
+			<li><stat>loyaltyLostBase</stat><value>3</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_collapse_sealed</defName>
+		<label>Section Sealed</label>
+		<desc>The collapsed tunnels have been sealed off and operations rerouted. Production will be reduced while new shafts are dug. The trapped workers are mourned in silence.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>-0.2</value></li>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 10. Vein Discovery                -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_veinDiscovery</defName>
+		<label>Rich Vein Discovered</label>
+		<desc>Miners have struck a rich new vein of ore deep underground. The quality and quantity of the deposit promises months of bountiful extraction.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>6</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Mining</requiredResource>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>0.3</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<randomThingValue>300</randomThingValue>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<incompatibleEvents>
+			<li>ur_veinDiscovery</li>
+			<li>ur_mineCollapse</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 11. Predator Incursion            -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predatorIncursion</defName>
+		<label>Predator Incursion</label>
+		<desc>Dangerous predators have been spotted prowling near the settlement, threatening livestock and workers venturing outside the perimeter.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Animals</requiredResource>
+		<restrictedBiomes>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+			<li>IceSheet</li>
+			<li>SeaIce</li>
+		</restrictedBiomes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_predator_opt1</li>
+			<li>ur_predator_opt2</li>
+			<li>ur_predator_opt3</li>
+		</options>
+		<optionDescription>Predators are stalking the settlement's outskirts. Livestock pens are at risk and workers refuse to venture out alone. What do you do?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_predatorIncursion</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Predator Incursion Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt1</defName>
+		<label>Organize a hunting party. Turn the threat into an opportunity.</label>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_hunted</successEvent>
+		<failEvent>ur_predator_huntFailed</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt2</defName>
+		<label>Build defensive fences and pens. Keep the predators out.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_defended</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt3</defName>
+		<label>Pull workers back to the settlement core until the predators move on.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_retreated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Predator Incursion Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_hunted</defName>
+		<label>Successful Hunt</label>
+		<desc>The hunting party tracked down and slew the predators. Spirits are high, and the pelts and meat are welcome additions to the settlement's stores.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<randomThingValue>200</randomThingValue>
+		<randomThingRewardDef>RERD_Animals</randomThingRewardDef>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_huntFailed</defName>
+		<label>Hunt Gone Wrong</label>
+		<desc>The hunting party underestimated the predators. Several workers were injured in the encounter, and the beasts remain at large.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_defended</defName>
+		<label>Defenses Erected</label>
+		<desc>Sturdy fences and reinforced pens now protect the livestock. The predators still lurk in the wilderness, but the settlement is secure.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.05</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_retreated</defName>
+		<label>Workers Sheltered</label>
+		<desc>Workers huddle within the settlement's core while the predators roam the outskirts. Livestock losses are significant, but no workers were harmed.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.15</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 12. Drought                       -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought</defName>
+		<label>Drought</label>
+		<desc>Weeks without rain have dried up water sources. Crops wilt in the fields and animals grow thin. The earth cracks beneath a merciless sun.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>6</weight>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Food</requiredResource>
+		<restrictedBiomes>
+			<li>TropicalRainforest</li>
+			<li>TropicalSwamp</li>
+			<li>BorealForest</li>
+			<li>Swamp</li>
+		</restrictedBiomes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_drought_opt1</li>
+			<li>ur_drought_opt2</li>
+			<li>ur_drought_opt3</li>
+		</options>
+		<optionDescription>The drought deepens. Wells run dry and the harvest withers. The settlement looks to you for a solution.</optionDescription>
+		<incompatibleEvents>
+			<li>ur_drought</li>
+			<li>ur_bountifulHarvest</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Drought Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt1</defName>
+		<label>Dig irrigation wells. A permanent investment in the settlement's future.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_wells</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt2</defName>
+		<label>Ration water strictly. Everyone tightens their belt.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_rationed</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt3</defName>
+		<label>Abandon the worst-hit fields. Focus on what we can save.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_abandoned</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Drought Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_wells</defName>
+		<label>Irrigation Wells Dug</label>
+		<desc>Deep wells now tap into underground water reserves. The drought's grip loosens, and green shoots return to the fields. A wise investment.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.1</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_rationed</defName>
+		<label>Water Rationed</label>
+		<desc>Strict rationing keeps the settlement alive, but barely. Workers grumble over meager portions as they watch the sky for clouds that never come.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_abandoned</defName>
+		<label>Fields Abandoned</label>
+		<desc>The outer fields lie fallow, given up to the parched earth. What remains is enough to sustain the settlement, but morale has taken a heavy blow.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.35</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 13. Bandit Raids on Supply Lines  -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaids</defName>
+		<label>Bandit Raids</label>
+		<desc>Bandits have been attacking caravans and supply wagons traveling to and from the settlement. Isolated rural settlements make tempting targets.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>12</weight>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_Rural</li>
+		</allowedSettlementTypes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_banditRaid_opt1</li>
+			<li>ur_banditRaid_opt2</li>
+			<li>ur_banditRaid_opt3</li>
+		</options>
+		<optionDescription>Bandits are raiding supply lines around the settlement. Caravans are being looted and traders refuse to make the journey. How do you deal with this?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_banditRaids</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Bandit Raids Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt1</defName>
+		<label>Hire mercenary escorts for the supply convoys.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_escorted</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt2</defName>
+		<label>Send a militia patrol to hunt the bandits down.</label>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_routed</successEvent>
+		<failEvent>ur_banditRaid_ambushed</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt3</defName>
+		<label>Fortify the settlement and wait them out.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_fortified</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Bandit Raids Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_escorted</defName>
+		<label>Escorts Hired</label>
+		<desc>Armed escorts now ride alongside supply caravans. The bandits have retreated to easier pickings, and the settlement breathes easier.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_routed</defName>
+		<label>Bandits Routed</label>
+		<desc>The militia tracked the bandits to their camp and scattered them. Recovered goods were returned, and the roads are safer than they've been in months.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<randomThingValue>200</randomThingValue>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_ambushed</defName>
+		<label>Militia Ambushed</label>
+		<desc>The militia walked into an ambush. Survivors straggled back to the settlement, bloodied and humiliated. The bandits are more dangerous than ever.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_fortified</defName>
+		<label>Settlement Fortified</label>
+		<desc>Walls have been reinforced and guard posts established. The bandits still prowl the roads, but the settlement itself is secure. Production dips as workers split time between labor and watch duty.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>workerProductionMult</stat><value>-0.1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

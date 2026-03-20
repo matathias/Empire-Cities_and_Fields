@@ -39,7 +39,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm" />
@@ -102,7 +102,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp" />
@@ -131,7 +131,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch" />

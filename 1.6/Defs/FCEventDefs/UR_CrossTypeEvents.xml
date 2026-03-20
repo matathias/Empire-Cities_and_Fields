@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 14. Migration Wave                -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_migrationWave</defName>
+		<label>Migration Wave</label>
+		<desc>Workers across the empire are migrating from rural settlements toward the cities, drawn by promises of better conditions and opportunity.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<rangeSettlementsAffected>0~0</rangeSettlementsAffected>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_migration_opt1</li>
+			<li>ur_migration_opt2</li>
+			<li>ur_migration_opt3</li>
+		</options>
+		<optionDescription>A wave of migration is sweeping across your settlements. Rural workers are leaving for the cities in droves. The countryside thins while urban centers swell. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_migrationWave</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Migration Wave Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_migration_opt1</defName>
+		<label>Encourage urbanization. The future belongs to cities.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_migrationWave</parentEvent>
+		<successEvent>ur_migration_urban</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_migration_opt2</defName>
+		<label>Incentivize rural living with subsidies and land grants.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_migrationWave</parentEvent>
+		<successEvent>ur_migration_rural</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_migration_opt3</defName>
+		<label>Let people move freely. The empire will adapt.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_migrationWave</parentEvent>
+		<successEvent>ur_migration_free</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Migration Wave Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_migration_urban</defName>
+		<label>Urbanization Encouraged</label>
+		<desc>Official policy now favors city growth. Urban settlements boom with new arrivals, but the countryside struggles to maintain its output with fewer hands.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>prosperityGainedBase</stat><value>2</value></li>
+			<li><stat>workerProductionMult</stat><value>-0.1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_migration_rural</defName>
+		<label>Rural Incentives</label>
+		<desc>Land grants and subsidies have stemmed the tide of migration. Rural workers feel valued, and some city dwellers have even made the move to the countryside.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_migration_free</defName>
+		<label>Free Movement</label>
+		<desc>People move as they please. Some settlements grow, others shrink. The empire adapts, though the transition isn't entirely smooth.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>prosperityLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 15. Trade Boom                    -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_tradeBoom</defName>
+		<label>Trade Boom</label>
+		<desc>Word of the city's prosperity has spread far and wide. Traders arrive from distant lands, and the surrounding settlements benefit from the influx of commerce.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>6</weight>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumProsperity>50</minimumProsperity>
+		<useProximity>true</useProximity>
+		<proximityFalloff>10</proximityFalloff>
+		<statModifiers>
+			<li><stat>prosperityGainedBase</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<randomThingValue>500</randomThingValue>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+		<incompatibleEvents>
+			<li>ur_tradeBoom</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- ══════════════════════════════════ -->
+	<!-- 16. Harsh Winter                  -->
+	<!-- ══════════════════════════════════ -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_harshWinter</defName>
+		<label>Harsh Winter</label>
+		<desc>An unusually brutal winter grips the region. Roads are impassable, supply routes frozen, and workers huddle by fading fires as the cold deepens.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<applicableBiomes>
+			<li>BorealForest</li>
+			<li>Tundra</li>
+			<li>IceSheet</li>
+			<li>ColdBog</li>
+		</applicableBiomes>
+		<useProximity>true</useProximity>
+		<proximityFalloff>8</proximityFalloff>
+		<statModifiers>
+			<li><stat>workerProductionMult</stat><value>-0.15</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.2</value></li>
+		</statModifiers>
+		<incompatibleEvents>
+			<li>ur_harshWinter</li>
+			<li>ur_bountifulHarvest</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>
