@@ -82,7 +82,7 @@ namespace FactionColonies.UrbanRural
             growingTwelfths = GenTemperature.TwelfthsInAverageTemperatureRange(parent.Tile, 6f, 42f);
             growingMonthCount = growingTwelfths.Count;
 
-            LogUtil.Message("Initialized seasonal production for tile " + parent.Tile
+            LogUR.Message("Initialized seasonal production for tile " + parent.Tile
                 + ": " + growingMonthCount + "/12 growing months");
         }
 

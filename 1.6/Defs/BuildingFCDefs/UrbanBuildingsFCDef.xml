@@ -8,15 +8,33 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Market</defName>
 		<label>Market</label>
-		<desc>A bustling marketplace that increases tax revenue and trade variability.</desc>
+		<desc>A bustling marketplace that processes raw goods into consumer products. Also increases tax revenue and trade variability.</desc>
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>5</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<iconPath>Buildings/UR_Market</iconPath>
+		<upgrades>
+			<li>UR_Market_GrandBazaar</li>
+			<li>UR_Market_TradeNetwork</li>
+			<li>UR_Market_MerchantGuild</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Market undersupplied</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
@@ -30,6 +48,11 @@
 		</statModifiers>
 		<upkeep>150</upkeep>
 		<iconPath>Buildings/UR_TownHall</iconPath>
+		<upgrades>
+			<li>UR_TownHall_Courthouse</li>
+			<li>UR_TownHall_CensusOffice</li>
+			<li>UR_TownHall_GovernorsMansion</li>
+		</upgrades>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
@@ -43,6 +66,11 @@
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<iconPath>Buildings/UR_Library</iconPath>
+		<upgrades>
+			<li>UR_Library_GrandArchives</li>
+			<li>UR_Library_ScholarshipProgram</li>
+			<li>UR_Library_ThinkTank</li>
+		</upgrades>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
@@ -70,6 +98,11 @@
 		</statModifiers>
 		<upkeep>200</upkeep>
 		<iconPath>Buildings/UR_University</iconPath>
+		<upgrades>
+			<li>UR_University_AdvancedLabs</li>
+			<li>UR_University_ResearchInstitute</li>
+			<li>UR_University_DiplomaticAcademy</li>
+		</upgrades>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
@@ -82,26 +115,92 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
+	<!-- ═══ Armory — Weapons from Mining + Chemfuel ═══ -->
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
-		<defName>UR_Workshop</defName>
-		<label>Workshop</label>
-		<desc>A crafting workshop that converts raw materials into weapons and apparel. Requires a supply of ore and timber.</desc>
+		<defName>UR_Armory</defName>
+		<label>Armory</label>
+		<desc>A weapons forge that converts ore and fuel into armaments. Requires a supply of mined materials and chemfuel.</desc>
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>0.5</value></li>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>0.5</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
-		<iconPath>Buildings/UR_Workshop</iconPath>
+		<iconPath>Buildings/UR_Armory</iconPath>
+		<upgrades>
+			<li>UR_Armory_AdvancedForge</li>
+			<li>UR_Armory_QualityControl</li>
+			<li>UR_Armory_SiegeWorkshop</li>
+		</upgrades>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
 					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Armory without materials</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ═══ Textile Mill — Apparel from Animals + Logging ═══ -->
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_TextileMill</defName>
+		<label>Textile Mill</label>
+		<desc>A cloth and leather processing facility that produces apparel from animal products and timber.</desc>
+		<cost>1000</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_TextileMill</iconPath>
+		<upgrades>
+			<li>UR_TextileMill_IndustrialLooms</li>
+			<li>UR_TextileMill_FashionHouse</li>
+			<li>UR_TextileMill_LuxuryTextiles</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Animals</resource><amount>0.3</amount></li>
 					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Workshop without materials</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Textile mill without materials</label></li>
+				</penalties>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- ═══ Manufactory — Tools from Mining + Chemfuel + Power ═══ -->
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Manufactory</defName>
+		<label>Manufactory</label>
+		<desc>An industrial facility producing tools and machinery from raw ore, fuel, and power. Its output boosts production at nearby rural settlements.</desc>
+		<cost>1500</cost>
+		<constructionDuration>120000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<iconPath>Buildings/UR_Manufactory</iconPath>
+		<upgrades>
+			<li>UR_Manufactory_HeavyIndustry</li>
+			<li>UR_Manufactory_PrecisionEngineering</li>
+			<li>UR_Manufactory_InnovationLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+				<penalties>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>Manufactory without materials</label></li>
 				</penalties>
 			</li>
 		</modExtensions>

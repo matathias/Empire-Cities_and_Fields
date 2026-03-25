@@ -40,6 +40,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm" />
@@ -68,7 +69,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine" />
@@ -103,6 +104,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp" />
@@ -132,6 +134,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch" />
@@ -163,7 +166,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery" />
@@ -192,6 +195,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.SettlementTypeExtension" />
@@ -223,6 +227,7 @@
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.SettlementTypeExtension" />

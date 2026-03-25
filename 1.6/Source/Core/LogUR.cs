@@ -3,7 +3,7 @@ using Verse;
 
 namespace FactionColonies.UrbanRural
 {
-    public static class LogUtil
+    public static class LogUR
     {
         public const string slug = "[Empire-UrbanRural]";
 
