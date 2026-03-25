@@ -7,6 +7,9 @@
 		<label>city</label>
 		<description>A large urban center with no biome resource production. Depends on supply routes from rural settlements to satisfy its needs, but can produce mid-tier resources via specialized buildings.</description>
 		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
+		<baseUnlockedBuildings>0</baseUnlockedBuildings>
+		<perLevelUnlockedBuildings>1</perLevelUnlockedBuildings>
+		<maxBuildingCount>16</maxBuildingCount>
 		<defaultResources>true</defaultResources>
 		<resources>
 			<li>

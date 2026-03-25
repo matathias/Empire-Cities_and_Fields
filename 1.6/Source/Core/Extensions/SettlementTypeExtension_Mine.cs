@@ -3,7 +3,7 @@ using RimWorld.Planet;
 
 namespace FactionColonies.UrbanRural
 {
-    public class SettlementTypeExtension_Mine : SettlementTypeExtension
+    public class SettlementTypeExtension_Mine : SettlementTypeExtension_Rural
     {
         public override bool TileIsValidForSettlement(PlanetTile tile, StringBuilder reason = null)
         {
