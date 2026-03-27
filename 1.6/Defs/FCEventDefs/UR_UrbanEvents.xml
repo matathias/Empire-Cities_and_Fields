@@ -305,7 +305,7 @@
 		<timeTillTrigger>600000</timeTillTrigger>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<statModifiers>
-			<li><stat>workerProductionMult</stat><value>0.05</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>0.05</value></li>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
 		</statModifiers>
 	</FactionColonies.FCEventDef>
@@ -391,7 +391,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<statModifiers>
-			<li><stat>workerProductionMult</stat><value>-0.2</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>-0.2</value></li>
 			<li><stat>prosperityLostBase</stat><value>2</value></li>
 		</statModifiers>
 	</FactionColonies.FCEventDef>

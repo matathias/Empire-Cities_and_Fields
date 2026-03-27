@@ -65,7 +65,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>prosperityGainedBase</stat><value>2</value></li>
-			<li><stat>workerProductionMult</stat><value>-0.1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>-0.1</value></li>
 		</statModifiers>
 	</FactionColonies.FCEventDef>
 
@@ -147,7 +147,7 @@
 		<useProximity>true</useProximity>
 		<proximityFalloff>8</proximityFalloff>
 		<statModifiers>
-			<li><stat>workerProductionMult</stat><value>-0.15</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>-0.15</value></li>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.2</value></li>
 		</statModifiers>
 		<incompatibleEvents>

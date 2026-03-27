@@ -399,7 +399,7 @@
 			<li>TropicalRainforest</li>
 			<li>TropicalSwamp</li>
 			<li>BorealForest</li>
-			<li>Swamp</li>
+			<li>TemperateSwamp</li>
 		</restrictedBiomes>
 		<activateAtStart>true</activateAtStart>
 		<options>
@@ -594,7 +594,7 @@
 		<timeTillTrigger>300000</timeTillTrigger>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<statModifiers>
-			<li><stat>workerProductionMult</stat><value>-0.1</value></li>
+			<li><stat>workerProductionMultiplier</stat><value>-0.1</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
 		</statModifiers>
 	</FactionColonies.FCEventDef>
