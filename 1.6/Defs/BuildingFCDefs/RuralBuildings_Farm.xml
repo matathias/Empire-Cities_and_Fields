@@ -28,8 +28,8 @@
 		<defName>UR_AqueductSystem</defName>
 		<label>Aqueduct System</label>
 		<desc>A stone-lined aqueduct that delivers a steady flow of water across the farmland, greatly increasing food yields.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.25</value></li>
 		</statModifiers>
@@ -46,8 +46,8 @@
 		<defName>UR_ReservoirNetwork</defName>
 		<label>Reservoir Network</label>
 		<desc>A system of interconnected reservoirs that stores and distributes water across all growing zones, maximizing food production. Requires power to operate pumping stations.</desc>
-		<cost>1800</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.5</value></li>
@@ -71,8 +71,8 @@
 		<defName>UR_HydroponicsWing</defName>
 		<label>Hydroponics Wing</label>
 		<desc>A climate-controlled greenhouse using hydroponic growing systems. Produces excellent food yields with an efficiency multiplier, but requires significant power.</desc>
-		<cost>2200</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4500</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.75</value></li>
@@ -97,8 +97,8 @@
 		<defName>UR_TerracedFields</defName>
 		<label>Terraced Fields</label>
 		<desc>Carefully sculpted terraces that make use of hillside land, boosting food output and providing a pleasant landscape for workers.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.25</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
@@ -114,7 +114,7 @@
 		<defName>UR_FertileFields</defName>
 		<label>Fertile Fields</label>
 		<desc>Carefully enriched farmland that amplifies all food production.</desc>
-		<cost>800</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.1</value></li>
@@ -131,8 +131,8 @@
 		<defName>UR_EnrichedSoil</defName>
 		<label>Enriched Soil</label>
 		<desc>Soil enriched with carefully balanced nutrients that significantly boosts crop yields.</desc>
-		<cost>1000</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -148,8 +148,8 @@
 		<defName>UR_GMOCrops</defName>
 		<label>GMO Crops</label>
 		<desc>Genetically modified crop strains engineered for maximum yield. Requires a steady stream of research data to maintain the program.</desc>
-		<cost>2000</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.5</value></li>
@@ -173,8 +173,8 @@
 		<defName>UR_CropRotation</defName>
 		<label>Crop Rotation</label>
 		<desc>A systematic rotation of crops that improves soil health, providing both a multiplier to existing yields and additional food output.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.15</value></li>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
@@ -191,8 +191,8 @@
 		<defName>UR_AgriScience</defName>
 		<label>Agricultural Science Center</label>
 		<desc>A research-driven agricultural facility that combines crop science with practical farming for outstanding yields. Requires ongoing research input.</desc>
-		<cost>1800</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.3</value></li>

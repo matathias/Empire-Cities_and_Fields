@@ -27,8 +27,8 @@
 		<defName>UR_FractionalStill</defName>
 		<label>Fractional Still</label>
 		<desc>An advanced distillation apparatus that separates chemfuel components with greater precision. Requires power to maintain operating temperatures.</desc>
-		<cost>900</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.0</value></li>
@@ -55,8 +55,8 @@
 		<defName>UR_ChemicalPlant</defName>
 		<label>Chemical Plant</label>
 		<desc>A full-scale industrial chemical processing facility. Requires significant power and a supply of raw minerals.</desc>
-		<cost>2500</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>3.5</value></li>
@@ -82,8 +82,8 @@
 		<defName>UR_BiomassConverter</defName>
 		<label>Biomass Converter</label>
 		<desc>A converter that processes organic waste into chemfuel. Requires a supply of food as feedstock.</desc>
-		<cost>700</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -109,8 +109,8 @@
 		<defName>UR_Biodigester</defName>
 		<label>Biodigester</label>
 		<desc>An industrial biodigester that converts large quantities of organic material into chemfuel through anaerobic decomposition. Requires food and animal products.</desc>
-		<cost>1800</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.5</value></li>
@@ -138,7 +138,7 @@
 		<defName>UR_CrackingTower</defName>
 		<label>Cracking Tower</label>
 		<desc>A catalytic cracking facility that improves chemfuel yield.</desc>
-		<cost>900</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.1</value></li>
@@ -155,8 +155,8 @@
 		<defName>UR_CatalyticCracker</defName>
 		<label>Catalytic Cracker</label>
 		<desc>A high-efficiency catalytic cracking unit that breaks down heavy hydrocarbons into usable chemfuel. Requires power.</desc>
-		<cost>1200</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.25</value></li>
@@ -183,8 +183,8 @@
 		<defName>UR_PetrochemComplex</defName>
 		<label>Petrochemical Complex</label>
 		<desc>A sprawling industrial complex that processes raw materials into chemfuel at maximum efficiency. Requires significant power.</desc>
-		<cost>2500</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4500</cost>
+		<constructionDuration>420000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.5</value></li>
@@ -208,8 +208,8 @@
 		<defName>UR_FuelDepotUR</defName>
 		<label>Fuel Depot</label>
 		<desc>A secure storage facility for chemfuel reserves, improving production efficiency and providing additional stockpile capacity.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>

@@ -27,8 +27,8 @@
 		<defName>UR_SteamSawmill</defName>
 		<label>Steam Sawmill</label>
 		<desc>A power-driven sawmill that processes timber far faster than manual methods. Requires a modest power supply.</desc>
-		<cost>850</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.5</value></li>
@@ -55,8 +55,8 @@
 		<defName>UR_IndustrialMill</defName>
 		<label>Industrial Mill</label>
 		<desc>A fully mechanized lumber mill with conveyor systems and automated cutting. Requires significant power to operate.</desc>
-		<cost>2000</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.5</value></li>
@@ -80,8 +80,8 @@
 		<defName>UR_ForestryOffice</defName>
 		<label>Forestry Office</label>
 		<desc>A well-managed office that coordinates logging operations sustainably, improving output and worker satisfaction.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.0</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
@@ -98,8 +98,8 @@
 		<defName>UR_NatureReserve</defName>
 		<label>Nature Reserve</label>
 		<desc>A managed woodland reserve that balances sustainable logging with conservation, greatly improving worker morale.</desc>
-		<cost>1500</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3000</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.75</value></li>
@@ -116,7 +116,7 @@
 		<defName>UR_TimberYard</defName>
 		<label>Timber Yard</label>
 		<desc>An organized yard for curing and storing timber, improving overall logging efficiency.</desc>
-		<cost>850</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.1</value></li>
@@ -133,8 +133,8 @@
 		<defName>UR_CuringFacility</defName>
 		<label>Curing Facility</label>
 		<desc>A specialized facility for drying and treating lumber, producing higher-quality timber that fetches better prices.</desc>
-		<cost>1000</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -150,8 +150,8 @@
 		<defName>UR_LumberProcessing</defName>
 		<label>Lumber Processing Plant</label>
 		<desc>An industrial-scale lumber processing facility with power-driven planers and kilns. Requires a steady power supply.</desc>
-		<cost>2000</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.5</value></li>
@@ -175,8 +175,8 @@
 		<defName>UR_TimberExchange</defName>
 		<label>Timber Exchange</label>
 		<desc>A trading post that connects the lumber camp to regional markets, improving logging efficiency and tax revenue.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.2</value></li>
 			<li><stat>taxBasePercentage</stat><value>10</value></li>

@@ -27,8 +27,8 @@
 		<defName>UR_MedicinalGreenhouse</defName>
 		<label>Medicinal Greenhouse</label>
 		<desc>A controlled greenhouse environment for growing rare medicinal herbs year-round. Requires food as a growing medium.</desc>
-		<cost>850</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -54,8 +54,8 @@
 		<defName>UR_PharmaLab</defName>
 		<label>Pharmaceutical Laboratory</label>
 		<desc>An advanced laboratory for synthesizing and refining medicinal compounds. Requires power and food-based raw materials.</desc>
-		<cost>2500</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>3.0</value></li>
@@ -81,8 +81,8 @@
 		<defName>UR_HealersSanctuary</defName>
 		<label>Healer's Sanctuary</label>
 		<desc>A peaceful sanctuary where healers practice traditional medicine, boosting both medicine output and worker happiness.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.3</value></li>
@@ -99,8 +99,8 @@
 		<defName>UR_WellnessCenter</defName>
 		<label>Wellness Center</label>
 		<desc>A holistic wellness facility that combines traditional healing with modern comforts, improving medicine output, happiness, and prosperity.</desc>
-		<cost>1800</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3000</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
@@ -118,7 +118,7 @@
 		<defName>UR_Apothecary</defName>
 		<label>Apothecary</label>
 		<desc>A workshop for preparing and refining herbal remedies, improving overall medicine production.</desc>
-		<cost>800</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.1</value></li>
@@ -135,8 +135,8 @@
 		<defName>UR_CompoundingPharmacy</defName>
 		<label>Compounding Pharmacy</label>
 		<desc>A specialized pharmacy that compounds custom medicinal preparations, improving overall medicine efficiency. Requires food-based ingredients.</desc>
-		<cost>1100</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -162,8 +162,8 @@
 		<defName>UR_BiotechClinic</defName>
 		<label>Biotech Clinic</label>
 		<desc>A high-tech medical clinic using biotechnology to produce advanced medicines. Requires power to operate its equipment.</desc>
-		<cost>2200</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.5</value></li>
@@ -187,8 +187,8 @@
 		<defName>UR_HerbalExport</defName>
 		<label>Herbal Export Office</label>
 		<desc>A trade office that markets herbal products to distant buyers, improving production efficiency and tax revenue.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionMultiplier</stat><value>1.2</value></li>
 			<li><stat>taxBasePercentage</stat><value>10</value></li>

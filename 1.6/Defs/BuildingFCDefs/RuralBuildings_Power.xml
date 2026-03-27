@@ -27,8 +27,8 @@
 		<defName>UR_TurbineHall</defName>
 		<label>Turbine Hall</label>
 		<desc>A large facility housing fuel-burning turbines for power generation. Requires a steady supply of chemfuel.</desc>
-		<cost>900</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.0</value></li>
 		</statModifiers>
@@ -54,8 +54,8 @@
 		<defName>UR_FusionReactor</defName>
 		<label>Fusion Reactor</label>
 		<desc>A spacer-tech fusion reactor that generates enormous amounts of power. Requires a large supply of chemfuel for plasma ignition.</desc>
-		<cost>3000</cost>
-		<constructionDuration>180000</constructionDuration>
+		<cost>5000</cost>
+		<constructionDuration>420000</constructionDuration>
 		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>4.0</value></li>
@@ -79,8 +79,8 @@
 		<defName>UR_WindFarm</defName>
 		<label>Wind Farm</label>
 		<desc>A cluster of wind turbines that harness natural air currents to generate clean power with minimal upkeep.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -96,8 +96,8 @@
 		<defName>UR_SolarArray</defName>
 		<label>Solar Array</label>
 		<desc>A large array of solar panels that converts sunlight into substantial electrical power with very low maintenance costs.</desc>
-		<cost>1500</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3000</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>2.5</value></li>
@@ -113,7 +113,7 @@
 		<defName>UR_Transformer</defName>
 		<label>Transformer Station</label>
 		<desc>A power distribution facility that amplifies total energy output.</desc>
-		<cost>900</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.1</value></li>
@@ -130,8 +130,8 @@
 		<defName>UR_PowerGridHub</defName>
 		<label>Power Grid Hub</label>
 		<desc>A centralized grid management hub that optimizes power distribution across the settlement. Requires mined materials for maintenance.</desc>
-		<cost>1200</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -157,8 +157,8 @@
 		<defName>UR_SmartGrid</defName>
 		<label>Smart Grid</label>
 		<desc>An intelligent power grid with automated load balancing and predictive distribution algorithms. Requires mined materials for component fabrication.</desc>
-		<cost>2200</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.5</value></li>
@@ -182,8 +182,8 @@
 		<defName>UR_CapacitorBank</defName>
 		<label>Capacitor Bank</label>
 		<desc>A large bank of capacitors that smooths power delivery and provides additional storage capacity, improving overall grid efficiency.</desc>
-		<cost>900</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>

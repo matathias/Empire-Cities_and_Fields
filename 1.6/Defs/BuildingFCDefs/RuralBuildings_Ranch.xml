@@ -27,8 +27,8 @@
 		<defName>UR_PastoralFields</defName>
 		<label>Pastoral Fields</label>
 		<desc>Expansive grazing pastures with improved fencing and water troughs. Requires a steady food supply for supplemental feeding.</desc>
-		<cost>850</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>2.0</value></li>
 		</statModifiers>
@@ -54,8 +54,8 @@
 		<defName>UR_IndustrialRanching</defName>
 		<label>Industrial Ranching Complex</label>
 		<desc>A large-scale livestock operation with automated feeding systems and climate-controlled housing. Requires food and power.</desc>
-		<cost>2200</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>3500</cost>
+		<constructionDuration>300000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>3.0</value></li>
@@ -81,8 +81,8 @@
 		<defName>UR_GameReserve</defName>
 		<label>Game Reserve</label>
 		<desc>A managed wildlife reserve that produces animal products while providing a pleasant environment for workers.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionAdditive</stat><value>1.5</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
@@ -98,7 +98,7 @@
 		<defName>UR_VeterinaryPost</defName>
 		<label>Veterinary Post</label>
 		<desc>A small clinic that keeps animals healthy and productive.</desc>
-		<cost>800</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.1</value></li>
@@ -115,8 +115,8 @@
 		<defName>UR_AnimalHospital</defName>
 		<label>Animal Hospital</label>
 		<desc>A full-service animal hospital with surgical facilities and quarantine areas. Requires a supply of medicine.</desc>
-		<cost>1100</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -142,8 +142,8 @@
 		<defName>UR_GeneticsLab</defName>
 		<label>Genetics Laboratory</label>
 		<desc>A cutting-edge facility for selective breeding and genetic analysis, dramatically improving livestock quality. Requires medicine and power.</desc>
-		<cost>2500</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.5</value></li>
@@ -169,8 +169,8 @@
 		<defName>UR_LivestockFair</defName>
 		<label>Livestock Fair</label>
 		<desc>A regional fair that showcases the ranch's finest animals, boosting production efficiency, morale, and tax revenue.</desc>
-		<cost>800</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>1.2</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>

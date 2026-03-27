@@ -9,8 +9,8 @@
 		<defName>UR_Market</defName>
 		<label>Market</label>
 		<desc>A bustling marketplace that processes raw goods into consumer products. Also increases tax revenue and trade variability.</desc>
-		<cost>1000</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
 			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
@@ -41,8 +41,8 @@
 		<defName>UR_TownHall</defName>
 		<label>Town Hall</label>
 		<desc>A civic building that allows more workers to be employed in the settlement.</desc>
-		<cost>1500</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>500</cost>
+		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>workerBaseMax</stat><value>3</value></li>
 		</statModifiers>
@@ -59,8 +59,8 @@
 		<defName>UR_Library</defName>
 		<label>Library</label>
 		<desc>A repository of knowledge that contributes to research output. Requires a steady supply of base resources for analysis.</desc>
-		<cost>1200</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -91,7 +91,7 @@
 		<label>University</label>
 		<desc>An advanced institution of learning and research. Requires a reliable power supply to operate its equipment.</desc>
 		<cost>2000</cost>
-		<constructionDuration>150000</constructionDuration>
+		<constructionDuration>180000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
@@ -123,8 +123,8 @@
 		<defName>UR_Armory</defName>
 		<label>Armory</label>
 		<desc>A weapons forge that converts ore and fuel into armaments. Requires a supply of mined materials.</desc>
-		<cost>1000</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -152,8 +152,8 @@
 		<defName>UR_TextileMill</defName>
 		<label>Textile Mill</label>
 		<desc>A cloth and leather processing facility that produces apparel from animal products and timber.</desc>
-		<cost>1000</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -182,7 +182,7 @@
 		<defName>UR_Manufactory</defName>
 		<label>Manufactory</label>
 		<desc>An industrial facility producing tools and machinery from raw ore, fuel, and power. Its output boosts production at nearby rural settlements.</desc>
-		<cost>1500</cost>
+		<cost>600</cost>
 		<constructionDuration>120000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
@@ -213,8 +213,8 @@
 		<defName>UR_Clinic</defName>
 		<label>Clinic</label>
 		<desc>A small medical facility that produces basic medicine from food and animal products.</desc>
-		<cost>1200</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
@@ -237,8 +237,8 @@
 		<defName>UR_Hospital</defName>
 		<label>Hospital</label>
 		<desc>A full-scale medical facility with advanced equipment. Requires a reliable power supply.</desc>
-		<cost>2000</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>600</cost>
+		<constructionDuration>120000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
@@ -261,8 +261,8 @@
 		<defName>UR_PowerStation</defName>
 		<label>Power Station</label>
 		<desc>A city-scale power generation facility that burns fuel and uses mined materials. Requires industrial technology.</desc>
-		<cost>1500</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>500</cost>
+		<constructionDuration>90000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>

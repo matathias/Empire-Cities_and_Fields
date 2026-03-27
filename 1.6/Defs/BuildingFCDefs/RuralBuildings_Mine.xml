@@ -27,8 +27,8 @@
 		<defName>UR_ReinforcedTunnels</defName>
 		<label>Reinforced Tunnels</label>
 		<desc>Timber-braced tunnels that allow miners to safely access richer veins deep underground. Requires a steady supply of lumber.</desc>
-		<cost>900</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -54,8 +54,8 @@
 		<defName>UR_StripMine</defName>
 		<label>Strip Mine</label>
 		<desc>A large-scale open-pit mining operation that extracts vast quantities of ore using powered equipment. Requires industrial technology and power. The pollution makes workers unhappy.</desc>
-		<cost>2000</cost>
-		<constructionDuration>120000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>3.5</value></li>
@@ -80,8 +80,8 @@
 		<defName>UR_SurveyorsOutpost</defName>
 		<label>Surveyor's Outpost</label>
 		<desc>A well-organized surveying station that improves mining efficiency and reduces worker unrest through better planning.</desc>
-		<cost>600</cost>
-		<constructionDuration>75000</constructionDuration>
+		<cost>1000</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
 			<li><stat>unrestGainedBase</stat><value>-0.2</value></li>
@@ -97,7 +97,7 @@
 		<defName>UR_OreRefinery</defName>
 		<label>Ore Refinery</label>
 		<desc>A processing facility that refines raw ore into higher-quality materials.</desc>
-		<cost>900</cost>
+		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.1</value></li>
@@ -114,8 +114,8 @@
 		<defName>UR_SmeltingWorks</defName>
 		<label>Smelting Works</label>
 		<desc>A large smelting facility with multiple furnaces that greatly improves ore processing efficiency.</desc>
-		<cost>1200</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1500</cost>
+		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -131,8 +131,8 @@
 		<defName>UR_AutoSmelter</defName>
 		<label>Automated Smelter</label>
 		<desc>A fully automated smelting facility that processes ore around the clock with minimal oversight. Requires power to operate.</desc>
-		<cost>2200</cost>
-		<constructionDuration>150000</constructionDuration>
+		<cost>4000</cost>
+		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.5</value></li>
@@ -156,8 +156,8 @@
 		<defName>UR_OreGrading</defName>
 		<label>Ore Grading Station</label>
 		<desc>A sorting facility that grades ore by quality, improving both refining efficiency and tax revenue from premium materials.</desc>
-		<cost>900</cost>
-		<constructionDuration>90000</constructionDuration>
+		<cost>1200</cost>
+		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>1.2</value></li>
 			<li><stat>taxBasePercentage</stat><value>10</value></li>
