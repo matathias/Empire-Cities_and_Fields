@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 
-	<name>Empire - Urban &amp; Rural</name>
+	<name>Empire Refactored: Cities &amp; Fields</name>
 	<author>Matathias</author>
 	<supportedVersions>
 		<li>1.6</li>
@@ -20,10 +20,10 @@
 		</li>
 		<li>
 			<packageId>Matathias.Empire.SupplyChain</packageId>
-			<displayName>Empire - Supply Chain</displayName>
+			<displayName>Empire Refactored: Routes &amp; Resources</displayName>
 		</li>
 	</modDependencies>
 
-	<description>A sub-mod for Empire adding urban and rural settlement types. Requires Empire - Supply Chain for resource logistics.</description>
+	<description>A sub-mod for Empire adding urban and rural settlement types. Requires Empire Refactored: Routes &amp; Resources for resource logistics.</description>
 
 </ModMetaData>
