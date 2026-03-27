@@ -18,7 +18,7 @@
 			<li>
 				<stat>happinessLostBase</stat>
 				<penaltyPerUnit>0.8</penaltyPerUnit>
-				<label>Urban food shortage</label>
+				<label>happiness</label>
 			</li>
 		</penalties>
 	</FactionColonies.SupplyChain.SettlementNeedDef>
