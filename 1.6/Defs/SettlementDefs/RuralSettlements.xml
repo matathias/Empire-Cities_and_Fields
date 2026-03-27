@@ -2,26 +2,32 @@
 <Defs>
 
 	<!-- ═══ Rural Base (hidden — used only for building allow/block list inheritance) ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef Name="WorldSettlementDef_Rural" ParentName="WorldSettlementDef_Surface">
 		<defName>WorldSettlementDef_Rural</defName>
 		<label>rural settlement</label>
 		<description>Base rural settlement type. Not directly buildable.</description>
 		<available>false</available>
 		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
 		<maxBuildingCount>8</maxBuildingCount>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
+		<comps>
+			<li Class="WorldObjectCompProperties_TradeRequest" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
+			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
+			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
+		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Farming Hamlet ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Farm</defName>
 		<label>farming hamlet</label>
 		<description>A small rural settlement specializing in food production. Benefits from fertile biomes.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -30,16 +36,14 @@
 				<multiplier>1.5</multiplier>
 			</li>
 		</resources>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
 		<comps>
 			<li Class="WorldObjectCompProperties_TradeRequest" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm" />
@@ -47,10 +51,11 @@
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Mining Camp ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Mine</defName>
 		<label>mining camp</label>
 		<description>A small rural settlement specializing in ore extraction. Benefits from mountainous biomes.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -59,26 +64,17 @@
 				<multiplier>1.5</multiplier>
 			</li>
 		</resources>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
-		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
-		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Lumber Camp ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_LumberCamp</defName>
 		<label>lumber camp</label>
 		<description>A small rural settlement specializing in timber harvesting. Benefits from forested biomes.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -92,16 +88,14 @@
 			<li>TemperateForest</li>
 			<li>TropicalRainforest</li>
 		</allowedBiomes>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
 		<comps>
 			<li Class="WorldObjectCompProperties_TradeRequest" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp" />
@@ -109,10 +103,11 @@
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Ranch ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Ranch</defName>
 		<label>ranch</label>
 		<description>A small rural settlement specializing in animal husbandry. Benefits from grassland biomes.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -121,16 +116,14 @@
 				<multiplier>1.5</multiplier>
 			</li>
 		</resources>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
 		<comps>
 			<li Class="WorldObjectCompProperties_TradeRequest" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
 			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch" />
@@ -138,10 +131,11 @@
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Chemfuel Refinery ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Refinery</defName>
 		<label>chemfuel refinery</label>
 		<description>A rural settlement specializing in chemfuel extraction and processing. Requires chemfuel extraction research.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -153,26 +147,17 @@
 		<researchProjects>
 			<li>UR_ChemfuelExtraction</li>
 		</researchProjects>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
-		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
-		</comps>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery" />
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Herbalist Camp ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Herbalist</defName>
 		<label>herbalist camp</label>
 		<description>A rural settlement specializing in growing and preparing medicinal herbs.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -181,26 +166,14 @@
 				<multiplier>1.5</multiplier>
 			</li>
 		</resources>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
-		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
-		</comps>
-		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
-		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Power Plant ═══ -->
-	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDefBase">
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_PowerPlant</defName>
 		<label>power plant</label>
 		<description>A rural settlement dedicated to power generation. Requires electricity research.</description>
+		<available>true</available>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -212,19 +185,6 @@
 		<researchProjects>
 			<li>Electricity</li>
 		</researchProjects>
-		<planetLayers>
-			<li>Surface</li>
-		</planetLayers>
-		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
-		</comps>
-		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural" />
-		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 </Defs>
