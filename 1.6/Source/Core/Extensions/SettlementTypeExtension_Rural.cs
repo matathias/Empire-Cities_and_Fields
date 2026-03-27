@@ -10,5 +10,12 @@ namespace FactionColonies.UrbanRural
         {
             return level < 5 ? 4 : 8;
         }
+
+        public override int GetRequiredLevelForSlot(int slotIndex, int maxCount)
+        {
+            if (slotIndex < 4) return 0;
+            if (slotIndex < 8) return 5;
+            return -1;
+        }
     }
 }
