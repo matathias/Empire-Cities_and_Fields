@@ -79,7 +79,7 @@ namespace FactionColonies.UrbanRural
             new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
         }
 
-        public override string SettingsCategory() => "Empire - Urban & Rural";
+        public override string SettingsCategory() => "Empire Refactored: Cities & Fields";
 
         public override void DoSettingsWindowContents(Rect inRect) => settings.DoWindowContents(inRect);
     }
