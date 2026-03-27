@@ -14,7 +14,7 @@
 		<cost>300</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.0</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_IrrigationDitch</iconPath>
@@ -31,7 +31,7 @@
 		<cost>800</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.25</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -50,7 +50,7 @@
 		<constructionDuration>120000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -75,8 +75,8 @@
 		<constructionDuration>150000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>2.5</value></li>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.1</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.75</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -100,8 +100,8 @@
 		<cost>600</cost>
 		<constructionDuration>75000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+			<li><stat>RTD_Food_ProductionAdditive</stat><value>1.25</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -117,7 +117,7 @@
 		<cost>800</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.2</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_FertileFields</iconPath>
@@ -130,11 +130,11 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_EnrichedSoil</defName>
 		<label>Enriched Soil</label>
-		<desc>Soil enriched with carefully balanced nutrients that significantly boosts crop yields across the farm.</desc>
+		<desc>Soil enriched with carefully balanced nutrients that significantly boosts crop yields.</desc>
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.35</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -176,7 +176,7 @@
 		<cost>800</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>1.15</value></li>
 			<li><stat>RTD_Food_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>

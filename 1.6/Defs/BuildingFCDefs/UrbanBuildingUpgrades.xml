@@ -15,11 +15,12 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
-			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>3.0</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Market</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -42,12 +43,13 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
-			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>RTD_ConsumerGoods_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Market</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -70,12 +72,13 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
-			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>happinessLostMultiplier</stat><value>0.9</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>happinessLostMultiplier</stat><value>0.75</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Market</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -100,10 +103,11 @@
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>3</value></li>
+			<li><stat>workerBaseMax</stat><value>4</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TownHall</iconPath>
 	</FactionColonies.BuildingFCDef>
 
@@ -114,9 +118,10 @@
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>5</value></li>
+			<li><stat>workerBaseMax</stat><value>6</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TownHall</iconPath>
 	</FactionColonies.BuildingFCDef>
 
@@ -127,10 +132,11 @@
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>3</value></li>
+			<li><stat>workerBaseMax</stat><value>4</value></li>
 			<li><stat>unrestGainedMultiplier</stat><value>0.85</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TownHall</iconPath>
 	</FactionColonies.BuildingFCDef>
 
@@ -143,9 +149,10 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>3.0</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Armory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -167,10 +174,11 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Weapons_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Armory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -192,10 +200,11 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>2.0</value></li>
 			<li><stat>militaryBaseLevel</stat><value>1</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Armory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -219,9 +228,10 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>3.0</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TextileMill</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -243,10 +253,11 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>RTD_Apparel_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Apparel_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TextileMill</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -268,10 +279,11 @@
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>2.0</value></li>
 			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_TextileMill</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -294,10 +306,12 @@
 		<desc>A scaled-up industrial facility producing tools at increased volume.</desc>
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Tools_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>3.0</value></li>
 		</statModifiers>
 		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Manufactory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -319,11 +333,13 @@
 		<desc>Advanced precision tooling that improves the quality of manufactured tools.</desc>
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Tools_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>RTD_Tools_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Tools_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Manufactory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -342,13 +358,16 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Manufactory_InnovationLab</defName>
 		<label>Innovation Lab</label>
-		<desc>A research-oriented workshop that produces cutting-edge tools with enhanced effect on rural settlements.</desc>
+		<desc>A research-oriented workshop that produces cutting-edge tools that are also useful for research purposes.</desc>
 		<cost>2250</cost>
 		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Tools_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>175</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Manufactory</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -373,9 +392,10 @@
 		<cost>1800</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>3.0</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Library</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -399,10 +419,11 @@
 		<cost>1800</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Library</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -426,10 +447,11 @@
 		<cost>1800</cost>
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.0</value></li>
 			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_Library</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -456,9 +478,10 @@
 		<constructionDuration>180000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>4.0</value></li>
 		</statModifiers>
 		<upkeep>275</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_University</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -481,9 +504,10 @@
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
-			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.3</value></li>
+			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>275</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_University</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
@@ -500,15 +524,16 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_University_DiplomaticAcademy</defName>
 		<label>Diplomatic Academy</label>
-		<desc>A school for administrators and diplomats that strengthens imperial loyalty.</desc>
+		<desc>A school for administrators and diplomats that strengthens national loyalty.</desc>
 		<cost>3000</cost>
 		<constructionDuration>180000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
-			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>275</upkeep>
+		<baseBuilding>false</baseBuilding>
 		<iconPath>Buildings/UR_University</iconPath>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">

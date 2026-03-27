@@ -57,6 +57,7 @@
 		<settlementTypeAllowList>
 			<li>WorldSettlementDef_PowerPlant</li>
 		</settlementTypeAllowList>
+		<techLevel>Industrial</techLevel>
 	</FactionColonies.BuildingFCDef>
 
 	<!-- ═══ Urban base ═══ -->

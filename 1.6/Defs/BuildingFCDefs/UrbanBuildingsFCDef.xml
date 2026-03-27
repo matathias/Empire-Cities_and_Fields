@@ -12,7 +12,7 @@
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
 			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -103,6 +103,9 @@
 			<li>UR_University_ResearchInstitute</li>
 			<li>UR_University_DiplomaticAcademy</li>
 		</upgrades>
+		<requiredBuildings>
+			<li>UR_Library</li>
+		</requiredBuildings>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
@@ -119,7 +122,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Armory</defName>
 		<label>Armory</label>
-		<desc>A weapons forge that converts ore and fuel into armaments. Requires a supply of mined materials and chemfuel.</desc>
+		<desc>A weapons forge that converts ore and fuel into armaments. Requires a supply of mined materials.</desc>
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
@@ -136,7 +139,6 @@
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
 					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
-					<li><resource>RTD_Chemfuel</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
 					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Armory without materials</label></li>
@@ -182,6 +184,7 @@
 		<desc>An industrial facility producing tools and machinery from raw ore, fuel, and power. Its output boosts production at nearby rural settlements.</desc>
 		<cost>1500</cost>
 		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Tools_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>

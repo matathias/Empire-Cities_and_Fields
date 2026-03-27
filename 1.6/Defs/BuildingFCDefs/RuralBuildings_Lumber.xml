@@ -13,7 +13,7 @@
 		<cost>350</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.0</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_Sawmill</iconPath>
@@ -29,8 +29,9 @@
 		<desc>A power-driven sawmill that processes timber far faster than manual methods. Requires a modest power supply.</desc>
 		<cost>850</cost>
 		<constructionDuration>90000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -58,7 +59,7 @@
 		<constructionDuration>120000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionAdditive</stat><value>3.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.5</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -82,8 +83,8 @@
 		<cost>600</cost>
 		<constructionDuration>75000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>happinessGainedBase</stat><value>0.2</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.0</value></li>
+			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -101,8 +102,8 @@
 		<constructionDuration>120000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionAdditive</stat><value>2.0</value></li>
-			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.75</value></li>
+			<li><stat>happinessGainedBase</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -118,7 +119,7 @@
 		<cost>850</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.2</value></li>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<iconPath>Buildings/UR_TimberYard</iconPath>
@@ -135,7 +136,7 @@
 		<cost>1000</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.35</value></li>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -177,8 +178,8 @@
 		<cost>800</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.25</value></li>
-			<li><stat>taxBasePercentage</stat><value>5</value></li>
+			<li><stat>RTD_Logging_ProductionMultiplier</stat><value>1.2</value></li>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<baseBuilding>false</baseBuilding>

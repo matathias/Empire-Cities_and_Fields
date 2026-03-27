@@ -13,7 +13,7 @@
 		<cost>400</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>1.0</value></li>
+			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>0</upkeep>
 		<iconPath>Buildings/UR_DistillationColumn</iconPath>
@@ -29,6 +29,7 @@
 		<desc>An advanced distillation apparatus that separates chemfuel components with greater precision. Requires power to maintain operating temperatures.</desc>
 		<cost>900</cost>
 		<constructionDuration>90000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Chemfuel_ProductionAdditive</stat><value>2.0</value></li>
 		</statModifiers>
@@ -136,11 +137,11 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_CrackingTower</defName>
 		<label>Cracking Tower</label>
-		<desc>A catalytic cracking facility that dramatically improves chemfuel yield.</desc>
+		<desc>A catalytic cracking facility that improves chemfuel yield.</desc>
 		<cost>900</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.2</value></li>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
 		<upkeep>75</upkeep>
 		<iconPath>Buildings/UR_CrackingTower</iconPath>
@@ -156,8 +157,9 @@
 		<desc>A high-efficiency catalytic cracking unit that breaks down heavy hydrocarbons into usable chemfuel. Requires power.</desc>
 		<cost>1200</cost>
 		<constructionDuration>90000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.35</value></li>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -209,7 +211,7 @@
 		<cost>800</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.25</value></li>
+			<li><stat>RTD_Chemfuel_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<baseBuilding>false</baseBuilding>

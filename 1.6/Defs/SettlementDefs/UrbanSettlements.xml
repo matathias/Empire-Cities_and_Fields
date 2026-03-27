@@ -15,6 +15,12 @@
 			<li>
 				<resourceDef>RTD_Chemfuel</resourceDef>
 			</li>
+			<li>
+				<resourceDef>RTD_ConsumerGoods</resourceDef>
+			</li>
+			<li>
+				<resourceDef>RTD_Tools</resourceDef>
+			</li>
 		</resources>
 		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
 		<modExtensions>
