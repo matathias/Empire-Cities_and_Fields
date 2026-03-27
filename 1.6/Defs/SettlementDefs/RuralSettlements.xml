@@ -10,11 +10,6 @@
 		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
 		<maxBuildingCount>8</maxBuildingCount>
 		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 		</comps>
 		<modExtensions>
@@ -37,12 +32,6 @@
 			</li>
 		</resources>
 		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
@@ -89,12 +78,6 @@
 			<li>TropicalRainforest</li>
 		</allowedBiomes>
 		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
@@ -117,12 +100,6 @@
 			</li>
 		</resources>
 		<comps>
-			<li Class="WorldObjectCompProperties_TradeRequest" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementOpenWindow" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementMilitary" />
-			<li Class="FactionColonies.WorldObjectCompProperties_SettlementBuildings" />
-			<li Class="FactionColonies.SupplyChain.WorldObjectCompProperties_SupplyChain" />
-			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_ToolsBenefit" />
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
 		</comps>
 		<modExtensions>
