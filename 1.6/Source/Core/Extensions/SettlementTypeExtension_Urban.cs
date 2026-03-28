@@ -18,8 +18,7 @@ namespace FactionColonies.UrbanRural
                 return false;
             }
 
-            reason?.Append("Urban settlements cannot produce raw resources. "
-                + "Supply routes from rural settlements are required to sustain city buildings and population.");
+            reason?.Append("UR_UrbanNoResources".Translate());
 
             return true;
         }

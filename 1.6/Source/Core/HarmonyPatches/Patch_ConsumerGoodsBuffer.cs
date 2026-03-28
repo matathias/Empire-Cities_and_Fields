@@ -79,7 +79,7 @@ namespace FactionColonies.UrbanRural
 
             // Apply compensating modifiers with a distinct source ID (won't recurse — doesn't start with "event_").
             string bufferSourceId = "cg_buffer_" + sourceId;
-            __instance.AddStatModifiers(mitigationMods, bufferSourceId, "Consumer Goods");
+            __instance.AddStatModifiers(mitigationMods, bufferSourceId, "UR_ConsumerGoodsSource".Translate());
 
             // Consume the Consumer Goods from stockpile.
             ConsumeConsumerGoods(__instance, cgConsumed);

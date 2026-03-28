@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <!-- Settings -->
+    <UR_SettingsCategory>Empire Refactored: Cities &amp; Fields</UR_SettingsCategory>
+    <UR_SettingsDebugLog>Enable debug logging</UR_SettingsDebugLog>
+
+    <!-- Settings: Consumer Goods Section -->
+    <UR_SectionConsumerGoods>── Consumer Goods ──</UR_SectionConsumerGoods>
+    <UR_SettingsCGConversionRate>CG conversion rate (CG per penalty point): {0}</UR_SettingsCGConversionRate>
+    <UR_SettingsCGMaxMitigation>Max mitigation (fraction): {0}</UR_SettingsCGMaxMitigation>
+    <UR_SettingsCGBaseWorkers>Base workers for CG scaling: {0}</UR_SettingsCGBaseWorkers>
+
+    <!-- Settings: Tools Section -->
+    <UR_SectionTools>── Tools &amp; Machinery ──</UR_SectionTools>
+    <UR_SettingsToolsRange>Tools proximity range (tiles): {0}</UR_SettingsToolsRange>
+    <UR_SettingsToolsCost>Tools cost per rural per tick: {0}</UR_SettingsToolsCost>
+    <UR_SettingsToolsBonus>Production bonus from Tools: {0}%</UR_SettingsToolsBonus>
+
+    <!-- Season Labels -->
+    <UR_SeasonGrowing>Growing season</UR_SeasonGrowing>
+    <UR_SeasonOffSeason>Off-season</UR_SeasonOffSeason>
+    <UR_SeasonYearRound>Year-round growing</UR_SeasonYearRound>
+    <UR_SeasonNoGrowing>No growing period</UR_SeasonNoGrowing>
+
+    <!-- Resource Modifier Descriptions -->
+    <UR_SeasonalModifier>Seasonal: {0}% ({1})</UR_SeasonalModifier>
+    <UR_ToolsModifier>Tools: +{0}% (from {1})</UR_ToolsModifier>
+
+    <!-- Tile Validation -->
+    <UR_UrbanNoResources>Urban settlements cannot produce raw resources. Supply routes from rural settlements are required to sustain city buildings and population.</UR_UrbanNoResources>
+    <UR_RequiresFlatTerrain>Requires flat or gently hilly terrain.</UR_RequiresFlatTerrain>
+    <UR_RequiresHillyTerrain>Requires hilly or mountainous terrain.</UR_RequiresHillyTerrain>
+
+    <!-- Stat Modifier Labels -->
+    <UR_ConsumerGoodsSource>Consumer Goods</UR_ConsumerGoodsSource>
+
+</LanguageData>

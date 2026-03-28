@@ -1,5 +1,6 @@
 using System.Text;
 using RimWorld.Planet;
+using Verse;
 
 namespace FactionColonies.UrbanRural
 {
@@ -10,7 +11,7 @@ namespace FactionColonies.UrbanRural
             if (!base.TileIsValidForSettlement(tile, reason)) return false;
             if (tile.Tile != null && tile.Tile.hilliness > Hilliness.SmallHills)
             {
-                reason?.Append("Requires flat or gently hilly terrain.");
+                reason?.Append("UR_RequiresFlatTerrain".Translate());
                 return false;
             }
             return true;

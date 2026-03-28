@@ -37,32 +37,32 @@ namespace FactionColonies.UrbanRural
             Listing_Standard ls = new Listing_Standard();
             ls.Begin(inRect);
 
-            ls.CheckboxLabeled("Enable debug logging", ref printDebug);
+            ls.CheckboxLabeled("UR_SettingsDebugLog".Translate(), ref printDebug);
             ls.Gap(12f);
 
-            ls.Label("── Consumer Goods ──");
+            ls.Label("UR_SectionConsumerGoods".Translate());
             ls.Gap(4f);
 
-            ls.Label("CG conversion rate (CG per penalty point): " + cgConversionRate.ToString("F1"));
+            ls.Label("UR_SettingsCGConversionRate".Translate(cgConversionRate.ToString("F1")));
             cgConversionRate = ls.Slider(cgConversionRate, 0.5f, 5.0f);
 
-            ls.Label("Max mitigation (fraction): " + cgMaxMitigation.ToString("F2"));
+            ls.Label("UR_SettingsCGMaxMitigation".Translate(cgMaxMitigation.ToString("F2")));
             cgMaxMitigation = ls.Slider(cgMaxMitigation, 0.1f, 1.0f);
 
-            ls.Label("Base workers for CG scaling: " + cgBaseWorkers.ToString("F0"));
+            ls.Label("UR_SettingsCGBaseWorkers".Translate(cgBaseWorkers.ToString("F0")));
             cgBaseWorkers = ls.Slider(cgBaseWorkers, 5.0f, 20.0f);
 
             ls.Gap(12f);
-            ls.Label("── Tools & Machinery ──");
+            ls.Label("UR_SectionTools".Translate());
             ls.Gap(4f);
 
-            ls.Label("Tools proximity range (tiles): " + toolsRange);
+            ls.Label("UR_SettingsToolsRange".Translate(toolsRange.ToString()));
             toolsRange = (int)ls.Slider(toolsRange, 2, 15);
 
-            ls.Label("Tools cost per rural per tick: " + toolsCostPerRural.ToString("F1"));
+            ls.Label("UR_SettingsToolsCost".Translate(toolsCostPerRural.ToString("F1")));
             toolsCostPerRural = ls.Slider(toolsCostPerRural, 0.25f, 3.0f);
 
-            ls.Label("Production bonus from Tools: " + (toolsProductionBonus * 100f).ToString("F0") + "%");
+            ls.Label("UR_SettingsToolsBonus".Translate((toolsProductionBonus * 100f).ToString("F0")));
             toolsProductionBonus = ls.Slider(toolsProductionBonus, 0.05f, 0.30f);
 
             ls.End();
@@ -79,7 +79,7 @@ namespace FactionColonies.UrbanRural
             new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
         }
 
-        public override string SettingsCategory() => "Empire Refactored: Cities & Fields";
+        public override string SettingsCategory() => "UR_SettingsCategory".Translate();
 
         public override void DoSettingsWindowContents(Rect inRect) => settings.DoWindowContents(inRect);
     }

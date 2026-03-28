@@ -36,7 +36,7 @@ namespace FactionColonies.UrbanRural
             { "WorldSettlementDef_LumberCamp", new[] { 1.1,  0.7, 1.05, 0.6 } }
         };
 
-        private static readonly string[] SeasonLabels = { "Growing season", "Off-season", "Year-round growing", "No growing period" };
+        private static readonly string[] SeasonLabelKeys = { "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing" };
 
         private List<Twelfth> growingTwelfths;
         private int growingMonthCount = -1;
@@ -116,7 +116,7 @@ namespace FactionColonies.UrbanRural
             SeasonState state = GetSeasonState();
             int idx = (int)state;
             cachedMultiplier = table[idx];
-            cachedLabel = SeasonLabels[idx];
+            cachedLabel = SeasonLabelKeys[idx].Translate();
         }
 
         private bool IsSettlementPrimaryResource(ResourceFC resource)
@@ -162,7 +162,7 @@ namespace FactionColonies.UrbanRural
 
             double pct = (cachedMultiplier - 1.0) * 100.0;
             string sign = pct >= 0 ? "+" : "";
-            return "Seasonal: " + sign + pct.ToString("F0") + "% (" + cachedLabel + ")";
+            return "UR_SeasonalModifier".Translate(sign + pct.ToString("F0"), cachedLabel);
         }
     }
 }

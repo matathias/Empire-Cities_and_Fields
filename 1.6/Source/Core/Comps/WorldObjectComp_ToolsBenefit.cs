@@ -224,7 +224,7 @@ namespace FactionColonies.UrbanRural
                 return null;
 
             double pct = (cachedMultiplier - 1.0) * 100.0;
-            return "Tools: +" + pct.ToString("F0") + "% (from " + cachedCityName + ")";
+            return "UR_ToolsModifier".Translate(pct.ToString("F0"), cachedCityName);
         }
     }
 }
