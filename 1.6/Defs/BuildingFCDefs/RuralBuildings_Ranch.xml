@@ -26,7 +26,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_PastoralFields</defName>
 		<label>Pastoral Fields</label>
-		<desc>Expansive grazing pastures with improved fencing and water troughs. Requires a steady food supply for supplemental feeding.</desc>
+		<desc>Expansive grazing pastures with improved fencing and water troughs. Requires a steady food supply.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
@@ -140,8 +140,8 @@
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_GeneticsLab</defName>
-		<label>Genetics Laboratory</label>
-		<desc>A cutting-edge facility for selective breeding and genetic analysis, dramatically improving livestock quality. Requires medicine and power.</desc>
+		<label>Selective Breeding Lab</label>
+		<desc>A cutting-edge facility for selective breeding and bloodline analysis, dramatically improving livestock quality. Requires medicine and power.</desc>
 		<cost>4000</cost>
 		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>

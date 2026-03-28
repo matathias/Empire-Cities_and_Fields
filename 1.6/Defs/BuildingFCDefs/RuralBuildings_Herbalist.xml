@@ -4,12 +4,12 @@
 	     Herbalist Camp buildings
 	     ═══════════════════════════════════════════════════════════ -->
 
-	<!-- ── Herb Garden chain ── -->
+	<!-- ── Physic Garden chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
 		<defName>UR_HerbGarden</defName>
-		<label>Herb Garden</label>
-		<desc>A carefully tended garden of medicinal plants that boosts medicine output.</desc>
+		<label>Physic Garden</label>
+		<desc>A carefully tended garden of curative plants that boosts medicine output.</desc>
 		<cost>350</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
@@ -112,11 +112,11 @@
 		<iconPath>Buildings/UR_WellnessCenter</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Apothecary chain ── -->
+	<!-- ── Remedy Workshop chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
 		<defName>UR_Apothecary</defName>
-		<label>Apothecary</label>
+		<label>Remedy Workshop</label>
 		<desc>A workshop for preparing and refining herbal remedies, improving overall medicine production.</desc>
 		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
@@ -134,7 +134,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Herbalist">
 		<defName>UR_CompoundingPharmacy</defName>
 		<label>Compounding Pharmacy</label>
-		<desc>A specialized pharmacy that compounds custom medicinal preparations, improving overall medicine efficiency. Requires food-based ingredients.</desc>
+		<desc>A specialized pharmacy that prepares custom medicinal compounds, improving overall medicine efficiency. Requires food-based ingredients.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>

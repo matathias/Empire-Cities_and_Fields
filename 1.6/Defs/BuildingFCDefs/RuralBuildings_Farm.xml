@@ -69,8 +69,8 @@
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_HydroponicsWing</defName>
-		<label>Hydroponics Wing</label>
-		<desc>A climate-controlled greenhouse using hydroponic growing systems. Produces excellent food yields with an efficiency multiplier, but requires significant power.</desc>
+		<label>Aeroponic Chamber</label>
+		<desc>A sealed chamber using aeroponic misting systems to grow crops without soil. Produces excellent food yields with an efficiency multiplier, but requires significant power.</desc>
 		<cost>4500</cost>
 		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>

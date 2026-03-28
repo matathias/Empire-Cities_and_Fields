@@ -4,12 +4,12 @@
 	     Mine buildings
 	     ═══════════════════════════════════════════════════════════ -->
 
-	<!-- ── Deep Mine Shaft chain ── -->
+	<!-- ── Deep Bore chain ── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
 		<defName>UR_DeepMineShaft</defName>
-		<label>Deep Mine Shaft</label>
-		<desc>An extended mine shaft that reaches deeper ore deposits.</desc>
+		<label>Deep Bore</label>
+		<desc>A deep borehole that reaches far below the surface to access richer ore deposits.</desc>
 		<cost>400</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
@@ -30,7 +30,7 @@
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
+			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.75</value></li>
 		</statModifiers>
 		<upkeep>100</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -84,7 +84,7 @@
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>unrestGainedBase</stat><value>-0.2</value></li>
+			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<baseBuilding>false</baseBuilding>

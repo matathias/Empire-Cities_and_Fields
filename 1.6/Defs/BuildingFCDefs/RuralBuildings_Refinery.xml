@@ -26,7 +26,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_FractionalStill</defName>
 		<label>Fractional Still</label>
-		<desc>An advanced distillation apparatus that separates chemfuel components with greater precision. Requires power to maintain operating temperatures.</desc>
+		<desc>An advanced distillation apparatus that produces high-grade chemfuel. Requires power.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<techLevel>Industrial</techLevel>

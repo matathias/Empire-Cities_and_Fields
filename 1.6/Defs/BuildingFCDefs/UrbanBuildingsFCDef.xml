@@ -7,8 +7,8 @@
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Market</defName>
-		<label>Market</label>
-		<desc>A bustling marketplace that processes raw goods into consumer products. Also increases tax revenue and trade variability.</desc>
+		<label>Merchant Quarter</label>
+		<desc>A bustling quarter of shops and stalls that trades raw goods into consumer products. Also increases tax revenue and trade variability.</desc>
 		<cost>400</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
@@ -31,7 +31,7 @@
 					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Market undersupplied</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Merchant quarter undersupplied</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -44,7 +44,7 @@
 		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>3</value></li>
+			<li><stat>workerBaseMax</stat><value>4</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
 		<iconPath>Buildings/UR_TownHall</iconPath>
@@ -147,11 +147,11 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══ Textile Mill — Apparel from Animals + Logging ═══ -->
+	<!-- ═══ Weaving House — Apparel from Animals + Logging ═══ -->
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_TextileMill</defName>
-		<label>Textile Mill</label>
-		<desc>A cloth and leather processing facility that produces apparel from animal products and timber.</desc>
+		<label>Weaving House</label>
+		<desc>A cloth and leather processing facility that produces apparel from animal products and plants.</desc>
 		<cost>400</cost>
 		<constructionDuration>60000</constructionDuration>
 		<statModifiers>
@@ -168,10 +168,10 @@
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
 				<inputs>
 					<li><resource>RTD_Animals</resource><amount>0.3</amount></li>
-					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Textile mill without materials</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Weaving house without materials</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -260,7 +260,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_PowerStation</defName>
 		<label>Power Station</label>
-		<desc>A city-scale power generation facility that burns fuel and uses mined materials. Requires industrial technology.</desc>
+		<desc>A city-scale power generation facility that burns fuel and uses mined materials.</desc>
 		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
 		<techLevel>Industrial</techLevel>

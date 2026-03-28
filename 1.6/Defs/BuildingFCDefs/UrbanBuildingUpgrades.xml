@@ -6,7 +6,7 @@
 	     Each upgrade is a complete replacement def (not additive).
 	     ═══════════════════════════════════════════════════════════ -->
 
-	<!-- ── Market upgrades ────────────────────────────────────── -->
+	<!-- ── Merchant Quarter upgrades ──────────────────────────── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Market_GrandBazaar</defName>
@@ -30,7 +30,7 @@
 					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Market undersupplied</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Merchant quarter undersupplied</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -59,7 +59,7 @@
 					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Market undersupplied</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Merchant quarter undersupplied</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -88,7 +88,7 @@
 					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Market undersupplied</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Merchant quarter undersupplied</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -103,7 +103,7 @@
 		<cost>2500</cost>
 		<constructionDuration>240000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>4</value></li>
+			<li><stat>workerBaseMax</stat><value>6</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
@@ -118,7 +118,7 @@
 		<cost>2000</cost>
 		<constructionDuration>180000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>6</value></li>
+			<li><stat>workerBaseMax</stat><value>8</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -132,7 +132,7 @@
 		<cost>2500</cost>
 		<constructionDuration>240000</constructionDuration>
 		<statModifiers>
-			<li><stat>workerBaseMax</stat><value>4</value></li>
+			<li><stat>workerBaseMax</stat><value>6</value></li>
 			<li><stat>unrestGainedMultiplier</stat><value>0.85</value></li>
 		</statModifiers>
 		<upkeep>200</upkeep>
@@ -149,7 +149,7 @@
 		<cost>2000</cost>
 		<constructionDuration>180000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>3.5</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -169,7 +169,7 @@
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Armory_QualityControl</defName>
-		<label>Quality Control</label>
+		<label>Quality Control Office</label>
 		<desc>Rigorous inspection standards that improve the quality multiplier of weapons production.</desc>
 		<cost>2000</cost>
 		<constructionDuration>180000</constructionDuration>
@@ -200,7 +200,7 @@
 		<cost>2500</cost>
 		<constructionDuration>240000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>2.5</value></li>
 			<li><stat>militaryBaseLevel</stat><value>1</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
@@ -219,7 +219,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Textile Mill upgrades ───────────────────────────────── -->
+	<!-- ── Weaving House upgrades ─────────────────────────────── -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_TextileMill_IndustrialLooms</defName>
@@ -228,7 +228,7 @@
 		<cost>2000</cost>
 		<constructionDuration>180000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>3.5</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -240,7 +240,7 @@
 					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Textile mill without materials</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Weaving house without materials</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -266,7 +266,7 @@
 					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Textile mill without materials</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Weaving house without materials</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -279,8 +279,8 @@
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>2.0</value></li>
-			<li><stat>happinessGainedBase</stat><value>0.5</value></li>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>2.5</value></li>
+			<li><stat>happinessGainedBase</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>125</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -292,7 +292,7 @@
 					<li><resource>RTD_Logging</resource><amount>0.3</amount></li>
 				</inputs>
 				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Textile mill without materials</label></li>
+					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>Weaving house without materials</label></li>
 				</penalties>
 			</li>
 		</modExtensions>
@@ -308,7 +308,7 @@
 		<constructionDuration>180000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Tools_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>3.5</value></li>
 		</statModifiers>
 		<upkeep>175</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -329,7 +329,7 @@
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Manufactory_PrecisionEngineering</defName>
-		<label>Precision Engineering</label>
+		<label>Precision Engineering Factory</label>
 		<desc>Advanced precision tooling that improves the quality of manufactured tools.</desc>
 		<cost>2500</cost>
 		<constructionDuration>240000</constructionDuration>
@@ -363,7 +363,7 @@
 		<constructionDuration>240000</constructionDuration>
 		<techLevel>Industrial</techLevel>
 		<statModifiers>
-			<li><stat>RTD_Tools_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>2.5</value></li>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.0</value></li>
 		</statModifiers>
 		<upkeep>175</upkeep>
@@ -392,7 +392,7 @@
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>3.0</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>3.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
 		<baseBuilding>false</baseBuilding>
@@ -441,13 +441,13 @@
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
-		<defName>UR_Library_ThinkTank</defName>
-		<label>Think Tank</label>
+		<defName>UR_Library_DebateForum</defName>
+		<label>Debate Forum</label>
 		<desc>An intellectual forum that calms the populace through reasoned discourse.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
 		<statModifiers>
-			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.0</value></li>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
 			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
 		</statModifiers>
 		<upkeep>150</upkeep>
@@ -476,7 +476,7 @@
 		<desc>State-of-the-art laboratories that push the boundaries of research.</desc>
 		<cost>4000</cost>
 		<constructionDuration>360000</constructionDuration>
-		<techLevel>Industrial</techLevel>
+		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>4.0</value></li>
 		</statModifiers>
@@ -501,7 +501,7 @@
 		<desc>A dedicated research institution with optimized methodologies.</desc>
 		<cost>4000</cost>
 		<constructionDuration>360000</constructionDuration>
-		<techLevel>Industrial</techLevel>
+		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
 			<li><stat>RTD_Research_ProductionMultiplier</stat><value>1.5</value></li>
@@ -527,7 +527,7 @@
 		<desc>A school for administrators and diplomats that strengthens national loyalty.</desc>
 		<cost>3500</cost>
 		<constructionDuration>300000</constructionDuration>
-		<techLevel>Industrial</techLevel>
+		<techLevel>Spacer</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
 			<li><stat>loyaltyGainedBase</stat><value>1.0</value></li>

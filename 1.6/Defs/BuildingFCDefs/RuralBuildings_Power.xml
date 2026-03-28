@@ -12,6 +12,7 @@
 		<desc>A basic power generator that increases the settlement's energy output.</desc>
 		<cost>400</cost>
 		<constructionDuration>60000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>0.5</value></li>
 		</statModifiers>
@@ -34,6 +35,7 @@
 		</statModifiers>
 		<upkeep>125</upkeep>
 		<baseBuilding>false</baseBuilding>
+		<techLevel>Industrial</techLevel>
 		<iconPath>Buildings/UR_TurbineHall</iconPath>
 		<upgrades>
 			<li>UR_FusionReactor</li>
@@ -81,6 +83,7 @@
 		<desc>A cluster of wind turbines that harness natural air currents to generate clean power with minimal upkeep.</desc>
 		<cost>1000</cost>
 		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -115,6 +118,7 @@
 		<desc>A power distribution facility that amplifies total energy output.</desc>
 		<cost>500</cost>
 		<constructionDuration>90000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.1</value></li>
 		</statModifiers>
@@ -132,6 +136,7 @@
 		<desc>A centralized grid management hub that optimizes power distribution across the settlement. Requires mined materials for maintenance.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.25</value></li>
 		</statModifiers>
@@ -184,6 +189,7 @@
 		<desc>A large bank of capacitors that smooths power delivery and provides additional storage capacity, improving overall grid efficiency.</desc>
 		<cost>1200</cost>
 		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Power_ProductionMultiplier</stat><value>1.2</value></li>
 		</statModifiers>

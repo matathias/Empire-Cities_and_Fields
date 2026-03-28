@@ -26,10 +26,10 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_SteamSawmill</defName>
 		<label>Steam Sawmill</label>
-		<desc>A power-driven sawmill that processes timber far faster than manual methods. Requires a modest power supply.</desc>
+		<desc>A steam-driven sawmill that processes timber far faster than manual methods.</desc>
 		<cost>1500</cost>
 		<constructionDuration>150000</constructionDuration>
-		<techLevel>Industrial</techLevel>
+		<techLevel>Medieval</techLevel>
 		<statModifiers>
 			<li><stat>RTD_Logging_ProductionAdditive</stat><value>1.5</value></li>
 		</statModifiers>
@@ -39,16 +39,6 @@
 		<upgrades>
 			<li>UR_IndustrialMill</li>
 		</upgrades>
-		<modExtensions>
-			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
-				<inputs>
-					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
-				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
-				</penalties>
-			</li>
-		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
@@ -149,7 +139,7 @@
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_LumberProcessing</defName>
 		<label>Lumber Processing Plant</label>
-		<desc>An industrial-scale lumber processing facility with power-driven planers and kilns. Requires a steady power supply.</desc>
+		<desc>An industrial-scale lumber processing facility. Requires a steady power supply.</desc>
 		<cost>3500</cost>
 		<constructionDuration>360000</constructionDuration>
 		<techLevel>Industrial</techLevel>
