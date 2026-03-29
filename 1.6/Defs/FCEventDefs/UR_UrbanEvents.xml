@@ -13,6 +13,8 @@
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>10</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -111,8 +113,11 @@
 		<desc>Merchants and performers flock to the city's market district. The settlement buzzes with trade and merriment.</desc>
 		<category>EC_Urban</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>8</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -143,6 +148,8 @@
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>12</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -259,6 +266,9 @@
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>3</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
+		<minTechLevel>Industrial</minTechLevel>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -335,6 +345,8 @@
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>5</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -433,8 +445,11 @@
 		<desc>Scholars and artists are producing remarkable works. The city's intellectual and cultural influence is growing, drawing admirers from across the region.</desc>
 		<category>EC_Urban</category>
 		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>5</weight>
+		<cooldownTicks>1500000</cooldownTicks>
+		<minDaysSinceFounded>30</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>

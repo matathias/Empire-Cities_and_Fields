@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Patch>
+<!--Patch-->
 
 	<!-- Hide the standard Surface settlement from the picker.
 	     Players must choose between rural and urban settlement types instead. -->
-	<Operation Class="PatchOperationAdd">
+	<!-- Disabled for now. The normal settlement still has a place as a sort of "jack of all trades, master of none"-type option.
+	     It doesn't get any of the special bonuses or buildings of the specialized settlements; that's a decent tradeoff for being able to produce every resource, I think. -->
+	<!--Operation Class="PatchOperationAdd">
 		<xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Surface"]</xpath>
 		<value>
 			<available>false</available>
 		</value>
-	</Operation>
+	</Operation-->
 
-</Patch>
+<!--/Patch-->

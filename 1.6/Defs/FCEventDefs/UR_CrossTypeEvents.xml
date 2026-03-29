@@ -13,6 +13,9 @@
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>8</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<minSettlements>2</minSettlements>
 		<rangeSettlementsAffected>0~0</rangeSettlementsAffected>
 		<activateAtStart>true</activateAtStart>
 		<options>
@@ -103,8 +106,11 @@
 		<desc>Word of the city's prosperity has spread far and wide. Traders arrive from distant lands, and the surrounding settlements benefit from the influx of commerce.</desc>
 		<category>EC_Urban</category>
 		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>6</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
 		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<allowedSettlementTypes>
@@ -130,12 +136,15 @@
 
 	<FactionColonies.FCEventDef>
 		<defName>ur_harshWinter</defName>
-		<label>Harsh Winter</label>
-		<desc>An unusually brutal winter grips the region. Roads are impassable, supply routes frozen, and workers huddle by fading fires as the cold deepens.</desc>
+		<label>Sudden Freeze</label>
+		<desc>An unusually brutal cold front grips the region. Roads are impassable, supply routes frozen, and workers huddle by fading fires as the cold deepens.</desc>
 		<category>EC_Rural</category>
 		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>8</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>5</minDaysSinceFounded>
 		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
 		<settlementsCarryOver>true</settlementsCarryOver>
 		<applicableBiomes>
