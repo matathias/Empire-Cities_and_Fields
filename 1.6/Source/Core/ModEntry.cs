@@ -43,6 +43,12 @@ namespace FactionColonies.UrbanRural
             ls.Label("UR_SectionConsumerGoods".Translate());
             ls.Gap(4f);
 
+            GameFont prev = Text.Font;
+            Text.Font = GameFont.Tiny;
+            ls.Label("UR_SectionConsumerGoodsDesc".Translate());
+            Text.Font = prev;
+            ls.Gap(4f);
+
             ls.Label("UR_SettingsCGConversionRate".Translate(cgConversionRate.ToString("F1")));
             cgConversionRate = ls.Slider(cgConversionRate, 0.5f, 5.0f);
 
@@ -54,6 +60,12 @@ namespace FactionColonies.UrbanRural
 
             ls.Gap(12f);
             ls.Label("UR_SectionTools".Translate());
+            ls.Gap(4f);
+
+            prev = Text.Font;
+            Text.Font = GameFont.Tiny;
+            ls.Label("UR_SectionToolsDesc".Translate());
+            Text.Font = prev;
             ls.Gap(4f);
 
             ls.Label("UR_SettingsToolsRange".Translate(toolsRange.ToString()));

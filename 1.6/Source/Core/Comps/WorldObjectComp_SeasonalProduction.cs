@@ -129,7 +129,8 @@ namespace FactionColonies.UrbanRural
 
             for (int i = 0; i < sDef.resources.Count; i++)
             {
-                if (sDef.resources[i].resourceDef == resource.def)
+                if (sDef.resources[i].resourceDef == resource.def
+                    && sDef.resources[i].multiplier > 1.0)
                     return true;
             }
             return false;

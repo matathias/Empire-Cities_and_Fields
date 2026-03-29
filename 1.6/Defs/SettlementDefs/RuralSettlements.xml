@@ -27,11 +27,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Food</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Food</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<comps>
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
@@ -51,11 +53,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Mining</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Mining</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine" />
@@ -72,11 +76,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Logging</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Logging</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<allowedBiomes>
 			<li>BorealForest</li>
@@ -101,11 +107,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Animals</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Animals</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<comps>
 			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
@@ -125,11 +133,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Chemfuel</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<researchProjects>
 			<li>UR_ChemfuelExtraction</li>
@@ -149,11 +159,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Medicine</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Medicine</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 	</FactionColonies.WorldSettlementDef>
 
@@ -167,11 +179,13 @@
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
-			<li>
-				<resourceDef>RTD_Power</resourceDef>
-				<additive>0.5</additive>
-				<multiplier>1.5</multiplier>
-			</li>
+			<li><resourceDef>RTD_Power</resourceDef><additive>0.5</additive><multiplier>1.5</multiplier></li>
+			<li><resourceDef>RTD_Food</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Mining</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Logging</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Animals</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
+			<li><resourceDef>RTD_Medicine</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<researchProjects>
 			<li>Electricity</li>

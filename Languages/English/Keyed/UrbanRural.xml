@@ -7,12 +7,14 @@
 
     <!-- Settings: Consumer Goods Section -->
     <UR_SectionConsumerGoods>── Consumer Goods ──</UR_SectionConsumerGoods>
+    <UR_SectionConsumerGoodsDesc>Consumer goods are automatically consumed from a settlement's stockpile when negative events strike, reducing their impact on happiness and unrest.</UR_SectionConsumerGoodsDesc>
     <UR_SettingsCGConversionRate>CG conversion rate (CG per penalty point): {0}</UR_SettingsCGConversionRate>
     <UR_SettingsCGMaxMitigation>Max mitigation (fraction): {0}</UR_SettingsCGMaxMitigation>
     <UR_SettingsCGBaseWorkers>Base workers for CG scaling: {0}</UR_SettingsCGBaseWorkers>
 
     <!-- Settings: Tools Section -->
     <UR_SectionTools>── Tools &amp; Machinery ──</UR_SectionTools>
+    <UR_SectionToolsDesc>Cities produce tools that boost production at nearby rural settlements. Tools are consumed from the city's stockpile each tax tick.</UR_SectionToolsDesc>
     <UR_SettingsToolsRange>Tools proximity range (tiles): {0}</UR_SettingsToolsRange>
     <UR_SettingsToolsCost>Tools cost per rural per tick: {0}</UR_SettingsToolsCost>
     <UR_SettingsToolsBonus>Production bonus from Tools: {0}%</UR_SettingsToolsBonus>
