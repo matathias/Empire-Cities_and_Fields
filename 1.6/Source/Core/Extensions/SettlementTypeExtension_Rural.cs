@@ -35,8 +35,8 @@ namespace FactionColonies.UrbanRural
             switch (slotIndex)
             {
                 case 0:
-                case 1:
                     return 2;
+                case 1:
                 case 2:
                 case 3:
                     return 4;

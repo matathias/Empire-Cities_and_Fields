@@ -18,21 +18,17 @@ namespace FactionColonies.UrbanRural
     /// Attached to rural settlement defs. Checks nearby cities for Tools stockpile and applies
     /// a production multiplier. Tools are consumed from the city each tax tick.
     /// Uses a static coordinator so multiple rurals near the same city split Tools fairly.
+    /// Triggered by Patch_ToolsTaxTick as a Harmony prefix on FactionFC.AddTax().
     /// </summary>
     public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProductionModifier
     {
         private double cachedMultiplier = 1.0;
         private string cachedCityName;
-        private const int CHECK_INTERVAL = GenDate.TicksPerDay;
 
         // Static coordinator: prevents multiple rurals from independently draining the same city.
-        // Key = city tile ID, Value = per-rural multiplier for this interval.
+        // Key = city tile ID, Value = per-rural multiplier fraction for this tax cycle.
         private static Dictionary<int, double> cityMultiplierCache = new Dictionary<int, double>();
         private static Dictionary<int, string> cityNameCache = new Dictionary<int, string>();
-        private static int lastCoordinatorTick = -1;
-
-        // Which city this rural is assigned to (by tile ID), -1 if none.
-        private int assignedCityTile = -1;
 
         private static WorldSettlementDef cachedCityDef;
         private static WorldSettlementDef CityDef
@@ -56,52 +52,15 @@ namespace FactionColonies.UrbanRural
             }
         }
 
-        public override void CompTick()
-        {
-            if (Find.TickManager.TicksGame % CHECK_INTERVAL != 0)
-                return;
-
-            FactionFC faction = FactionCache.FactionComp;
-            if (faction == null || Find.WorldGrid == null)
-                return;
-
-            int currentTick = Find.TickManager.TicksGame;
-
-            // If the coordinator hasn't run this interval, recalculate all city allocations.
-            if (currentTick != lastCoordinatorTick)
-            {
-                lastCoordinatorTick = currentTick;
-                RecalculateAllCities(faction);
-            }
-
-            // Read our cached multiplier from the coordinator.
-            double oldMultiplier = cachedMultiplier;
-            if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
-            {
-                cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
-                cityNameCache.TryGetValue(assignedCityTile, out cachedCityName);
-            }
-            else
-            {
-                cachedMultiplier = 1.0;
-                cachedCityName = null;
-            }
-
-            // Invalidate resource caches if multiplier changed.
-            if (cachedMultiplier != oldMultiplier)
-            {
-                WorldSettlementFC settlement = parent as WorldSettlementFC;
-                if (settlement != null)
-                    settlement.InvalidateResourceCaches();
-            }
-        }
-
         /// <summary>
-        /// Runs once per interval. For each city, counts nearby rurals, calculates fair share,
-        /// consumes Tools from city stockpile, and caches the per-rural multiplier fraction.
+        /// Runs once per tax tick (called from Patch_ToolsTaxTick).
+        /// For each city, counts nearby rurals, calculates fair share, consumes Tools from
+        /// city stockpile, assigns each rural to its nearest city, and updates cached multipliers.
         /// </summary>
-        private static void RecalculateAllCities(FactionFC faction)
+        public static void RecalculateAllCities(FactionFC faction)
         {
+            if (faction == null || Find.WorldGrid == null) return;
+
             cityMultiplierCache.Clear();
             cityNameCache.Clear();
 
@@ -147,7 +106,7 @@ namespace FactionColonies.UrbanRural
                 cityNameCache[settlement.Tile] = settlement.Name;
             }
 
-            // Assign each rural to its nearest city within range.
+            // Assign each rural to its nearest city within range and update cached multipliers.
             foreach (WorldSettlementFC settlement in faction.settlements)
             {
                 if (!IsRuralSettlement(settlement)) continue;
@@ -155,7 +114,7 @@ namespace FactionColonies.UrbanRural
                 WorldObjectComp_ToolsBenefit comp = settlement.GetComponent<WorldObjectComp_ToolsBenefit>();
                 if (comp == null) continue;
 
-                comp.assignedCityTile = -1;
+                int assignedCityTile = -1;
                 float bestDist = float.MaxValue;
 
                 foreach (int cityTile in cityMultiplierCache.Keys)
@@ -164,9 +123,28 @@ namespace FactionColonies.UrbanRural
                     if (dist <= toolsRange && dist < bestDist)
                     {
                         bestDist = dist;
-                        comp.assignedCityTile = cityTile;
+                        assignedCityTile = cityTile;
                     }
                 }
+
+                // Update the comp's cached multiplier.
+                double oldMultiplier = comp.cachedMultiplier;
+                double mult;
+                string cityName;
+                if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out mult))
+                {
+                    comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
+                    cityNameCache.TryGetValue(assignedCityTile, out cityName);
+                    comp.cachedCityName = cityName;
+                }
+                else
+                {
+                    comp.cachedMultiplier = 1.0;
+                    comp.cachedCityName = null;
+                }
+
+                if (comp.cachedMultiplier != oldMultiplier)
+                    settlement.InvalidateResourceCaches();
             }
         }
 

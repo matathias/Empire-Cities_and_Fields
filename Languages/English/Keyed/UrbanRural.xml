@@ -40,4 +40,7 @@
     <!-- Stat Modifier Labels -->
     <UR_ConsumerGoodsSource>Consumer Goods</UR_ConsumerGoodsSource>
 
+    <!-- Notifications -->
+    <UR_ConsumerGoodsConsumed>{0} Consumer Goods consumed at {1} (-{2}% impact from {3})</UR_ConsumerGoodsConsumed>
+
 </LanguageData>

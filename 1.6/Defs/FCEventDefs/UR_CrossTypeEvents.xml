@@ -9,7 +9,7 @@
 		<defName>ur_migrationWave</defName>
 		<label>Migration Wave</label>
 		<desc>Workers across the empire are migrating from rural settlements toward the cities, drawn by promises of better conditions and opportunity.</desc>
-		<category>EC_Urban</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>0</timeTillTrigger>
 		<isRandomEvent>true</isRandomEvent>
 		<weight>8</weight>
@@ -64,7 +64,7 @@
 		<defName>ur_migration_urban</defName>
 		<label>Urbanization Encouraged</label>
 		<desc>Official policy now favors city growth. Urban settlements boom with new arrivals, but the countryside struggles to maintain its output with fewer hands.</desc>
-		<category>EC_Urban</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>prosperityGainedBase</stat><value>2</value></li>
@@ -76,7 +76,7 @@
 		<defName>ur_migration_rural</defName>
 		<label>Rural Incentives</label>
 		<desc>Land grants and subsidies have stemmed the tide of migration. Rural workers feel valued, and some city dwellers have even made the move to the countryside.</desc>
-		<category>EC_Rural</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>2</value></li>
@@ -88,7 +88,7 @@
 		<defName>ur_migration_free</defName>
 		<label>Free Movement</label>
 		<desc>People move as they please. Some settlements grow, others shrink. The empire adapts, though the transition isn't entirely smooth.</desc>
-		<category>EC_Urban</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<statModifiers>
 			<li><stat>happinessGainedBase</stat><value>1</value></li>
@@ -104,7 +104,7 @@
 		<defName>ur_tradeBoom</defName>
 		<label>Trade Boom</label>
 		<desc>Word of the city's prosperity has spread far and wide. Traders arrive from distant lands, and the surrounding settlements benefit from the influx of commerce.</desc>
-		<category>EC_Urban</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>600000</timeTillTrigger>
 		<timeTillTriggerMax>900000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>
@@ -138,7 +138,7 @@
 		<defName>ur_harshWinter</defName>
 		<label>Sudden Freeze</label>
 		<desc>An unusually brutal cold front grips the region. Roads are impassable, supply routes frozen, and workers huddle by fading fires as the cold deepens.</desc>
-		<category>EC_Rural</category>
+		<category>EC_FactionWide</category>
 		<timeTillTrigger>300000</timeTillTrigger>
 		<timeTillTriggerMax>450000</timeTillTriggerMax>
 		<isRandomEvent>true</isRandomEvent>

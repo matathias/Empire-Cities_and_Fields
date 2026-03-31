@@ -15,4 +15,11 @@
 		<displayOrder>72</displayOrder>
 	</FactionColonies.FCEventCategoryDef>
 
+	<FactionColonies.FCEventCategoryDef>
+		<defName>EC_FactionWide</defName>
+		<label>Faction-Wide</label>
+		<color>(0.55, 0.55, 0.55)</color>
+		<displayOrder>73</displayOrder>
+	</FactionColonies.FCEventCategoryDef>
+
 </Defs>

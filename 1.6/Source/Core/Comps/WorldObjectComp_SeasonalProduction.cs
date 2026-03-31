@@ -33,7 +33,8 @@ namespace FactionColonies.UrbanRural
         {
             { "WorldSettlementDef_Farm",       new[] { 1.2,  0.5, 1.1,  0.4 } },
             { "WorldSettlementDef_Ranch",      new[] { 1.15, 0.6, 1.05, 0.5 } },
-            { "WorldSettlementDef_LumberCamp", new[] { 1.1,  0.7, 1.05, 0.6 } }
+            { "WorldSettlementDef_LumberCamp", new[] { 1.1,  0.7, 1.05, 0.6 } },
+            { "WorldSettlementDef_Herbalist",  new[] { 1.15, 0.6, 1.05, 0.5 } }
         };
 
         private static readonly string[] SeasonLabelKeys = { "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing" };

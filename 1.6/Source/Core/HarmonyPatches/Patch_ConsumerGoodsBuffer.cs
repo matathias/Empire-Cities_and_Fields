@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using HarmonyLib;
+using RimWorld;
 using Verse;
 using FactionColonies.SupplyChain;
 
@@ -87,9 +88,13 @@ namespace FactionColonies.UrbanRural
             // Notify the player.
             double mitigationPct = mitigation * 100.0;
             string eventName = sourceLabel ?? sourceId.Replace("event_", "");
-            LogUR.Message(__instance.Name + ": " + cgConsumed.ToString("F1")
-                + " Consumer Goods consumed to mitigate " + eventName
-                + " (-" + mitigationPct.ToString("F0") + "% impact)");
+            string notification = "UR_ConsumerGoodsConsumed".Translate(
+                cgConsumed.ToString("F1"),
+                __instance.Name,
+                mitigationPct.ToString("F0"),
+                eventName);
+            Messages.Message(notification, MessageTypeDefOf.NeutralEvent, false);
+            LogUR.Message(notification);
         }
 
         private static double GetConsumerGoodsAmount(WorldSettlementFC settlement)
@@ -107,14 +112,9 @@ namespace FactionColonies.UrbanRural
 
             stockpile.TryDraw(consumerGoodsDef, amount, out double drawn);
 
-            if (drawn > amount)
+            if (drawn != amount)
             {
-                LogUR.Warning($"ConsumeConsumerGoods on settlement {settlement.Name} drew {drawn}, but requestion {amount}");
-            }
-
-            if (drawn < amount)
-            {
-                LogUR.Warning($"ConsumeConsumerGoods on settlement {settlement.Name} drew {drawn}, but requestion {amount}");
+                LogUR.Warning($"ConsumeConsumerGoods on settlement {settlement.Name}: drew {drawn}, requested {amount}");
             }
         }
     }

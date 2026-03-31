@@ -167,6 +167,9 @@
 			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
 			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
+		<comps>
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+		</comps>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Power Plant ═══ -->
