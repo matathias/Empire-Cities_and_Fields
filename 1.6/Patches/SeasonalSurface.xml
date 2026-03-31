@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!-- Add seasonal production to the base Surface settlement type.
+	     Uses the same global SeasonalMultiplierDefs as rural settlements. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionColonies.WorldSettlementDef[defName="WorldSettlementDef_Surface"]/comps</xpath>
+		<value>
+			<li Class="FactionColonies.UrbanRural.WorldObjectCompProperties_SeasonalProduction" />
+		</value>
+	</Operation>
+
+</Patch>

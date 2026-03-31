@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ═══════════════════════════════════════════════════════════
+	     Seasonal production multipliers per resource type.
+	     One def per resource. Any settlement with the
+	     SeasonalProduction comp auto-discovers these.
+	     Resources without a def here are unaffected by seasons.
+	     ═══════════════════════════════════════════════════════════ -->
+
+	<!-- Strong seasonal swing — biological, weather-dependent -->
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Food</defName>
+		<resource>RTD_Food</resource>
+		<inGrowing>1.2</inGrowing>
+		<outOfGrowing>0.5</outOfGrowing>
+		<yearRound>1.1</yearRound>
+		<noGrowing>0.4</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Animals</defName>
+		<resource>RTD_Animals</resource>
+		<inGrowing>1.15</inGrowing>
+		<outOfGrowing>0.6</outOfGrowing>
+		<yearRound>1.05</yearRound>
+		<noGrowing>0.5</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Logging</defName>
+		<resource>RTD_Logging</resource>
+		<inGrowing>1.1</inGrowing>
+		<outOfGrowing>0.7</outOfGrowing>
+		<yearRound>1.05</yearRound>
+		<noGrowing>0.6</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Medicine</defName>
+		<resource>RTD_Medicine</resource>
+		<inGrowing>1.15</inGrowing>
+		<outOfGrowing>0.6</outOfGrowing>
+		<yearRound>1.05</yearRound>
+		<noGrowing>0.5</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+	<!-- Mild seasonal swing — underground/industrial, mostly weather-independent -->
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Mining</defName>
+		<resource>RTD_Mining</resource>
+		<inGrowing>1.0</inGrowing>
+		<outOfGrowing>0.9</outOfGrowing>
+		<yearRound>1.0</yearRound>
+		<noGrowing>0.85</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+	<FactionColonies.UrbanRural.SeasonalMultiplierDef>
+		<defName>UR_Seasonal_Chemfuel</defName>
+		<resource>RTD_Chemfuel</resource>
+		<inGrowing>1.0</inGrowing>
+		<outOfGrowing>0.95</outOfGrowing>
+		<yearRound>1.0</yearRound>
+		<noGrowing>0.9</noGrowing>
+	</FactionColonies.UrbanRural.SeasonalMultiplierDef>
+
+</Defs>

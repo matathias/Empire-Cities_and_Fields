@@ -5,8 +5,47 @@ using Verse;
 
 namespace FactionColonies.UrbanRural
 {
+    /// <summary>
+    /// Defines seasonal production multipliers for a single resource type.
+    /// One def per resource. The comp auto-discovers these from DefDatabase.
+    /// </summary>
+    public class SeasonalMultiplierDef : Def
+    {
+        public ResourceTypeDef resource;
+        public double inGrowing = 1.0;
+        public double outOfGrowing = 1.0;
+        public double yearRound = 1.0;
+        public double noGrowing = 1.0;
+
+        public override IEnumerable<string> ConfigErrors()
+        {
+            foreach (string error in base.ConfigErrors())
+                yield return error;
+            if (resource == null)
+                yield return defName + ": resource is null";
+        }
+    }
+
+    /// <summary>
+    /// Inline seasonal multiplier entry for per-settlement overrides on the comp properties.
+    /// Same shape as SeasonalMultiplierDef but not a Def — used in XML lists on the comp.
+    /// </summary>
+    public class SeasonalMultiplierEntry
+    {
+        public ResourceTypeDef resource;
+        public double inGrowing = 1.0;
+        public double outOfGrowing = 1.0;
+        public double yearRound = 1.0;
+        public double noGrowing = 1.0;
+    }
+
     public class WorldObjectCompProperties_SeasonalProduction : WorldObjectCompProperties
     {
+        /// <summary>
+        /// Optional per-settlement overrides. Takes priority over global SeasonalMultiplierDefs.
+        /// </summary>
+        public List<SeasonalMultiplierEntry> overrides;
+
         public WorldObjectCompProperties_SeasonalProduction()
         {
             compClass = typeof(WorldObjectComp_SeasonalProduction);
@@ -14,9 +53,9 @@ namespace FactionColonies.UrbanRural
     }
 
     /// <summary>
-    /// Applies seasonal production multipliers to rural settlements based on their tile's growing season.
-    /// Attached to Farm, Ranch, and LumberCamp settlement defs. Implements IResourceProductionModifier
-    /// so it's automatically picked up by ResourceFC's production formula.
+    /// Applies seasonal production multipliers to settlements based on their tile's growing season.
+    /// Multipliers are defined globally per resource type via SeasonalMultiplierDef, with optional
+    /// per-settlement overrides on the comp properties. Pool resources are always unaffected.
     /// </summary>
     public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProductionModifier
     {
@@ -28,23 +67,36 @@ namespace FactionColonies.UrbanRural
             NoGrowing
         }
 
-        // Multiplier table: [InGrowing, OutOfGrowing, YearRound, NoGrowing]
-        private static readonly Dictionary<string, double[]> MultiplierTable = new Dictionary<string, double[]>
+        private static readonly string[] SeasonLabelKeys =
         {
-            { "WorldSettlementDef_Farm",       new[] { 1.2,  0.5, 1.1,  0.4 } },
-            { "WorldSettlementDef_Ranch",      new[] { 1.15, 0.6, 1.05, 0.5 } },
-            { "WorldSettlementDef_LumberCamp", new[] { 1.1,  0.7, 1.05, 0.6 } },
-            { "WorldSettlementDef_Herbalist",  new[] { 1.15, 0.6, 1.05, 0.5 } }
+            "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing"
         };
 
-        private static readonly string[] SeasonLabelKeys = { "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing" };
+        // Static lookup: ResourceTypeDef → SeasonalMultiplierDef, built lazily from DefDatabase.
+        private static Dictionary<ResourceTypeDef, SeasonalMultiplierDef> defLookup;
+
+        private WorldObjectCompProperties_SeasonalProduction Props
+        {
+            get { return (WorldObjectCompProperties_SeasonalProduction)props; }
+        }
 
         private List<Twelfth> growingTwelfths;
         private int growingMonthCount = -1;
         private Twelfth lastCheckedTwelfth = Twelfth.Undefined;
-        private double cachedMultiplier = 1.0;
-        private string cachedLabel;
+        private SeasonState cachedSeasonState;
+        private string cachedSeasonLabel;
         private const int CHECK_INTERVAL = GenDate.TicksPerDay;
+
+        private static void EnsureDefLookup()
+        {
+            if (defLookup != null) return;
+            defLookup = new Dictionary<ResourceTypeDef, SeasonalMultiplierDef>();
+            foreach (SeasonalMultiplierDef def in DefDatabase<SeasonalMultiplierDef>.AllDefs)
+            {
+                if (def.resource != null)
+                    defLookup[def.resource] = def;
+            }
+        }
 
         public override void CompTick()
         {
@@ -54,7 +106,6 @@ namespace FactionColonies.UrbanRural
             if (Find.WorldGrid == null)
                 return;
 
-            // Lazy init growing season data on first tick
             if (growingMonthCount < 0)
                 InitGrowingSeason();
 
@@ -63,7 +114,8 @@ namespace FactionColonies.UrbanRural
             if (currentTwelfth != lastCheckedTwelfth)
             {
                 lastCheckedTwelfth = currentTwelfth;
-                RecalculateMultiplier();
+                cachedSeasonState = GetSeasonState();
+                cachedSeasonLabel = SeasonLabelKeys[(int)cachedSeasonState].Translate();
 
                 WorldSettlementFC settlement = parent as WorldSettlementFC;
                 if (settlement != null)
@@ -95,47 +147,60 @@ namespace FactionColonies.UrbanRural
             return SeasonState.OutOfGrowing;
         }
 
-        private void RecalculateMultiplier()
+        /// <summary>
+        /// Resolves the seasonal multiplier for the given resource, checking per-settlement
+        /// overrides first, then global SeasonalMultiplierDefs.
+        /// Returns 1.0 if no multiplier is defined for this resource.
+        /// </summary>
+        private double ResolveMultiplier(ResourceTypeDef resourceDef)
         {
-            WorldSettlementFC settlement = parent as WorldSettlementFC;
-            if (settlement == null)
+            if (growingMonthCount < 0)
+                return 1.0;
+
+            // Per-settlement overrides take priority.
+            if (Props.overrides != null)
             {
-                cachedMultiplier = 1.0;
-                cachedLabel = null;
-                return;
+                for (int i = 0; i < Props.overrides.Count; i++)
+                {
+                    if (Props.overrides[i].resource == resourceDef)
+                        return GetMultiplier(Props.overrides[i]);
+                }
             }
 
-            WorldSettlementDef sDef = settlement.settlementDef;
-            double[] table;
-            if (sDef == null || !MultiplierTable.TryGetValue(sDef.defName, out table))
-            {
-                cachedMultiplier = 1.0;
-                cachedLabel = null;
-                return;
-            }
+            // Fall back to global def lookup.
+            EnsureDefLookup();
+            SeasonalMultiplierDef def;
+            if (defLookup.TryGetValue(resourceDef, out def))
+                return GetMultiplier(def);
 
-            SeasonState state = GetSeasonState();
-            int idx = (int)state;
-            cachedMultiplier = table[idx];
-            cachedLabel = SeasonLabelKeys[idx].Translate();
+            return 1.0;
         }
 
-        private bool IsSettlementPrimaryResource(ResourceFC resource)
+        private double GetMultiplier(SeasonalMultiplierEntry entry)
         {
-            WorldSettlementFC settlement = parent as WorldSettlementFC;
-            if (settlement == null) return false;
-
-            WorldSettlementDef sDef = settlement.settlementDef;
-            if (sDef == null) return false;
-
-            for (int i = 0; i < sDef.resources.Count; i++)
+            switch (cachedSeasonState)
             {
-                if (sDef.resources[i].resourceDef == resource.def
-                    && sDef.resources[i].multiplier > 1.0)
-                    return true;
+                case SeasonState.InGrowing: return entry.inGrowing;
+                case SeasonState.OutOfGrowing: return entry.outOfGrowing;
+                case SeasonState.YearRound: return entry.yearRound;
+                case SeasonState.NoGrowing: return entry.noGrowing;
+                default: return 1.0;
             }
-            return false;
         }
+
+        private double GetMultiplier(SeasonalMultiplierDef def)
+        {
+            switch (cachedSeasonState)
+            {
+                case SeasonState.InGrowing: return def.inGrowing;
+                case SeasonState.OutOfGrowing: return def.outOfGrowing;
+                case SeasonState.YearRound: return def.yearRound;
+                case SeasonState.NoGrowing: return def.noGrowing;
+                default: return 1.0;
+            }
+        }
+
+        // IResourceProductionModifier
 
         public double GetResourceAdditiveModifier(ResourceFC resource)
         {
@@ -144,27 +209,24 @@ namespace FactionColonies.UrbanRural
 
         public double GetResourceMultiplierModifier(ResourceFC resource)
         {
-            if (!IsSettlementPrimaryResource(resource))
+            if (resource.def.isPoolResource)
                 return 1.0;
 
-            // Ensure we have a calculated multiplier
-            if (growingMonthCount < 0)
-                return 1.0;
-
-            return cachedMultiplier;
+            return ResolveMultiplier(resource.def);
         }
 
         public string GetResourceModifierDesc(ResourceFC resource)
         {
-            if (!IsSettlementPrimaryResource(resource))
+            if (resource.def.isPoolResource)
                 return null;
 
-            if (growingMonthCount < 0 || cachedLabel == null)
+            double mult = ResolveMultiplier(resource.def);
+            if (mult == 1.0 || cachedSeasonLabel == null)
                 return null;
 
-            double pct = (cachedMultiplier - 1.0) * 100.0;
+            double pct = (mult - 1.0) * 100.0;
             string sign = pct >= 0 ? "+" : "";
-            return "UR_SeasonalModifier".Translate(sign + pct.ToString("F0"), cachedLabel);
+            return "UR_SeasonalModifier".Translate(sign + pct.ToString("F0"), cachedSeasonLabel);
         }
     }
 }
