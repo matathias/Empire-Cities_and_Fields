@@ -21,6 +21,14 @@
 				<label>happiness</label>
 			</li>
 		</penalties>
+		<surplusBonuses>
+			<li>
+				<stat>prosperityGainedBase</stat>
+				<maxBonus>2.0</maxBonus>
+				<label>thriving city</label>
+			</li>
+		</surplusBonuses>
+		<maxSurplusRatio>2.0</maxSurplusRatio>
 	</FactionColonies.SupplyChain.SettlementNeedDef>
 
 </Defs>
