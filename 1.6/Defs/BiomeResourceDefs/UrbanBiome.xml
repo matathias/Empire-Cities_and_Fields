@@ -58,6 +58,16 @@
 				<additive>0</additive>
 				<multiplier>1</multiplier>
 			</li>
+			<li>
+				<resourceDef>RTD_ConsumerGoods</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Tools</resourceDef>
+				<additive>0</additive>
+				<multiplier>1</multiplier>
+			</li>
 		</resources>
 	</FactionColonies.BiomeResourceDef>
 

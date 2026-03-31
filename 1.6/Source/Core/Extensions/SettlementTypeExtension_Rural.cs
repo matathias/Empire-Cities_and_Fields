@@ -2,20 +2,47 @@ namespace FactionColonies.UrbanRural
 {
     /// <summary>
     /// Base settlement type extension for all rural settlements.
-    /// Provides step-function building slot progression: 4 slots at founding, 8 at level 5.
+    /// Provides step-function building slot progression:
+    ///  - 0 slots at level 1
+    ///  - 1 slot at level 2
+    ///  - 4 slots at level 4
+    ///  - 8 slots at level 8
     /// </summary>
     public class SettlementTypeExtension_Rural : SettlementTypeExtension
     {
         public override int GetBuildingSlots(int level, int maxCount)
         {
-            return level < 5 ? 4 : 8;
+            switch (level)
+            {
+                case 0:
+                case 1:
+                    return 0;
+                case 2:
+                case 3:
+                    return 1;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return 4;
+                default: //Levels 8 and above: 8 buildings
+                    return 8;
+            }
         }
 
         public override int GetRequiredLevelForSlot(int slotIndex, int maxCount)
         {
-            if (slotIndex < 4) return 0;
-            if (slotIndex < 8) return 5;
-            return -1;
+            switch (slotIndex)
+            {
+                case 0:
+                case 1:
+                    return 2;
+                case 2:
+                case 3:
+                    return 4;
+                default: //Slots 4 and above: need level 8
+                    return 8;
+            }
         }
     }
 }
