@@ -34,6 +34,9 @@
     <UR_RequiresFlatTerrain>Requires flat or gently hilly terrain.</UR_RequiresFlatTerrain>
     <UR_RequiresHillyTerrain>Requires hilly or mountainous terrain.</UR_RequiresHillyTerrain>
 
+    <!-- Biome Description -->
+    <FCDescUrbanCenter>Where the wilderness once stood, roads and rooftops now stretch to the horizon. No crops grow here, no timber is felled; the land has long since given way to industry and commerce. The city thrives on the labor of its people and the goods shipped in from the surrounding countryside.</FCDescUrbanCenter>
+
     <!-- Stat Modifier Labels -->
     <UR_ConsumerGoodsSource>Consumer Goods</UR_ConsumerGoodsSource>
 
