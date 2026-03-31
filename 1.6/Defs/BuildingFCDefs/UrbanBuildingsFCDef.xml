@@ -69,7 +69,7 @@
 		<upgrades>
 			<li>UR_Library_GrandArchives</li>
 			<li>UR_Library_ScholarshipProgram</li>
-			<li>UR_Library_ThinkTank</li>
+			<li>UR_Library_DebateForum</li>
 		</upgrades>
 		<modExtensions>
 			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
