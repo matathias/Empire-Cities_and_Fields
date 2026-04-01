@@ -16,4 +16,4 @@ Along with the new settlement types are numerous new buildings, restricted by se
 Many resources now respond to the seasons. A tile's growing season will impact resource production; in-season, you'll see notable bonuses, while out-of-season, production can dry up. Make sure that you've stockpiled enough resources to last through the winter!
 
 ### Dependencies
-**Depends on Empire Refactored: Routes & Resources**. The needs and stockpile mechanics of Routes & Resources are used to balance the different settlement types, and provide additional meaning to specializing.
+**Depends on [Empire Refactored: Routes & Resources](https://github.com/matathias/Empire-Routes_and_Resources)**. The needs and stockpile mechanics of Routes & Resources are used to balance the different settlement types, and provide additional meaning to specializing.
