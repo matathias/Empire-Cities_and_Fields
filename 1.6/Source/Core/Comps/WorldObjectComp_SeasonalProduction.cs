@@ -215,7 +215,12 @@ namespace FactionColonies.UrbanRural
             return ResolveMultiplier(resource.def);
         }
 
-        public string GetResourceModifierDesc(ResourceFC resource)
+        public string GetResourceAdditiveDesc(ResourceFC resource)
+        {
+            return null;
+        }
+
+        public string GetResourceMultiplierDesc(ResourceFC resource)
         {
             if (resource.def.isPoolResource)
                 return null;

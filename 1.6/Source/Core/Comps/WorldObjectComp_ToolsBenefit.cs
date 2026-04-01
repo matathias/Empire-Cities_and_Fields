@@ -196,7 +196,12 @@ namespace FactionColonies.UrbanRural
             return cachedMultiplier;
         }
 
-        public string GetResourceModifierDesc(ResourceFC resource)
+        public string GetResourceAdditiveDesc(ResourceFC resource)
+        {
+            return null;
+        }
+
+        public string GetResourceMultiplierDesc(ResourceFC resource)
         {
             if (cachedMultiplier <= 1.0 || cachedCityName == null)
                 return null;
