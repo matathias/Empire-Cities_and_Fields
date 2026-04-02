@@ -103,7 +103,7 @@ namespace FactionColonies.UrbanRural
             if (Find.TickManager.TicksGame % CHECK_INTERVAL != 0)
                 return;
 
-            if (Find.WorldGrid == null)
+            if (Find.WorldGrid is null)
                 return;
 
             if (growingMonthCount < 0)
@@ -117,8 +117,7 @@ namespace FactionColonies.UrbanRural
                 cachedSeasonState = GetSeasonState();
                 cachedSeasonLabel = SeasonLabelKeys[(int)cachedSeasonState].Translate();
 
-                WorldSettlementFC settlement = parent as WorldSettlementFC;
-                if (settlement != null)
+                if (parent is WorldSettlementFC settlement)
                     settlement.InvalidateResourceCaches();
             }
         }
@@ -135,8 +134,7 @@ namespace FactionColonies.UrbanRural
             growingTwelfths = GenTemperature.TwelfthsInAverageTemperatureRange(parent.Tile, 6f, 42f);
             growingMonthCount = growingTwelfths.Count;
 
-            LogUR.Message("Initialized seasonal production for tile " + parent.Tile
-                + ": " + growingMonthCount + "/12 growing months");
+            LogUR.Message($"Initialized seasonal production for tile {parent.Tile}: {growingMonthCount}/12 growing twelfths");
         }
 
         private SeasonState GetSeasonState()
@@ -169,8 +167,7 @@ namespace FactionColonies.UrbanRural
 
             // Fall back to global def lookup.
             EnsureDefLookup();
-            SeasonalMultiplierDef def;
-            if (defLookup.TryGetValue(resourceDef, out def))
+            if (defLookup.TryGetValue(resourceDef, out SeasonalMultiplierDef def))
                 return GetMultiplier(def);
 
             return 1.0;
@@ -226,7 +223,7 @@ namespace FactionColonies.UrbanRural
                 return null;
 
             double mult = ResolveMultiplier(resource.def);
-            if (mult == 1.0 || cachedSeasonLabel == null)
+            if (mult == 1.0 || cachedSeasonLabel is null)
                 return null;
 
             double pct = (mult - 1.0) * 100.0;

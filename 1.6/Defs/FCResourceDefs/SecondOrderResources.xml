@@ -43,6 +43,9 @@
 			</li>
 			<li>
 				<thingDef>ComponentSpacer</thingDef>
+				<researchProjectDefs>
+					<li>AdvancedFabrication</li>
+				</researchProjectDefs>
 			</li>
 		</thingAllowList>
 		<titheMinCount>1</titheMinCount>

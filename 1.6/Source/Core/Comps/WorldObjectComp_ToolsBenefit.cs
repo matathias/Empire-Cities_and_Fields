@@ -30,28 +30,6 @@ namespace FactionColonies.UrbanRural
         private static Dictionary<int, double> cityMultiplierCache = new Dictionary<int, double>();
         private static Dictionary<int, string> cityNameCache = new Dictionary<int, string>();
 
-        private static WorldSettlementDef cachedCityDef;
-        private static WorldSettlementDef CityDef
-        {
-            get
-            {
-                if (cachedCityDef == null)
-                    cachedCityDef = DefDatabase<WorldSettlementDef>.GetNamedSilentFail("WorldSettlementDef_City");
-                return cachedCityDef;
-            }
-        }
-
-        private static ResourceTypeDef cachedToolsDef;
-        private static ResourceTypeDef ToolsDef
-        {
-            get
-            {
-                if (cachedToolsDef == null)
-                    cachedToolsDef = DefDatabase<ResourceTypeDef>.GetNamedSilentFail("RTD_Tools");
-                return cachedToolsDef;
-            }
-        }
-
         /// <summary>
         /// Runs once per tax tick (called from Patch_ToolsTaxTick).
         /// For each city, counts nearby rurals, calculates fair share, consumes Tools from
@@ -59,14 +37,14 @@ namespace FactionColonies.UrbanRural
         /// </summary>
         public static void RecalculateAllCities(FactionFC faction)
         {
-            if (faction == null || Find.WorldGrid == null) return;
+            if (faction is null || Find.WorldGrid is null) return;
 
             cityMultiplierCache.Clear();
             cityNameCache.Clear();
 
-            WorldSettlementDef cityDef = CityDef;
-            ResourceTypeDef toolsDef = ToolsDef;
-            if (cityDef == null || toolsDef == null) return;
+            WorldSettlementDef cityDef = CFSettlementDefOf.WorldSettlementDef_City;
+            ResourceTypeDef toolsDef = CFResourceDefOf.RTD_Tools;
+            if (cityDef is null || toolsDef is null) return;
 
             float toolsRange = FCURSettings.toolsRange;
             float costPerRural = FCURSettings.toolsCostPerRural;
@@ -112,7 +90,7 @@ namespace FactionColonies.UrbanRural
                 if (!IsRuralSettlement(settlement)) continue;
 
                 WorldObjectComp_ToolsBenefit comp = settlement.GetComponent<WorldObjectComp_ToolsBenefit>();
-                if (comp == null) continue;
+                if (comp is null) continue;
 
                 int assignedCityTile = -1;
                 float bestDist = float.MaxValue;
@@ -129,9 +107,8 @@ namespace FactionColonies.UrbanRural
 
                 // Update the comp's cached multiplier.
                 double oldMultiplier = comp.cachedMultiplier;
-                double mult;
                 string cityName;
-                if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out mult))
+                if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
                 {
                     comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
                     cityNameCache.TryGetValue(assignedCityTile, out cityName);
@@ -150,8 +127,8 @@ namespace FactionColonies.UrbanRural
 
         private static bool IsRuralSettlement(WorldSettlementFC settlement)
         {
-            WorldSettlementDef ruralDef = DefDatabase<WorldSettlementDef>.GetNamedSilentFail("WorldSettlementDef_Rural");
-            if (ruralDef == null) return false;
+            WorldSettlementDef ruralDef = CFSettlementDefOf.WorldSettlementDef_Rural;
+            if (ruralDef is null) return false;
 
             WorldSettlementDef def = settlement.settlementDef;
             while (def != null)
@@ -165,10 +142,10 @@ namespace FactionColonies.UrbanRural
         private static double GetToolsStockpile(WorldSettlementFC settlement, ResourceTypeDef toolsDef)
         {
             var comp = settlement.GetComponent<SupplyChain.WorldObjectComp_SupplyChain>();
-            if (comp == null) return 0;
+            if (comp is null) return 0;
 
             var stockpile = comp.GetStockpile();
-            if (stockpile == null) return 0;
+            if (stockpile is null) return 0;
 
             return stockpile.GetAmount(toolsDef);
         }
@@ -176,13 +153,12 @@ namespace FactionColonies.UrbanRural
         private static void ConsumeFromStockpile(WorldSettlementFC settlement, ResourceTypeDef toolsDef, double amount)
         {
             var comp = settlement.GetComponent<SupplyChain.WorldObjectComp_SupplyChain>();
-            if (comp == null) return;
+            if (comp is null) return;
 
             var stockpile = comp.GetStockpile();
-            if (stockpile == null) return;
+            if (stockpile is null) return;
 
-            double drawn;
-            stockpile.TryDraw(toolsDef, amount, out drawn);
+            stockpile.TryDraw(toolsDef, amount, out _);
         }
 
         // IResourceProductionModifier
@@ -203,7 +179,7 @@ namespace FactionColonies.UrbanRural
 
         public string GetResourceMultiplierDesc(ResourceFC resource)
         {
-            if (cachedMultiplier <= 1.0 || cachedCityName == null)
+            if (cachedMultiplier <= 1.0 || cachedCityName is null)
                 return null;
 
             double pct = (cachedMultiplier - 1.0) * 100.0;

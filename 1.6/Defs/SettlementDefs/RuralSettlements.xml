@@ -23,7 +23,8 @@
 		<label>farming hamlet</label>
 		<description>A small rural settlement specializing in food production. Benefits from fertile biomes.</description>
 		<available>true</available>
-		<accentColor>(0.30, 0.50, 0.23)</accentColor>
+		<!-- original: 0.3, 0.5, 0.23 -->
+		<accentColor>(0.45, 0.75, 0.34)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -46,7 +47,8 @@
 		<label>mining camp</label>
 		<description>A small rural settlement specializing in ore extraction. Benefits from mountainous biomes.</description>
 		<available>true</available>
-		<accentColor>(0.33, 0.36, 0.40)</accentColor>
+		<!-- original: 0.33, 0.36, 0.4 -->
+		<accentColor>(0.49, 0.54, 0.60)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -69,7 +71,8 @@
 		<label>lumber camp</label>
 		<description>A small rural settlement specializing in timber harvesting. Benefits from forested biomes.</description>
 		<available>true</available>
-		<accentColor>(0.36, 0.26, 0.16)</accentColor>
+		<!-- original: 0.36, 0.26, 0.16 -->
+		<accentColor>(0.54, 0.39, 0.24)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -97,7 +100,8 @@
 		<label>ranch</label>
 		<description>A small rural settlement specializing in animal husbandry. Benefits from grassland biomes.</description>
 		<available>true</available>
-		<accentColor>(0.49, 0.39, 0.23)</accentColor>
+		<!-- original: 0.49, 0.39, 0.23 -->
+		<accentColor>(0.74, 0.59, 0.34)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -120,7 +124,8 @@
 		<label>chemfuel refinery</label>
 		<description>A rural settlement specializing in chemfuel extraction and processing. Requires chemfuel extraction research.</description>
 		<available>true</available>
-		<accentColor>(0.46, 0.30, 0.40)</accentColor>
+		<!-- original: 0.46, 0.3, 0.4 -->
+		<accentColor>(0.69, 0.45, 0.60)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -146,7 +151,8 @@
 		<label>herbalist camp</label>
 		<description>A rural settlement specializing in growing and preparing medicinal herbs.</description>
 		<available>true</available>
-		<accentColor>(0.23, 0.46, 0.46)</accentColor>
+		<!-- original: 0.23, 0.46, 0.46 -->
+		<accentColor>(0.34, 0.69, 0.69)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>
@@ -166,7 +172,8 @@
 		<label>power plant</label>
 		<description>A rural settlement dedicated to power generation. Requires electricity research.</description>
 		<available>true</available>
-		<accentColor>(0.52, 0.49, 0.20)</accentColor>
+		<!-- original: 0.52, 0.49, 0.20 -->
+		<accentColor>(0.78, 0.74, 0.30)</accentColor>
 		<baseSettlementType>WorldSettlementDef_Rural</baseSettlementType>
 		<defaultResources>false</defaultResources>
 		<resources>

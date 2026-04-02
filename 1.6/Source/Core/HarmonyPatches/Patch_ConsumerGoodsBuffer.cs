@@ -15,36 +15,19 @@ namespace FactionColonies.UrbanRural
     [HarmonyPatch("AddStatModifiers")]
     public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
     {
-        private static FCStatDef happinessLostBase;
-        private static FCStatDef unrestGainedBase;
-        private static ResourceTypeDef consumerGoodsDef;
-        private static bool defsResolved;
-
-        private static void ResolveDefs()
-        {
-            if (defsResolved) return;
-            happinessLostBase = DefDatabase<FCStatDef>.GetNamedSilentFail("happinessLostBase");
-            unrestGainedBase = DefDatabase<FCStatDef>.GetNamedSilentFail("unrestGainedBase");
-            consumerGoodsDef = DefDatabase<ResourceTypeDef>.GetNamedSilentFail("RTD_ConsumerGoods");
-            defsResolved = true;
-        }
-
         [HarmonyPostfix]
         public static void Postfix(WorldSettlementFC __instance, List<FCStatModifier> mods, string sourceId, string sourceLabel)
         {
             if (mods == null || string.IsNullOrEmpty(sourceId)) return;
             if (!sourceId.StartsWith("event_")) return;
 
-            ResolveDefs();
-            if (happinessLostBase == null || unrestGainedBase == null || consumerGoodsDef == null) return;
-
             // Sum penalty magnitude from the event's stat modifiers.
             double magnitude = 0;
             foreach (FCStatModifier mod in mods)
             {
-                if (mod.stat == happinessLostBase && mod.value > 0)
+                if (mod.stat == FCStatDefOf.happinessLostBase && mod.value > 0)
                     magnitude += mod.value;
-                else if (mod.stat == unrestGainedBase && mod.value > 0)
+                else if (mod.stat == FCStatDefOf.unrestGainedBase && mod.value > 0)
                     magnitude += mod.value;
             }
 
@@ -66,8 +49,8 @@ namespace FactionColonies.UrbanRural
             List<FCStatModifier> mitigationMods = new List<FCStatModifier>();
             foreach (FCStatModifier mod in mods)
             {
-                bool isNegative = (mod.stat == happinessLostBase && mod.value > 0)
-                               || (mod.stat == unrestGainedBase && mod.value > 0);
+                bool isNegative = (mod.stat == FCStatDefOf.happinessLostBase && mod.value > 0)
+                               || (mod.stat == FCStatDefOf.unrestGainedBase && mod.value > 0);
                 if (isNegative)
                 {
                     mitigationMods.Add(new FCStatModifier
@@ -102,7 +85,7 @@ namespace FactionColonies.UrbanRural
             IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
             if (stockpile == null) return 0;
 
-            return stockpile.GetAmount(consumerGoodsDef);
+            return stockpile.GetAmount(CFResourceDefOf.RTD_ConsumerGoods);
         }
 
         private static void ConsumeConsumerGoods(WorldSettlementFC settlement, double amount)
@@ -110,7 +93,7 @@ namespace FactionColonies.UrbanRural
             IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
             if (stockpile == null) return;
 
-            stockpile.TryDraw(consumerGoodsDef, amount, out double drawn);
+            stockpile.TryDraw(CFResourceDefOf.RTD_ConsumerGoods, amount, out double drawn);
 
             if (drawn != amount)
             {
