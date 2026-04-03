@@ -10,8 +10,9 @@
 		<prerequisites>
 			<li>BiofuelRefining</li>
 		</prerequisites>
-		<researchViewX>10</researchViewX>
-		<researchViewY>4</researchViewY>
+		<tab>FCEmpire</tab>
+		<researchViewX>1</researchViewX>
+		<researchViewY>2</researchViewY>
 	</ResearchProjectDef>
 
 </Defs>
