@@ -23,6 +23,10 @@
 			<displayName>Empire Refactored: Routes &amp; Resources</displayName>
 		</li>
 	</modDependencies>
+	<loadAfter>
+		<li>Matathias.Empire</li>
+		<li>Matathias.Empire.SupplyChain</li>
+	</loadAfter>
 
 	<description>A sub-mod for Empire adding urban and rural settlement types. Requires Empire Refactored: Routes &amp; Resources for resource logistics.</description>
 
