@@ -2,7 +2,8 @@
 
 namespace FactionColonies.UrbanRural
 {
-    public static class CFSettlementDefOf
+    [DefOf]
+    public class CFSettlementDefOf
     {
         public static WorldSettlementDef WorldSettlementDef_City;
         public static WorldSettlementDef WorldSettlementDef_Rural;
@@ -20,7 +21,8 @@ namespace FactionColonies.UrbanRural
         }
     }
 
-    public static class CFResourceDefOf
+    [DefOf]
+    public class CFResourceDefOf
     {
         public static ResourceTypeDef RTD_ConsumerGoods;
         public static ResourceTypeDef RTD_Tools;
