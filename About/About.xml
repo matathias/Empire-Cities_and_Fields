@@ -29,5 +29,6 @@
 	</loadAfter>
 
 	<description>A sub-mod for Empire adding urban and rural settlement types. Requires Empire Refactored: Routes &amp; Resources for resource logistics.</description>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/Icons/EmpireLogo</modIconPath>
 
 </ModMetaData>
