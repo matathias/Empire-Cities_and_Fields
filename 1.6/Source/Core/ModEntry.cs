@@ -1,4 +1,5 @@
 using System.Reflection;
+using FactionColonies;
 using HarmonyLib;
 using UnityEngine;
 using Verse;
@@ -77,6 +78,11 @@ namespace FactionColonies.UrbanRural
             ls.Label("UR_SettingsToolsBonus".Translate((toolsProductionBonus * 100f).ToString("F0")));
             toolsProductionBonus = ls.Slider(toolsProductionBonus, 0.05f, 0.30f);
 
+
+            ls.Gap(12f);
+            if (ls.ButtonText("UR_OpenPatchNotes".Translate()))
+                Find.WindowStack.Add(new PatchNotesDisplayWindow("matathias.empire.urbanrural", "UR_PatchTitle".Translate()));
+
             ls.End();
         }
     }
@@ -89,6 +95,16 @@ namespace FactionColonies.UrbanRural
         {
             settings = GetSettings<FCURSettings>();
             new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
+            
+            string modVersion = content?.ModMetaData?.ModVersion;
+            if (modVersion.NullOrEmpty())
+            {
+                LogUR.MessageForce("Did not load a mod version");
+            }
+            else
+            {
+                LogUR.MessageForce($"v{modVersion}");
+            }
         }
 
         public override string SettingsCategory() => "UR_SettingsCategory".Translate();

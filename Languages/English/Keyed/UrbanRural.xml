@@ -43,4 +43,7 @@
     <!-- Notifications -->
     <UR_ConsumerGoodsConsumed>{0} Consumer Goods consumed at {1} (-{2}% impact from {3})</UR_ConsumerGoodsConsumed>
 
+    <UR_PatchTitle>Patch Notes: Cities &amp; Fields</UR_PatchTitle>
+    <UR_OpenPatchNotes>Open Patch Notes</UR_OpenPatchNotes>
+
 </LanguageData>
