@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_0</defName>
+		<label>Settlement cost update</label>
+		<description>Updates the new settlements to use the new distance-based cost calculations from Routes &amp; Resources.</description>
+		<releaseDate>2026-04-05</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>SettlementTypeExtension_Urban and SettlementTypeExtension_Rural now extend SCSettlementTypeExtension instead of SettlementTypeExtension</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+</Defs>

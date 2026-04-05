@@ -1,3 +1,5 @@
+using FactionColonies.SupplyChain;
+
 namespace FactionColonies.UrbanRural
 {
     /// <summary>
@@ -8,7 +10,7 @@ namespace FactionColonies.UrbanRural
     ///  - 4 slots at level 4
     ///  - 8 slots at level 8
     /// </summary>
-    public class SettlementTypeExtension_Rural : SettlementTypeExtension
+    public class SettlementTypeExtension_Rural : SCSettlementTypeExtension
     {
         public override int GetBuildingSlots(int level, int maxCount)
         {
