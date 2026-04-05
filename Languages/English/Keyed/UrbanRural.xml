@@ -43,6 +43,16 @@
     <!-- Notifications -->
     <UR_ConsumerGoodsConsumed>{0} Consumer Goods consumed at {1} (-{2}% impact from {3})</UR_ConsumerGoodsConsumed>
 
+    <!-- Town Titles: Consumer Goods -->
+    <FCTitle_RTD_ConsumerGoods_1>Trade Village</FCTitle_RTD_ConsumerGoods_1>
+    <FCTitle_RTD_ConsumerGoods_2>Market Town</FCTitle_RTD_ConsumerGoods_2>
+    <FCTitle_RTD_ConsumerGoods_3>Commercial Hub</FCTitle_RTD_ConsumerGoods_3>
+
+    <!-- Town Titles: Tools & Machinery -->
+    <FCTitle_RTD_Tools_1>Workshop Hamlet</FCTitle_RTD_Tools_1>
+    <FCTitle_RTD_Tools_2>Industrial Town</FCTitle_RTD_Tools_2>
+    <FCTitle_RTD_Tools_3>Manufacturing Center</FCTitle_RTD_Tools_3>
+
     <UR_PatchTitle>Patch Notes: Cities &amp; Fields</UR_PatchTitle>
     <UR_OpenPatchNotes>Open Patch Notes</UR_OpenPatchNotes>
 
