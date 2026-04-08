@@ -107,11 +107,10 @@ namespace FactionColonies.UrbanRural
 
                 // Update the comp's cached multiplier.
                 double oldMultiplier = comp.cachedMultiplier;
-                string cityName;
                 if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
                 {
                     comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
-                    cityNameCache.TryGetValue(assignedCityTile, out cityName);
+                    cityNameCache.TryGetValue(assignedCityTile, out string cityName);
                     comp.cachedCityName = cityName;
                 }
                 else
