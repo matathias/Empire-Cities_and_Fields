@@ -8,7 +8,9 @@
 		<defName>UR_Need_UrbanFood</defName>
 		<label>urban food demand</label>
 		<description>Cities require more food to sustain their larger, denser populations.</description>
-		<resource>RTD_Food</resource>
+		<resources>
+			<li><resource>RTD_Food</resource></li>
+		</resources>
 		<baseAmount>0.3</baseAmount>
 		<scaling>PerWorker</scaling>
 		<allowedSettlementTypes>

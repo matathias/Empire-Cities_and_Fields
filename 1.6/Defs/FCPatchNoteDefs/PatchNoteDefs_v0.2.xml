@@ -27,4 +27,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_2</defName>
+		<label>City Need Update</label>
+		<description>Updates the city need to use Routes &amp; Resources updated needDef</description>
+		<releaseDate>2026-04-14</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Updates the city need to use Routes &amp; Resources&apos; updated needDef</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
