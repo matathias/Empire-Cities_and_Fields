@@ -41,4 +41,25 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_3</defName>
+		<label>Founding Costs</label>
+		<description>Adds specialized founding costs for each settlement type.</description>
+		<releaseDate>2026-04-14</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>City: 12 food, 9 logging, 9 mining</li>
+		<li>Farm: 2 food, 9 logging, 4 mining</li>
+		<li>Mining Camp: 6 food, 9 logging</li>
+		<li>Lumber Camp: 8 food, 7 mining</li>
+		<li>Ranch: 5 food, 8 logging, 2 mining</li>
+		<li>Refinery: 4 food, 6 logging, 10 mining, 2 research</li>
+		<li>Herbalist Camp: 5 food, 4 logging, 3 mining, 3 research</li>
+		<li>Power Plant: 3 food, 4 logging, 6 mining, 2 chemfuel</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>

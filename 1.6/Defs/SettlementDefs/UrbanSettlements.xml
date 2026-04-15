@@ -28,7 +28,13 @@
 		</resources>
 		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Urban" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Urban">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>12</amount></li>
+					<li><resource>RTD_Logging</resource><amount>9</amount></li>
+					<li><resource>RTD_Mining</resource><amount>9</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 

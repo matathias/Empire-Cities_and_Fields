@@ -37,7 +37,13 @@
 			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>2</amount></li>
+					<li><resource>RTD_Logging</resource><amount>9</amount></li>
+					<li><resource>RTD_Mining</resource><amount>4</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -61,7 +67,12 @@
 			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>6</amount></li>
+					<li><resource>RTD_Logging</resource><amount>9</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -90,7 +101,12 @@
 			<li>TropicalRainforest</li>
 		</allowedBiomes>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_LumberCamp">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>8</amount></li>
+					<li><resource>RTD_Mining</resource><amount>7</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -114,7 +130,13 @@
 			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>5</amount></li>
+					<li><resource>RTD_Logging</resource><amount>8</amount></li>
+					<li><resource>RTD_Mining</resource><amount>2</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -141,7 +163,14 @@
 			<li>UR_ChemfuelExtraction</li>
 		</researchProjects>
 		<modExtensions>
-			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery" />
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Refinery">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>4</amount></li>
+					<li><resource>RTD_Logging</resource><amount>6</amount></li>
+					<li><resource>RTD_Mining</resource><amount>10</amount></li>
+					<li><resource>RTD_Research</resource><amount>2</amount></li>
+				</foundingResourceCosts>
+			</li>
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
@@ -164,6 +193,16 @@
 			<li><resourceDef>RTD_Chemfuel</resourceDef><multiplier>0.5</multiplier></li>
 			<li><resourceDef>RTD_Power</resourceDef><multiplier>0.5</multiplier></li>
 		</resources>
+		<modExtensions>
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>5</amount></li>
+					<li><resource>RTD_Logging</resource><amount>4</amount></li>
+					<li><resource>RTD_Mining</resource><amount>3</amount></li>
+					<li><resource>RTD_Research</resource><amount>3</amount></li>
+				</foundingResourceCosts>
+			</li>
+		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 	<!-- ═══ Power Plant ═══ -->
@@ -188,6 +227,16 @@
 		<researchProjects>
 			<li>Electricity</li>
 		</researchProjects>
+		<modExtensions>
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Rural">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>3</amount></li>
+					<li><resource>RTD_Logging</resource><amount>4</amount></li>
+					<li><resource>RTD_Mining</resource><amount>6</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>2</amount></li>
+				</foundingResourceCosts>
+			</li>
+		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
 </Defs>
