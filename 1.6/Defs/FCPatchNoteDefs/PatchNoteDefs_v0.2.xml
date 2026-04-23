@@ -62,4 +62,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_4</defName>
+		<label>Icon Fix</label>
+		<description>Fixes a typo for the Manufactory icon.</description>
+		<releaseDate>2026-04-22</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>UR_Manufatury -&gt; UR_Manufactory</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
