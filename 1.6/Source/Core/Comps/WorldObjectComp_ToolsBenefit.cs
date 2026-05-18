@@ -18,7 +18,7 @@ namespace FactionColonies.UrbanRural
     /// Attached to rural settlement defs. Checks nearby cities for Tools stockpile and applies
     /// a production multiplier. Tools are consumed from the city each tax tick.
     /// Uses a static coordinator so multiple rurals near the same city split Tools fairly.
-    /// Triggered by Patch_ToolsTaxTick as a Harmony prefix on FactionFC.AddTax().
+    /// Triggered by Patch_ToolsTaxTick as a Harmony prefix on TaxLedger.AddTax().
     /// </summary>
     public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProductionModifier
     {

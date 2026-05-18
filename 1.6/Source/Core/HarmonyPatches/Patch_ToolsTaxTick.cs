@@ -6,14 +6,14 @@ namespace FactionColonies.UrbanRural
     /// Triggers Tools distribution from city stockpiles to nearby rurals once per tax tick,
     /// before tax calculations use the production multipliers.
     /// </summary>
-    [HarmonyPatch(typeof(FactionFC))]
+    [HarmonyPatch(typeof(TaxLedger))]
     [HarmonyPatch("AddTax")]
     public static class Patch_AddTax_ToolsDistribution
     {
         [HarmonyPrefix]
-        public static void Prefix(FactionFC __instance)
+        public static void Prefix(FactionFC faction)
         {
-            WorldObjectComp_ToolsBenefit.RecalculateAllCities(__instance);
+            WorldObjectComp_ToolsBenefit.RecalculateAllCities(faction);
         }
     }
 }
