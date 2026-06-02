@@ -90,4 +90,19 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_6</defName>
+		<label>Event Updates</label>
+		<description>Removes a handful of events that are redundant or that really need a more robust/specialized implementation to make sense. The remaining events are edited and cleaned up.</description>
+		<releaseDate>2026-06-01</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Remove a handful of redundant or inadequate events</li>
+		<li>Update and edit the rest</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
