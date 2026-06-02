@@ -1,79 +1,83 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_industrialAccident</defName>
-		<label>Industrial Accident</label>
-		<desc>An explosion at the workshop has injured workers and damaged equipment. Production grinds to a halt as the settlement reels.</desc>
-		<category>EC_Urban</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>3</weight>
-		<cooldownTicks>900000</cooldownTicks>
-		<minDaysSinceFounded>10</minDaysSinceFounded>
-		<minTechLevel>Industrial</minTechLevel>
-		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<allowedSettlementTypes>
-			<li>WorldSettlementDef_City</li>
-		</allowedSettlementTypes>
-		<activateAtStart>true</activateAtStart>
-		<options>
-			<li>ur_accident_opt1</li>
-			<li>ur_accident_opt2</li>
-		</options>
-		<optionDescription>A workshop explosion has left workers injured and equipment in ruins. How do you respond?</optionDescription>
-		<incompatibleEvents>
-			<li>ur_industrialAccident</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_industrialAccident</defName>
+    <label>Industrial Accident</label>
+    <desc>An explosion at a workshop has injured workers and damaged equipment. Production grinds to a halt as the settlement reels. How do you respond?</desc>
+    <category>EC_Urban</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>900000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>3</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <allowedSettlementTypes>
+      <li>WorldSettlementDef_City</li>
+    </allowedSettlementTypes>
+    <minTechLevel>Industrial</minTechLevel>
+    <incompatibleEvents>
+      <li>ur_industrialAccident</li>
+    </incompatibleEvents>
+    <options>
+      <li>ur_accident_opt1</li>
+      <li>ur_accident_opt2</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Industrial Accident Options -->
+  <FactionColonies.FCOptionDef>
+    <defName>ur_accident_opt1</defName>
+    <label>Invest in safety improvements. Rebuild better than before.</label>
+    <parentEvent>ur_industrialAccident</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>600</silverCost>
+    <successEvent>ur_accident_safety</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_accident_opt1</defName>
-		<label>Invest in safety improvements. Rebuild better than before.</label>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>600</silverCost>
-		<parentEvent>ur_industrialAccident</parentEvent>
-		<successEvent>ur_accident_safety</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>ur_accident_opt2</defName>
+    <label>Push through. Get production back on line immediately.</label>
+    <parentEvent>ur_industrialAccident</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>ur_accident_pushed</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_accident_opt2</defName>
-		<label>Push through. Get production back on line immediately.</label>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<parentEvent>ur_industrialAccident</parentEvent>
-		<successEvent>ur_accident_pushed</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_accident_safety</defName>
+    <label>Safety Improvements</label>
+    <desc>The workshop has been rebuilt with improved safety measures. Workers are more confident, and production has actually improved.</desc>
+    <category>EC_Urban</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>workerProductionMultiplier</stat>
+        <value>1.05</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Industrial Accident Outcomes -->
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_accident_safety</defName>
-		<label>Safety Improvements</label>
-		<desc>The workshop has been rebuilt with improved safety measures. Workers are more confident, and production has actually improved.</desc>
-		<category>EC_Urban</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>workerProductionMultiplier</stat><value>0.05</value></li>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_accident_pushed</defName>
-		<label>Unsafe Conditions</label>
-		<desc>Workers are forced back to the damaged workshop. Morale plummets as they toil among the wreckage, fearful of another collapse.</desc>
-		<category>EC_Urban</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<prosperityLost>5</prosperityLost>
-		<statModifiers>
-			<li><stat>happinessLostBase</stat><value>3</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_accident_pushed</defName>
+    <label>Unsafe Conditions</label>
+    <desc>Workers are forced back to the damaged workshop. Morale plummets as they toil among the wreckage, fearful of another collapse.</desc>
+    <category>EC_Urban</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>3</value>
+      </li>
+      <li>
+        <stat>prosperityLostBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <prosperityLost>5</prosperityLost>
+  </FactionColonies.FCEventDef>
 
 </Defs>

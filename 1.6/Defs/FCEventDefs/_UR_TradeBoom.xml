@@ -1,34 +1,38 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_tradeBoom</defName>
-		<label>Trade Boom</label>
-		<desc>Word of the city's prosperity has spread far and wide. Traders arrive from distant lands, and the surrounding settlements benefit from the influx of commerce.</desc>
-		<category>EC_FactionWide</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<timeTillTriggerMax>900000</timeTillTriggerMax>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>6</weight>
-		<cooldownTicks>900000</cooldownTicks>
-		<minDaysSinceFounded>15</minDaysSinceFounded>
-		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<allowedSettlementTypes>
-			<li>WorldSettlementDef_City</li>
-		</allowedSettlementTypes>
-		<minimumProsperity>50</minimumProsperity>
-		<useProximity>true</useProximity>
-		<proximityFalloff>10</proximityFalloff>
-		<statModifiers>
-			<li><stat>prosperityGainedBase</stat><value>3</value></li>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<randomThingValue>500</randomThingValue>
-		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
-		<incompatibleEvents>
-			<li>ur_tradeBoom</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_tradeBoom</defName>
+    <label>Trade Boom</label>
+    <desc>Word of the city's prosperity has spread far and wide. Traders arrive from distant lands, and the surrounding settlements benefit from the influx of commerce.</desc>
+    <category>EC_FactionWide</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <timeTillTriggerMax>900000</timeTillTriggerMax>
+    <cooldownTicks>900000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>6</weight>
+    <minimumProsperity>85</minimumProsperity>
+    <minDaysSinceFounded>15</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+    <proximityFalloff>10</proximityFalloff>
+    <allowedSettlementTypes>
+      <li>WorldSettlementDef_City</li>
+    </allowedSettlementTypes>
+    <incompatibleEvents>
+      <li>ur_tradeBoom</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>prosperityGainedBase</stat>
+        <value>3</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <randomThingValue>1000</randomThingValue>
+    <randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+  </FactionColonies.FCEventDef>
 
 </Defs>

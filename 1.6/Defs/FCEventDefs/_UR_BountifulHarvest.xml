@@ -1,38 +1,43 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_bountifulHarvest</defName>
-		<label>Bountiful Harvest</label>
-		<desc>Perfect weather and fertile soil have produced an exceptional harvest. Granaries overflow and workers celebrate a season of plenty.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<timeTillTriggerMax>450000</timeTillTriggerMax>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>10</weight>
-		<cooldownTicks>600000</cooldownTicks>
-		<minDaysSinceFounded>10</minDaysSinceFounded>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<requiredResource>RTD_Food</requiredResource>
-		<applicableBiomes>
-			<li>TemperateForest</li>
-			<li>TemperateSwamp</li>
-			<li>TropicalRainforest</li>
-			<li>TropicalSwamp</li>
-			<li>AridShrubland</li>
-		</applicableBiomes>
-		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>0.25</value></li>
-			<li><stat>happinessGainedBase</stat><value>1</value></li>
-		</statModifiers>
-		<randomThingValue>200</randomThingValue>
-		<randomThingRewardDef>RERD_Food</randomThingRewardDef>
-		<incompatibleEvents>
-			<li>ur_bountifulHarvest</li>
-			<li>ur_cropBlight</li>
-			<li>ur_drought</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_bountifulHarvest</defName>
+    <label>Bountiful Harvest</label>
+    <desc>Perfect weather and fertile soil have produced an exceptional harvest. Granaries overflow and workers celebrate a season of plenty.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <timeTillTriggerMax>450000</timeTillTriggerMax>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>10</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <applicableBiomes>
+      <li>TemperateForest</li>
+      <li>TemperateSwamp</li>
+      <li>TropicalRainforest</li>
+      <li>TropicalSwamp</li>
+      <li>AridShrubland</li>
+    </applicableBiomes>
+    <requiredResource>RTD_Food</requiredResource>
+    <incompatibleEvents>
+      <li>ur_bountifulHarvest</li>
+      <li>ur_cropBlight</li>
+      <li>ur_drought</li>
+    </incompatibleEvents>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionMultiplier</stat>
+        <value>1.1</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+    <randomThingValue>300</randomThingValue>
+    <randomThingRewardDef>RERD_Food</randomThingRewardDef>
+  </FactionColonies.FCEventDef>
 
 </Defs>

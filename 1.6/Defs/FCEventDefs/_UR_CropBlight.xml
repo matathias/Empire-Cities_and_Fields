@@ -1,112 +1,116 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_cropBlight</defName>
-		<label>Crop Blight</label>
-		<desc>A mysterious blight has struck the fields. Crops wither and blacken before they can be harvested, and a foul smell hangs over the farmland.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>8</weight>
-		<cooldownTicks>600000</cooldownTicks>
-		<minDaysSinceFounded>10</minDaysSinceFounded>
-		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<requiredResource>RTD_Food</requiredResource>
-		<activateAtStart>true</activateAtStart>
-		<options>
-			<li>ur_blight_opt1</li>
-			<li>ur_blight_opt2</li>
-			<li>ur_blight_opt3</li>
-		</options>
-		<optionDescription>A blight is sweeping through the crops. Fields that were green and full yesterday are now black and rotting. How do you respond?</optionDescription>
-		<incompatibleEvents>
-			<li>ur_cropBlight</li>
-			<li>ur_bountifulHarvest</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_cropBlight</defName>
+    <label>Crop Blight</label>
+    <desc>A blight is sweeping through the crops. Fields that were green and full yesterday are now black and rotting. How do you respond?</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>600000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>8</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+    <requiredResource>RTD_Food</requiredResource>
+    <incompatibleEvents>
+      <li>ur_cropBlight</li>
+      <li>ur_bountifulHarvest</li>
+    </incompatibleEvents>
+    <options>
+      <li>ur_blight_opt1</li>
+      <li>ur_blight_opt2</li>
+      <li>ur_blight_opt3</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Crop Blight Options -->
+  <FactionColonies.FCOptionDef>
+    <defName>ur_blight_opt1</defName>
+    <label>Burn the affected fields and replant from scratch.</label>
+    <parentEvent>ur_cropBlight</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>300</silverCost>
+    <successEvent>ur_blight_burned</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_blight_opt1</defName>
-		<label>Burn the affected fields and replant from scratch.</label>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>300</silverCost>
-		<parentEvent>ur_cropBlight</parentEvent>
-		<successEvent>ur_blight_burned</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>ur_blight_opt2</defName>
+    <label>Attempt to salvage what you can. It's risky, but we can't afford to lose everything.</label>
+    <parentEvent>ur_cropBlight</parentEvent>
+    <baseChanceOfSuccess>50</baseChanceOfSuccess>
+    <successEvent>ur_blight_salvaged</successEvent>
+    <failEvent>ur_blight_spread</failEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_blight_opt2</defName>
-		<label>Attempt to salvage what you can. It's risky, but we can't afford to lose everything.</label>
-		<baseChanceOfSuccess>50</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<parentEvent>ur_cropBlight</parentEvent>
-		<successEvent>ur_blight_salvaged</successEvent>
-		<failEvent>ur_blight_spread</failEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>ur_blight_opt3</defName>
+    <label>Our researchers may know how to stop this.</label>
+    <parentEvent>ur_cropBlight</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <silverCost>1500</silverCost>
+    <successEvent>ur_blight_aided</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_blight_opt3</defName>
-		<label>Request agricultural aid from the faction. Experts may know how to stop this.</label>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>1500</silverCost>
-		<parentEvent>ur_cropBlight</parentEvent>
-		<successEvent>ur_blight_aided</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_blight_burned</defName>
+    <label>Fields Cleared</label>
+    <desc>The infected crops have been burned to ash. The loss is painful, but the blight is contained. New seedlings will take time to grow.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionMultiplier</stat>
+        <value>-0.3</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Crop Blight Outcomes -->
+  <FactionColonies.FCEventDef>
+    <defName>ur_blight_salvaged</defName>
+    <label>Partial Salvage</label>
+    <desc>Workers managed to save a portion of the harvest. It's not a good season, but it could have been far worse.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionMultiplier</stat>
+        <value>-0.15</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_blight_burned</defName>
-		<label>Fields Cleared</label>
-		<desc>The infected crops have been burned to ash. The loss is painful, but the blight is contained. New seedlings will take time to grow.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.3</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_blight_spread</defName>
+    <label>Blight Spreads</label>
+    <desc>The salvage attempt failed catastrophically. Workers inadvertently spread the blight to healthy fields. The entire harvest is lost.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionMultiplier</stat>
+        <value>-0.5</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+    <prosperityLost>5</prosperityLost>
+  </FactionColonies.FCEventDef>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_blight_salvaged</defName>
-		<label>Partial Salvage</label>
-		<desc>Workers managed to save a portion of the harvest. It's not a good season, but it could have been far worse.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.15</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_blight_spread</defName>
-		<label>Blight Spreads</label>
-		<desc>The salvage attempt failed catastrophically. Workers inadvertently spread the blight to healthy fields. The entire harvest is lost.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<prosperityLost>5</prosperityLost>
-		<statModifiers>
-			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.5</value></li>
-			<li><stat>happinessLostBase</stat><value>2</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_blight_aided</defName>
-		<label>Expert Intervention</label>
-		<desc>Agricultural experts arrived and identified the blight. With targeted treatment, much of the crop was saved and protocols are in place to prevent recurrence.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>RTD_Food_ProductionAdditive</stat><value>1</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_blight_aided</defName>
+    <label>Expert Intervention</label>
+    <desc>Agricultural experts quickly arrive and identify the blight. With targeted treatment, much of the crop is saved, and protocols are put in place to prevent recurrence.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Food_ProductionAdditive</stat>
+        <value>1</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>

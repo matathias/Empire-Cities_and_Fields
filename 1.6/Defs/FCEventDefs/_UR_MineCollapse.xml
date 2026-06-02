@@ -1,92 +1,100 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_mineCollapse</defName>
-		<label>Mine Collapse</label>
-		<desc>A tunnel has collapsed deep in the mines. Workers are trapped beneath tons of rock, and the settlement holds its breath.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>0</timeTillTrigger>
-		<isRandomEvent>true</isRandomEvent>
-		<weight>3</weight>
-		<cooldownTicks>900000</cooldownTicks>
-		<minDaysSinceFounded>10</minDaysSinceFounded>
-		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<requiredResource>RTD_Mining</requiredResource>
-		<activateAtStart>true</activateAtStart>
-		<options>
-			<li>ur_collapse_opt1</li>
-			<li>ur_collapse_opt2</li>
-		</options>
-		<optionDescription>A mine shaft has collapsed, trapping workers underground. Time is running out. What are your orders?</optionDescription>
-		<incompatibleEvents>
-			<li>ur_mineCollapse</li>
-			<li>ur_veinDiscovery</li>
-		</incompatibleEvents>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_mineCollapse</defName>
+    <label>Mine Collapse</label>
+    <desc>A tunnel has collapsed deep in the mines. Workers are trapped beneath tons of rock, and time is running out. What are your orders?</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>0</timeTillTrigger>
+    <activateAtStart>true</activateAtStart>
+    <cooldownTicks>900000</cooldownTicks>
+    <isRandomEvent>true</isRandomEvent>
+    <weight>3</weight>
+    <minDaysSinceFounded>10</minDaysSinceFounded>
+    <rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+    <requiredResource>RTD_Mining</requiredResource>
+    <incompatibleEvents>
+      <li>ur_mineCollapse</li>
+      <li>ur_veinDiscovery</li>
+    </incompatibleEvents>
+    <options>
+      <li>ur_collapse_opt1</li>
+      <li>ur_collapse_opt2</li>
+    </options>
+  </FactionColonies.FCEventDef>
 
-	<!-- Mine Collapse Options -->
+  <FactionColonies.FCOptionDef>
+    <defName>ur_collapse_opt1</defName>
+    <label>Mount a rescue operation. Dig them out, whatever it takes.</label>
+    <parentEvent>ur_mineCollapse</parentEvent>
+    <baseChanceOfSuccess>70</baseChanceOfSuccess>
+    <silverCost>400</silverCost>
+    <successEvent>ur_collapse_rescued</successEvent>
+    <failEvent>ur_collapse_rescueFailed</failEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_collapse_opt1</defName>
-		<label>Mount a rescue operation. Dig them out, whatever it takes.</label>
-		<baseChanceOfSuccess>70</baseChanceOfSuccess>
-		<silverCost>400</silverCost>
-		<parentEvent>ur_mineCollapse</parentEvent>
-		<successEvent>ur_collapse_rescued</successEvent>
-		<failEvent>ur_collapse_rescueFailed</failEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCOptionDef>
+    <defName>ur_collapse_opt2</defName>
+    <label>Seal the collapsed section and redirect mining operations.</label>
+    <parentEvent>ur_mineCollapse</parentEvent>
+    <baseChanceOfSuccess>100</baseChanceOfSuccess>
+    <successEvent>ur_collapse_sealed</successEvent>
+  </FactionColonies.FCOptionDef>
 
-	<FactionColonies.FCOptionDef>
-		<defName>ur_collapse_opt2</defName>
-		<label>Seal the collapsed section and redirect mining operations.</label>
-		<baseChanceOfSuccess>100</baseChanceOfSuccess>
-		<silverCost>0</silverCost>
-		<parentEvent>ur_mineCollapse</parentEvent>
-		<successEvent>ur_collapse_sealed</successEvent>
-	</FactionColonies.FCOptionDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_collapse_rescued</defName>
+    <label>Miners Rescued</label>
+    <desc>After hours of desperate digging, the trapped miners are pulled to safety. The settlement erupts in cheers. Their loyalty to the empire is unshakable.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>loyaltyGainedBase</stat>
+        <value>4</value>
+      </li>
+      <li>
+        <stat>happinessGainedBase</stat>
+        <value>3</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
-	<!-- Mine Collapse Outcomes -->
+  <FactionColonies.FCEventDef>
+    <defName>ur_collapse_rescueFailed</defName>
+    <label>Rescue Failed</label>
+    <desc>The rescue attempt triggered a second collapse. More workers were lost. The settlement mourns its dead and questions the empire's competence.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>300000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>4</value>
+      </li>
+      <li>
+        <stat>loyaltyLostBase</stat>
+        <value>3</value>
+      </li>
+    </statModifiers>
+    <prosperityLost>8</prosperityLost>
+  </FactionColonies.FCEventDef>
 
-	<FactionColonies.FCEventDef>
-		<defName>ur_collapse_rescued</defName>
-		<label>Miners Rescued</label>
-		<desc>After hours of desperate digging, the trapped miners are pulled to safety. The settlement erupts in cheers. Their loyalty to the empire is unshakable.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>loyaltyGainedBase</stat><value>4</value></li>
-			<li><stat>happinessGainedBase</stat><value>3</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_collapse_rescueFailed</defName>
-		<label>Rescue Failed</label>
-		<desc>The rescue attempt triggered a second collapse. More workers were lost. The settlement mourns its dead and questions the empire's competence.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>300000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<prosperityLost>8</prosperityLost>
-		<statModifiers>
-			<li><stat>happinessLostBase</stat><value>4</value></li>
-			<li><stat>loyaltyLostBase</stat><value>3</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
-
-	<FactionColonies.FCEventDef>
-		<defName>ur_collapse_sealed</defName>
-		<label>Section Sealed</label>
-		<desc>The collapsed tunnels have been sealed off and operations rerouted. Production will be reduced while new shafts are dug. The trapped workers are mourned in silence.</desc>
-		<category>EC_Rural</category>
-		<timeTillTrigger>600000</timeTillTrigger>
-		<settlementsCarryOver>true</settlementsCarryOver>
-		<statModifiers>
-			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>-0.2</value></li>
-			<li><stat>happinessLostBase</stat><value>2</value></li>
-		</statModifiers>
-	</FactionColonies.FCEventDef>
+  <FactionColonies.FCEventDef>
+    <defName>ur_collapse_sealed</defName>
+    <label>Section Sealed</label>
+    <desc>The collapsed tunnels have been sealed off and operations rerouted. Production will be reduced while new shafts are dug. The trapped workers are mourned in silence.</desc>
+    <category>EC_Rural</category>
+    <timeTillTrigger>600000</timeTillTrigger>
+    <statModifiers>
+      <li>
+        <stat>RTD_Mining_ProductionMultiplier</stat>
+        <value>0.8</value>
+      </li>
+      <li>
+        <stat>happinessLostBase</stat>
+        <value>2</value>
+      </li>
+    </statModifiers>
+  </FactionColonies.FCEventDef>
 
 </Defs>
