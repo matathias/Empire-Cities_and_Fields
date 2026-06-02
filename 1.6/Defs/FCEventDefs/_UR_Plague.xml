@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague</defName>
+		<label>Epidemic</label>
+		<desc>A sickness sweeps through the densely packed city. Workers fall ill by the dozen, and fear grips the populace.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>5</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_plague_opt1</li>
+			<li>ur_plague_opt2</li>
+			<li>ur_plague_opt3</li>
+		</options>
+		<optionDescription>Disease is spreading rapidly through the city's crowded districts. The sick cry out for aid while the healthy flee indoors. What are your orders?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_plague</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Plague Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt1</defName>
+		<label>Quarantine the affected districts. Contain it at any cost.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_quarantined</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt2</defName>
+		<label>Distribute medicine freely to all citizens.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>800</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_treated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_plague_opt3</defName>
+		<label>Let it run its course. The strong will survive.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_plague</parentEvent>
+		<successEvent>ur_plague_untreated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Plague Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_quarantined</defName>
+		<label>District Quarantine</label>
+		<desc>Entire city blocks have been sealed off. The disease is contained, but productivity has cratered as workers are confined to their homes.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>-0.2</value></li>
+			<li><stat>prosperityLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_treated</defName>
+		<label>Medicine Distributed</label>
+		<desc>Healers and herbalists work around the clock, distributing remedies to the afflicted. The epidemic subsides quickly, and citizens are grateful for the intervention.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_plague_untreated</defName>
+		<label>Epidemic Unchecked</label>
+		<desc>Without intervention, the disease has ravaged the city. The death toll mounts, and survivors are bitter about the lack of response.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>10</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>4</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

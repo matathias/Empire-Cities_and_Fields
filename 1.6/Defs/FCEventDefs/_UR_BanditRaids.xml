@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaids</defName>
+		<label>Bandit Raids</label>
+		<desc>Bandits have been attacking caravans and supply wagons traveling to and from the settlement. Isolated rural settlements make tempting targets.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>12</weight>
+		<cooldownTicks>300000</cooldownTicks>
+		<minDaysSinceFounded>7</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~2</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_Rural</li>
+		</allowedSettlementTypes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_banditRaid_opt1</li>
+			<li>ur_banditRaid_opt2</li>
+			<li>ur_banditRaid_opt3</li>
+		</options>
+		<optionDescription>Bandits are raiding supply lines around the settlement. Caravans are being looted and traders refuse to make the journey. How do you deal with this?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_banditRaids</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Bandit Raids Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt1</defName>
+		<label>Hire mercenary escorts for the supply convoys.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_escorted</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt2</defName>
+		<label>Send a militia patrol to hunt the bandits down.</label>
+		<baseChanceOfSuccess>60</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_routed</successEvent>
+		<failEvent>ur_banditRaid_ambushed</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_banditRaid_opt3</defName>
+		<label>Fortify the settlement and wait them out.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<parentEvent>ur_banditRaids</parentEvent>
+		<successEvent>ur_banditRaid_fortified</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Bandit Raids Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_escorted</defName>
+		<label>Escorts Hired</label>
+		<desc>Armed escorts now ride alongside supply caravans. The bandits have retreated to easier pickings, and the settlement breathes easier.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_routed</defName>
+		<label>Bandits Routed</label>
+		<desc>The militia tracked the bandits to their camp and scattered them. Recovered goods were returned, and the roads are safer than they've been in months.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<randomThingValue>200</randomThingValue>
+		<randomThingRewardDef>RERD_Silver</randomThingRewardDef>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_ambushed</defName>
+		<label>Militia Ambushed</label>
+		<desc>The militia walked into an ambush. Survivors straggled back to the settlement, bloodied and humiliated. The bandits are more dangerous than ever.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>3</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_banditRaid_fortified</defName>
+		<label>Settlement Fortified</label>
+		<desc>Walls have been reinforced and guard posts established. The bandits still prowl the roads, but the settlement itself is secure. Production dips as workers split time between labor and watch duty.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>-0.1</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

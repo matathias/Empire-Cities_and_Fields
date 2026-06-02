@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predatorIncursion</defName>
+		<label>Predator Incursion</label>
+		<desc>Dangerous predators have been spotted prowling near the settlement, threatening livestock and workers venturing outside the perimeter.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>300000</cooldownTicks>
+		<minDaysSinceFounded>5</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Animals</requiredResource>
+		<restrictedBiomes>
+			<li>Desert</li>
+			<li>ExtremeDesert</li>
+			<li>IceSheet</li>
+			<li>SeaIce</li>
+		</restrictedBiomes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_predator_opt1</li>
+			<li>ur_predator_opt2</li>
+			<li>ur_predator_opt3</li>
+		</options>
+		<optionDescription>Predators are stalking the settlement's outskirts. Livestock pens are at risk and workers refuse to venture out alone. What do you do?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_predatorIncursion</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Predator Incursion Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt1</defName>
+		<label>Organize a hunting party. Turn the threat into an opportunity.</label>
+		<baseChanceOfSuccess>70</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_hunted</successEvent>
+		<failEvent>ur_predator_huntFailed</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt2</defName>
+		<label>Build defensive fences and pens. Keep the predators out.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>300</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_defended</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_predator_opt3</defName>
+		<label>Pull workers back to the settlement core until the predators move on.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_predatorIncursion</parentEvent>
+		<successEvent>ur_predator_retreated</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Predator Incursion Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_hunted</defName>
+		<label>Successful Hunt</label>
+		<desc>The hunting party tracked down and slew the predators. Spirits are high, and the pelts and meat are welcome additions to the settlement's stores.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>150000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+		<randomThingValue>200</randomThingValue>
+		<randomThingRewardDef>RERD_Animals</randomThingRewardDef>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_huntFailed</defName>
+		<label>Hunt Gone Wrong</label>
+		<desc>The hunting party underestimated the predators. Several workers were injured in the encounter, and the beasts remain at large.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_defended</defName>
+		<label>Defenses Erected</label>
+		<desc>Sturdy fences and reinforced pens now protect the livestock. The predators still lurk in the wilderness, but the settlement is secure.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.05</value></li>
+			<li><stat>loyaltyGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_predator_retreated</defName>
+		<label>Workers Sheltered</label>
+		<desc>Workers huddle within the settlement's core while the predators roam the outskirts. Livestock losses are significant, but no workers were harmed.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Animals_ProductionMultiplier</stat><value>-0.15</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

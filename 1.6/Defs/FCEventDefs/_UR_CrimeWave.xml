@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave</defName>
+		<label>Crime Wave</label>
+		<desc>Criminal elements have taken hold in the city's underbelly. Theft and extortion are rampant, and citizens fear walking the streets at night.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>12</weight>
+		<cooldownTicks>600000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumUnrest>30</minimumUnrest>
+		<maximumLoyalty>60</maximumLoyalty>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_crimeWave_opt1</li>
+			<li>ur_crimeWave_opt2</li>
+			<li>ur_crimeWave_opt3</li>
+		</options>
+		<optionDescription>Criminal gangs are terrorizing the city. Citizens demand action. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_crimeWave</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Crime Wave Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt1</defName>
+		<label>Crack down hard. Hire enforcers and sweep the streets.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>200</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_crackdown</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt2</defName>
+		<label>Offer amnesty and rehabilitation programs.</label>
+		<baseChanceOfSuccess>50</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_reformed</successEvent>
+		<failEvent>ur_crimeWave_emboldened</failEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_crimeWave_opt3</defName>
+		<label>Increase city watch patrols and fund informants.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<parentEvent>ur_crimeWave</parentEvent>
+		<successEvent>ur_crimeWave_patrols</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Crime Wave Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_crackdown</defName>
+		<label>Order Restored</label>
+		<desc>Enforcers have swept through the city's back alleys. The gangs are broken, though some citizens resent the heavy-handed approach.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>loyaltyGainedBase</stat><value>3</value></li>
+			<li><stat>unrestLostBase</stat><value>2</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_reformed</defName>
+		<label>Criminal Reform</label>
+		<desc>The amnesty program has worked. Former criminals have found honest work, and the streets are calmer. A surprising success.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestLostBase</stat><value>3</value></li>
+			<li><stat>happinessGainedBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_emboldened</defName>
+		<label>Emboldened Criminals</label>
+		<desc>The amnesty was seen as weakness. Criminal gangs have grown bolder, and citizens have lost faith in the city's leadership.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>4</value></li>
+			<li><stat>loyaltyLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_crimeWave_patrols</defName>
+		<label>City Watch Active</label>
+		<desc>Regular patrols and a network of informants have pushed criminal activity underground. The streets are safer, though the cost is not insignificant.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestLostBase</stat><value>3</value></li>
+			<li><stat>prosperityLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

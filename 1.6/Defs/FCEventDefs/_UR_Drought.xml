@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought</defName>
+		<label>Drought</label>
+		<desc>Weeks without rain have dried up water sources. Crops wilt in the fields and animals grow thin. The earth cracks beneath a merciless sun.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>6</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>10</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~3</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Food</requiredResource>
+		<restrictedBiomes>
+			<li>TropicalRainforest</li>
+			<li>TropicalSwamp</li>
+			<li>BorealForest</li>
+			<li>TemperateSwamp</li>
+		</restrictedBiomes>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_drought_opt1</li>
+			<li>ur_drought_opt2</li>
+			<li>ur_drought_opt3</li>
+		</options>
+		<optionDescription>The drought deepens. Wells run dry and the harvest withers. The settlement looks to you for a solution.</optionDescription>
+		<incompatibleEvents>
+			<li>ur_drought</li>
+			<li>ur_bountifulHarvest</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Drought Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt1</defName>
+		<label>Dig irrigation wells. A permanent investment in the settlement's future.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>400</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_wells</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt2</defName>
+		<label>Ration water strictly. Everyone tightens their belt.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_rationed</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_drought_opt3</defName>
+		<label>Abandon the worst-hit fields. Focus on what we can save.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_drought</parentEvent>
+		<successEvent>ur_drought_abandoned</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Drought Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_wells</defName>
+		<label>Irrigation Wells Dug</label>
+		<desc>Deep wells now tap into underground water reserves. The drought's grip loosens, and green shoots return to the fields. A wise investment.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.1</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_rationed</defName>
+		<label>Water Rationed</label>
+		<desc>Strict rationing keeps the settlement alive, but barely. Workers grumble over meager portions as they watch the sky for clouds that never come.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessLostBase</stat><value>2</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_drought_abandoned</defName>
+		<label>Fields Abandoned</label>
+		<desc>The outer fields lie fallow, given up to the parched earth. What remains is enough to sustain the settlement, but morale has taken a heavy blow.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<prosperityLost>5</prosperityLost>
+		<statModifiers>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.35</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

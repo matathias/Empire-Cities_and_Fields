@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_harshWinter</defName>
+		<label>Sudden Freeze</label>
+		<desc>An unusually brutal cold front grips the region. Roads are impassable, supply routes frozen, and workers huddle by fading fires as the cold deepens.</desc>
+		<category>EC_FactionWide</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<timeTillTriggerMax>450000</timeTillTriggerMax>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>8</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>5</minDaysSinceFounded>
+		<rangeSettlementsAffected>2~4</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<applicableBiomes>
+			<li>BorealForest</li>
+			<li>Tundra</li>
+			<li>IceSheet</li>
+			<li>ColdBog</li>
+		</applicableBiomes>
+		<useProximity>true</useProximity>
+		<proximityFalloff>8</proximityFalloff>
+		<statModifiers>
+			<li><stat>workerProductionMultiplier</stat><value>-0.15</value></li>
+			<li><stat>RTD_Food_ProductionMultiplier</stat><value>-0.2</value></li>
+		</statModifiers>
+		<incompatibleEvents>
+			<li>ur_harshWinter</li>
+			<li>ur_bountifulHarvest</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl</defName>
+		<label>Urban Sprawl</label>
+		<desc>The city is growing faster than its infrastructure can support. Overcrowding strains housing, sanitation, and public order.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>0</timeTillTrigger>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>10</weight>
+		<cooldownTicks>900000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<allowedSettlementTypes>
+			<li>WorldSettlementDef_City</li>
+		</allowedSettlementTypes>
+		<minimumProsperity>60</minimumProsperity>
+		<activateAtStart>true</activateAtStart>
+		<options>
+			<li>ur_urbanSprawl_opt1</li>
+			<li>ur_urbanSprawl_opt2</li>
+			<li>ur_urbanSprawl_opt3</li>
+		</options>
+		<optionDescription>The city is bursting at the seams. Streets are clogged, housing is scarce, and tempers are rising. How do you respond?</optionDescription>
+		<incompatibleEvents>
+			<li>ur_urbanSprawl</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+	<!-- Urban Sprawl Options -->
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt1</defName>
+		<label>Expand the housing districts. It will cost silver but accommodate the growth.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>500</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_expanded</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt2</defName>
+		<label>Restrict immigration. Stability over growth.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_restricted</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<FactionColonies.FCOptionDef>
+		<defName>ur_urbanSprawl_opt3</defName>
+		<label>Let it sort itself out. We have bigger concerns.</label>
+		<baseChanceOfSuccess>100</baseChanceOfSuccess>
+		<silverCost>0</silverCost>
+		<parentEvent>ur_urbanSprawl</parentEvent>
+		<successEvent>ur_urbanSprawl_ignored</successEvent>
+	</FactionColonies.FCOptionDef>
+
+	<!-- Urban Sprawl Outcomes -->
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_expanded</defName>
+		<label>Housing Expansion</label>
+		<desc>New housing districts are under construction. The disruption is temporary, but the city will emerge stronger for it.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>prosperityGainedBase</stat><value>3</value></li>
+			<li><stat>happinessLostBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_restricted</defName>
+		<label>Immigration Restricted</label>
+		<desc>Guards turn away newcomers at the gates. The city stabilizes, but growth stalls and some residents grumble about missed opportunities.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>happinessGainedBase</stat><value>1</value></li>
+			<li><stat>prosperityLostBase</stat><value>2</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_urbanSprawl_ignored</defName>
+		<label>Overcrowding Worsens</label>
+		<desc>Without intervention, conditions have deteriorated. Slums have sprung up and discontent festers in the packed streets.</desc>
+		<category>EC_Urban</category>
+		<timeTillTrigger>300000</timeTillTrigger>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<statModifiers>
+			<li><stat>unrestGainedBase</stat><value>3</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+	</FactionColonies.FCEventDef>
+
+</Defs>

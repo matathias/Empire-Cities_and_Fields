@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionColonies.FCEventDef>
+		<defName>ur_veinDiscovery</defName>
+		<label>Rich Vein Discovered</label>
+		<desc>Miners have struck a rich new vein of ore deep underground. The quality and quantity of the deposit promises months of bountiful extraction.</desc>
+		<category>EC_Rural</category>
+		<timeTillTrigger>600000</timeTillTrigger>
+		<timeTillTriggerMax>900000</timeTillTriggerMax>
+		<isRandomEvent>true</isRandomEvent>
+		<weight>6</weight>
+		<cooldownTicks>1200000</cooldownTicks>
+		<minDaysSinceFounded>15</minDaysSinceFounded>
+		<rangeSettlementsAffected>1~1</rangeSettlementsAffected>
+		<settlementsCarryOver>true</settlementsCarryOver>
+		<requiredResource>RTD_Mining</requiredResource>
+		<statModifiers>
+			<li><stat>RTD_Mining_ProductionMultiplier</stat><value>0.3</value></li>
+			<li><stat>prosperityGainedBase</stat><value>1</value></li>
+		</statModifiers>
+		<randomThingValue>300</randomThingValue>
+		<randomThingRewardDef>RERD_Mining</randomThingRewardDef>
+		<incompatibleEvents>
+			<li>ur_veinDiscovery</li>
+			<li>ur_mineCollapse</li>
+		</incompatibleEvents>
+	</FactionColonies.FCEventDef>
+
+</Defs>
