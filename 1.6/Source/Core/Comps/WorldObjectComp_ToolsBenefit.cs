@@ -26,9 +26,9 @@ namespace FactionColonies.UrbanRural
         private string cachedCityName;
 
         // Static coordinator: prevents multiple rurals from independently draining the same city.
-        // Key = city tile ID, Value = per-rural multiplier fraction for this tax cycle.
-        private static Dictionary<int, double> cityMultiplierCache = new Dictionary<int, double>();
-        private static Dictionary<int, string> cityNameCache = new Dictionary<int, string>();
+        // Key = city tile (PlanetTile preserves orbit/surface layer), Value = per-rural multiplier fraction for this tax cycle.
+        private static Dictionary<PlanetTile, double> cityMultiplierCache = new Dictionary<PlanetTile, double>();
+        private static Dictionary<PlanetTile, string> cityNameCache = new Dictionary<PlanetTile, string>();
 
         /// <summary>
         /// Runs once per tax tick (called from Patch_ToolsTaxTick).
@@ -92,10 +92,10 @@ namespace FactionColonies.UrbanRural
                 WorldObjectComp_ToolsBenefit comp = settlement.GetComponent<WorldObjectComp_ToolsBenefit>();
                 if (comp is null) continue;
 
-                int assignedCityTile = -1;
+                PlanetTile assignedCityTile = PlanetTile.Invalid;
                 float bestDist = float.MaxValue;
 
-                foreach (int cityTile in cityMultiplierCache.Keys)
+                foreach (PlanetTile cityTile in cityMultiplierCache.Keys)
                 {
                     float dist = Find.WorldGrid.ApproxDistanceInTiles(settlement.Tile, cityTile);
                     if (dist <= toolsRange && dist < bestDist)
@@ -107,7 +107,7 @@ namespace FactionColonies.UrbanRural
 
                 // Update the comp's cached multiplier.
                 double oldMultiplier = comp.cachedMultiplier;
-                if (assignedCityTile >= 0 && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
+                if (assignedCityTile.Valid && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
                 {
                     comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
                     cityNameCache.TryGetValue(assignedCityTile, out string cityName);

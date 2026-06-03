@@ -124,7 +124,7 @@ namespace FactionColonies.UrbanRural
 
         private void InitGrowingSeason()
         {
-            if (parent.Tile < 0)
+            if (!parent.Tile.Valid)
             {
                 growingTwelfths = new List<Twelfth>();
                 growingMonthCount = 12;

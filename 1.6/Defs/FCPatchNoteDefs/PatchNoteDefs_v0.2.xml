@@ -105,4 +105,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_7</defName>
+		<label>PlanetTile Update</label>
+		<description>Forces PlanetTile semantics wherever possible, to eliminate the possibility of a layer clash caused by casting a PlanetTile to an int and losing layer info.</description>
+		<releaseDate>2026-06-03</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Updates WorldObjectComp_ToolsBenefit.RecalculateAllCities and WorldObjectComp_SeasonalProduction.InitGrowingSeason to use PlanetTile instead of int</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
