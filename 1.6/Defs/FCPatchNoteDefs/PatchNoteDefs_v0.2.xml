@@ -119,4 +119,18 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_8</defName>
+		<label>Empire Naming Update</label>
+		<description>Updates event text to use the player&apos;s faction&apos;s name and title more, instead of generic phrases like &quot;your empire&quot;.</description>
+		<releaseDate>2026-06-14</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Updates Mine Collapse event to reference the player&apos;s faction&apos;s title instead of saying &quot;empire&quot;</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>

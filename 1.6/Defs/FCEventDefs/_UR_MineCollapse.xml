@@ -45,7 +45,7 @@
   <FactionColonies.FCEventDef>
     <defName>ur_collapse_rescued</defName>
     <label>Miners Rescued</label>
-    <desc>After hours of desperate digging, the trapped miners are pulled to safety. The settlement erupts in cheers. Their loyalty to the empire is unshakable.</desc>
+    <desc>After hours of desperate digging, the trapped miners are pulled to safety. The settlement erupts in cheers. Their loyalty to the {FACTION_TITLE} is unshakable.</desc>
     <category>EC_Rural</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <statModifiers>
@@ -63,7 +63,7 @@
   <FactionColonies.FCEventDef>
     <defName>ur_collapse_rescueFailed</defName>
     <label>Rescue Failed</label>
-    <desc>The rescue attempt triggered a second collapse. More workers were lost. The settlement mourns its dead and questions the empire's competence.</desc>
+    <desc>The rescue attempt triggered a second collapse. More workers were lost. The settlement mourns its dead and questions the {FACTION_TITLE}'s competence.</desc>
     <category>EC_Rural</category>
     <timeTillTrigger>300000</timeTillTrigger>
     <statModifiers>
