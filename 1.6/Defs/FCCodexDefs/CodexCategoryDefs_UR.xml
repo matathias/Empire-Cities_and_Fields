@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Cities & Fields - Codex Category Definitions
+
+    These CodexCategoryDefs group the submod's Codex entries in the in-game
+    Empire Codex. Entries are auto-discovered from the DefDatabase and grouped
+    by category.modId, so no base-mod changes or registration are needed.
+
+    NOTE: modId must be the package id in ALL LOWERCASE. RimWorld stores
+    ModContentPack.PackageId lowercased, and CodexCategoryDef.PackMatchesModId
+    compares against it directly. (About/About.xml declares the mixed-case
+    "Matathias.Empire.UrbanRural", but it is stored lowercased at runtime.)
+    Mixed case still groups the entries, but the left-pane group header degrades
+    to the raw packageId and the patch-note banner fallback stops working.
+-->
+<Defs>
+
+    <FactionColonies.CodexCategoryDef>
+        <defName>CodexCat_UR_Settlements</defName>
+        <label>Cities &amp; Fields</label>
+        <description>The urban/rural settlement split: specialist rural settlements that work the land, and cities that consume and manufacture.</description>
+        <color>(0.45, 0.75, 0.34)</color>
+        <displayOrder>10</displayOrder>
+        <modId>matathias.empire.urbanrural</modId>
+        <bannerPath>UI/Banners/Banner-CitiesFields</bannerPath>
+    </FactionColonies.CodexCategoryDef>
+
+    <FactionColonies.CodexCategoryDef>
+        <defName>CodexCat_UR_Economy</defName>
+        <label>Urban Economy</label>
+        <description>Second-order resources, city industry, the consumer-goods crisis buffer, tool-driven rural output, and seasonal production.</description>
+        <color>(0.85, 0.65, 0.25)</color>
+        <displayOrder>20</displayOrder>
+        <modId>matathias.empire.urbanrural</modId>
+        <bannerPath>UI/Banners/Banner-CitiesFields</bannerPath>
+    </FactionColonies.CodexCategoryDef>
+
+</Defs>

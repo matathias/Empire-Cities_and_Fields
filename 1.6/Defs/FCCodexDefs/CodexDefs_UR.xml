@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Cities & Fields - Codex Entry Definitions
+
+    One CodexEntryDef per documented mechanic. Descriptions are deliberately
+    qualitative: they describe direction and relationships, not specific balance
+    constants (production multipliers, food-demand rates, tool range, mitigation
+    caps), which are tuned and would drift out of date here. The Crisis Buffer
+    entry pairs its static prose with a live dynamicProvider for the one mechanic
+    that has no other in-game readout.
+
+    Icons reuse this submod's own building/GUI textures and the shared banner.
+    iconPath is optional - a missing texture renders the entry icon-less.
+-->
+<Defs>
+
+    <!-- CATEGORY: Cities & Fields (the settlement model) -->
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_Overview</defName>
+        <label>Cities &amp; Fields</label>
+        <description>Cities &amp; Fields splits your settlements into two roles that need each other.
+
+[b]Rural settlements[/b] are specialists. Each one works the land for a primary resource - food, ore, timber, animals, etc. - and leans hard on that one strength.
+
+[b]Cities[/b] produce nothing from the land at all. A city grows no crops and mines no ore; instead, it is where raw goods are turned into higher-order products, and where your population concentrates. That makes a city wholly dependent on what the countryside ships to it.
+
+Because of that split, this submod is built on top of Routes &amp; Resources: cities are fed and supplied by supply routes from your rural settlements. Cut a city off and it starves; surround it with productive rurals and it becomes the engine of a region.
+
+This section covers the settlement types themselves. The Urban Economy section covers what cities actually do with the goods they take in.</description>
+        <category>CodexCat_UR_Settlements</category>
+        <displayOrder>0</displayOrder>
+        <iconPath>UI/Banners/Banner-CitiesFields</iconPath>
+        <seeAlso>
+            <li>Codex_UR_RuralSettlements</li>
+            <li>Codex_UR_Cities</li>
+            <li>Codex_SC_Overview</li>
+            <li>Codex_ResourceProduction</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_RuralSettlements</defName>
+        <label>Rural Settlements</label>
+        <description>The countryside is worked by specialist settlements, each tuned to one resource: farming hamlets for food, mining camps for ore, lumber camps for timber, ranches for animals, chemfuel refineries, herbalist camps for medicine, and power plants.
+
+A specialist settlement produces its chosen resource far better than a generalist would, and everything else far worse - so each settlement is good at exactly one thing and dependent on the rest of your empire for the others.
+
+Where you can found each type is constrained by the land and your progress:
+
+ - Farms and ranches want flat, open ground.
+ - Mining camps want hills and mountains.
+ - Lumber camps only take root in forested biomes.
+ - Chemfuel refineries and power plants need the right research first.
+
+Founding a rural settlement also draws raw goods from a stockpile, not just silver, and the bill differs by type. The intent is to read the land, place the right specialist on it, and knit your settlements together with routes.</description>
+        <category>CodexCat_UR_Settlements</category>
+        <displayOrder>10</displayOrder>
+        <iconPath>Buildings/UR_FertileFields</iconPath>
+        <seeAlso>
+            <li>Codex_UR_Cities</li>
+            <li>Codex_UR_Seasons</li>
+            <li>Codex_UR_ToolsProximity</li>
+            <li>Codex_BuildingSlots</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_Cities</defName>
+        <label>Cities</label>
+        <description>A city produces nothing from the land - its biome yields are zeroed across the board. Instead, a city is where raw goods become finished ones, and where your population gathers in numbers.
+
+That makes a city wholly supply-dependent. It must be fed, powered, and supplied by routes from the surrounding countryside, and its appetite for food in particular runs higher per worker than a rural settlement's.
+
+In return, a city supports many more buildings than a rural settlement, and its building capacity grows as the city itself grows - so a mature city can run a broad industrial base that no rural settlement could.
+
+Treat a city as the hub of a region: ring it with rural specialists, route their output in, and it becomes an engine. Isolate it, and it becomes a liability.</description>
+        <category>CodexCat_UR_Settlements</category>
+        <displayOrder>20</displayOrder>
+        <iconPath>Buildings/UR_TownHall</iconPath>
+        <seeAlso>
+            <li>Codex_UR_RuralSettlements</li>
+            <li>Codex_UR_UrbanIndustry</li>
+            <li>Codex_SC_Needs</li>
+            <li>Codex_SocialStats</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <!-- CATEGORY: Urban Economy -->
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_SecondOrderResources</defName>
+        <label>Consumer Goods &amp; Tools</label>
+        <description>Cities unlock two resources that exist nowhere else. Neither can be drawn from the land - both are manufactured by city buildings out of raw inputs.
+
+[b]Consumer goods[/b] are processed civilian products. They are never tithed to your colony; they exist purely to be stockpiled, where they cushion a settlement against bad events (see [i]Crisis Buffer[/i]).
+
+[b]Tools &amp; machinery[/b] are industrial output. They boost production at nearby rural settlements (see [i]Tools &amp; Rural Output[/i]), and they can be tithed to your colony as manufactured components. Cities are the empire's only source of advanced components.
+
+Together, these are the reason to invest in cities at all: they turn a city's heavy consumption into something the rest of your empire wants.</description>
+        <category>CodexCat_UR_Economy</category>
+        <displayOrder>0</displayOrder>
+        <iconPath>GUI/ProductionConsumerGoods</iconPath>
+        <seeAlso>
+            <li>Codex_UR_CrisisBuffer</li>
+            <li>Codex_UR_ToolsProximity</li>
+            <li>Codex_UR_UrbanIndustry</li>
+            <li>Codex_ResourceProduction_Tithing</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_UrbanIndustry</defName>
+        <label>Urban Industry</label>
+        <description>City buildings are converters. Each one takes raw materials out of the settlement's stockpile every cycle and turns them into something higher-order - weapons, apparel, consumer goods, tools, research, or medicine.
+
+Each production building can be specialized down one of three upgrade paths - broadly, more raw output, higher efficiency, or a useful side-effect - so two cities with the same buildings can play very differently depending on how you develop them.
+
+Cities also support more building slots than rural settlements, and that ceiling rises as the city grows, so a mature city can run a wide industrial base at once.</description>
+        <category>CodexCat_UR_Economy</category>
+        <displayOrder>10</displayOrder>
+        <iconPath>Buildings/UR_Manufactory</iconPath>
+        <seeAlso>
+            <li>Codex_UR_Cities</li>
+            <li>Codex_UR_SecondOrderResources</li>
+            <li>Codex_SC_Needs</li>
+            <li>Codex_BuildingSlots</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_CrisisBuffer</defName>
+        <label>Crisis Buffer</label>
+        <description>When a negative event would cut a settlement's happiness or drive up its unrest, the settlement automatically spends consumer goods from its stockpile to soften the blow.
+
+The more goods it has on hand, the more of the penalty it absorbs - up to a ceiling, so no stockpile ever makes a settlement immune. Consumer goods spent this way are gone; the buffer is a reserve you have to keep refilling.
+
+How much it takes to fully cushion an event scales with the settlement's size. A large, populous city needs a far deeper reserve than a small one to get the same level of protection, because its troubles are correspondingly larger.
+
+The practical lesson is to keep your cities sitting on a comfortable consumer-goods reserve so they ride out shocks instead of spiralling into unrest. The panel in the sidebar shows each city's current reserve and roughly how large an event it can fully cushion.</description>
+        <category>CodexCat_UR_Economy</category>
+        <displayOrder>20</displayOrder>
+        <iconPath>Buildings/UR_Market</iconPath>
+        <dynamicProvider>FactionColonies.UrbanRural.CodexProvider_CrisisBuffer</dynamicProvider>
+        <seeAlso>
+            <li>Codex_UR_SecondOrderResources</li>
+            <li>Codex_Events</li>
+            <li>Codex_SocialStats</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_ToolsProximity</defName>
+        <label>Tools &amp; Rural Output</label>
+        <description>Each cycle, a city ships out the tools &amp; machinery it has produced to the rural settlements clustered around it, lifting their production.
+
+The reach is limited: only rurals within range of the city benefit. The supply is also shared - if there aren't enough tools to go around, every nearby rural gets a partial share rather than some getting the full boost and others nothing.
+
+Because the city actually spends its tools doing this, the boost only lasts while the city keeps manufacturing them. Let tool production lapse and the bonus fades. As you add more rurals around a city, the same output is split more thinly, so the city has to scale its tool-making to keep them all supplied.
+
+This rewards geography: gather rural settlements around a tool-producing city, and grow that city's industry in step with the countryside it feeds.</description>
+        <category>CodexCat_UR_Economy</category>
+        <displayOrder>30</displayOrder>
+        <iconPath>GUI/ProductionTools</iconPath>
+        <seeAlso>
+            <li>Codex_UR_SecondOrderResources</li>
+            <li>Codex_UR_RuralSettlements</li>
+            <li>Codex_ResourceProduction</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+    <FactionColonies.CodexEntryDef>
+        <defName>Codex_UR_Seasons</defName>
+        <label>Seasonal Production</label>
+        <description>Production that depends on living things follows a seasonal rhythm. Food, animals, timber, and medicine all run above their baseline during the local growing season and well below it out of season.
+
+The swing follows the tile's real climate and hemisphere. A temperate settlement booms in summer and slumps in winter; an equatorial one produces steadily year-round; a settlement in frozen latitudes struggles whatever the calendar says. The two halves of a planet are offset, so your northern and southern settlements peak at opposite times of year.
+
+Underground and industrial output - mining and chemfuel - barely notices the seasons, and power generation and the manufactured city resources are unaffected entirely.
+
+The takeaway is to bank surplus during the good months, or favour year-round climates for your food, so that winter doesn't starve the cities downstream of your farms.</description>
+        <category>CodexCat_UR_Economy</category>
+        <displayOrder>40</displayOrder>
+        <iconPath>Buildings/UR_CropRotation</iconPath>
+        <seeAlso>
+            <li>Codex_UR_RuralSettlements</li>
+            <li>Codex_ResourceProduction</li>
+        </seeAlso>
+    </FactionColonies.CodexEntryDef>
+
+</Defs>

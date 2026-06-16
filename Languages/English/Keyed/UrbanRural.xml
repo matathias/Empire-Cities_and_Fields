@@ -43,6 +43,13 @@
     <!-- Notifications -->
     <UR_ConsumerGoodsConsumed>{0} Consumer Goods consumed at {1} (-{2}% impact from {3})</UR_ConsumerGoodsConsumed>
 
+    <!-- Codex: Crisis Buffer dynamic provider -->
+    <UR_CodexBufferNoCities>Found a city to see its consumer-goods buffer here.</UR_CodexBufferNoCities>
+    <UR_CodexBufferHeader>Consumer-Goods Buffer by City</UR_CodexBufferHeader>
+    <UR_CodexBufferReserve>Reserve: {0} consumer goods</UR_CodexBufferReserve>
+    <UR_CodexBufferCapacity>Fully cushions shocks up to size {0} (softening up to {1}% of the hit)</UR_CodexBufferCapacity>
+    <UR_CodexBufferNoReserve>No reserve - negative events hit at full force</UR_CodexBufferNoReserve>
+
     <!-- Town Titles: Consumer Goods -->
     <FCTitle_RTD_ConsumerGoods_1>Trade Village</FCTitle_RTD_ConsumerGoods_1>
     <FCTitle_RTD_ConsumerGoods_2>Market Town</FCTitle_RTD_ConsumerGoods_2>
