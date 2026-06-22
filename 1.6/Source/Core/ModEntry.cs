@@ -37,6 +37,7 @@ namespace FactionColonies.UrbanRural
         {
             Listing_Standard ls = new Listing_Standard();
             ls.Begin(inRect);
+            Listing_StandardExtensions.ResetRowStripe();
 
             ls.CheckboxLabeled("UR_SettingsDebugLog".Translate(), ref printDebug);
             ls.Gap(12f);
@@ -50,14 +51,11 @@ namespace FactionColonies.UrbanRural
             Text.Font = prev;
             ls.Gap(4f);
 
-            ls.Label("UR_SettingsCGConversionRate".Translate(cgConversionRate.ToString("F1")));
-            cgConversionRate = ls.Slider(cgConversionRate, 0.5f, 5.0f);
+            cgConversionRate = ls.SliderTextField("UR_SettingsCGConversionRate", "UR_SettingsCGConversionRate".Translate(), cgConversionRate, 0.5f, 5.0f, 1);
 
-            ls.Label("UR_SettingsCGMaxMitigation".Translate(cgMaxMitigation.ToString("F2")));
-            cgMaxMitigation = ls.Slider(cgMaxMitigation, 0.1f, 1.0f);
+            cgMaxMitigation = ls.SliderTextField("UR_SettingsCGMaxMitigation", "UR_SettingsCGMaxMitigation".Translate(), cgMaxMitigation, 0.1f, 1.0f, 2);
 
-            ls.Label("UR_SettingsCGBaseWorkers".Translate(cgBaseWorkers.ToString("F0")));
-            cgBaseWorkers = ls.Slider(cgBaseWorkers, 5.0f, 20.0f);
+            cgBaseWorkers = ls.SliderTextField("UR_SettingsCGBaseWorkers", "UR_SettingsCGBaseWorkers".Translate(), cgBaseWorkers, 5.0f, 20.0f, 0);
 
             ls.Gap(12f);
             ls.Label("UR_SectionTools".Translate());
@@ -69,14 +67,11 @@ namespace FactionColonies.UrbanRural
             Text.Font = prev;
             ls.Gap(4f);
 
-            ls.Label("UR_SettingsToolsRange".Translate(toolsRange.ToString()));
-            toolsRange = (int)ls.Slider(toolsRange, 2, 15);
+            toolsRange = ls.SliderTextField("UR_SettingsToolsRange", "UR_SettingsToolsRange".Translate(), toolsRange, 2, 15);
 
-            ls.Label("UR_SettingsToolsCost".Translate(toolsCostPerRural.ToString("F1")));
-            toolsCostPerRural = ls.Slider(toolsCostPerRural, 0.25f, 3.0f);
+            toolsCostPerRural = ls.SliderTextField("UR_SettingsToolsCost", "UR_SettingsToolsCost".Translate(), toolsCostPerRural, 0.25f, 3.0f, 1);
 
-            ls.Label("UR_SettingsToolsBonus".Translate((toolsProductionBonus * 100f).ToString("F0")));
-            toolsProductionBonus = ls.Slider(toolsProductionBonus, 0.05f, 0.30f);
+            toolsProductionBonus = ls.SliderTextField("UR_SettingsToolsBonus", "UR_SettingsToolsBonus".Translate(), toolsProductionBonus, 0.05f, 0.30f, 2);
 
 
             ls.Gap(12f);
