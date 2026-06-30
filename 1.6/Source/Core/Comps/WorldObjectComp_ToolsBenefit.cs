@@ -16,9 +16,10 @@ namespace FactionColonies.UrbanRural
 
     /// <summary>
     /// Attached to rural settlement defs. Checks nearby cities for Tools stockpile and applies
-    /// a production multiplier. Tools are consumed from the city each tax tick.
+    /// a production multiplier. Tools are consumed from the city each day.
     /// Uses a static coordinator so multiple rurals near the same city split Tools fairly.
-    /// Triggered by Patch_ToolsTaxTick as a Harmony prefix on TaxLedger.AddTax().
+    /// Triggered daily by WorldComponent_UrbanRural via the base mod's IDailyAccrualParticipant
+    /// seam (after production has accrued and SupplyChain deposits have landed).
     /// </summary>
     public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProductionModifier
     {
@@ -31,7 +32,7 @@ namespace FactionColonies.UrbanRural
         private static Dictionary<PlanetTile, string> cityNameCache = new Dictionary<PlanetTile, string>();
 
         /// <summary>
-        /// Runs once per tax tick (called from Patch_ToolsTaxTick).
+        /// Runs once per day (called from WorldComponent_UrbanRural.PostDailyAccrual).
         /// For each city, counts nearby rurals, calculates fair share, consumes Tools from
         /// city stockpile, assigns each rural to its nearest city, and updates cached multipliers.
         /// </summary>

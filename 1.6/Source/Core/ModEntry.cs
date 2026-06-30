@@ -18,7 +18,10 @@ namespace FactionColonies.UrbanRural
 
         // Tools proximity settings
         public static int toolsRange = 5;
-        public static float toolsCostPerRural = 1.0f;
+        // Per-DAY Tools consumed per nearby rural. Consumed daily via WorldComponent_UrbanRural's
+        // IDailyAccrualParticipant hook. Default is the old per-cycle 1.0 ÷ the default 5-day tax
+        // interval, so per-cycle consumption stays ~the same after the daily-cadence rework.
+        public static float toolsCostPerRural = 0.2f;
         public static float toolsProductionBonus = 0.15f;
 
         public override void ExposeData()
@@ -29,7 +32,7 @@ namespace FactionColonies.UrbanRural
             Scribe_Values.Look(ref cgMaxMitigation, "cgMaxMitigation", 0.5f);
             Scribe_Values.Look(ref cgBaseWorkers, "cgBaseWorkers", 10.0f);
             Scribe_Values.Look(ref toolsRange, "toolsRange", 5);
-            Scribe_Values.Look(ref toolsCostPerRural, "toolsCostPerRural", 1.0f);
+            Scribe_Values.Look(ref toolsCostPerRural, "toolsCostPerRural", 0.2f);
             Scribe_Values.Look(ref toolsProductionBonus, "toolsProductionBonus", 0.15f);
         }
 
@@ -69,7 +72,7 @@ namespace FactionColonies.UrbanRural
 
             toolsRange = ls.SliderTextField("UR_SettingsToolsRange", "UR_SettingsToolsRange".Translate(), toolsRange, 2, 15);
 
-            toolsCostPerRural = ls.SliderTextField("UR_SettingsToolsCost", "UR_SettingsToolsCost".Translate(), toolsCostPerRural, 0.25f, 3.0f, 1);
+            toolsCostPerRural = ls.SliderTextField("UR_SettingsToolsCost", "UR_SettingsToolsCost".Translate(), toolsCostPerRural, 0.05f, 1.0f, 2);
 
             toolsProductionBonus = ls.SliderTextField("UR_SettingsToolsBonus", "UR_SettingsToolsBonus".Translate(), toolsProductionBonus, 0.05f, 0.30f, 2);
 

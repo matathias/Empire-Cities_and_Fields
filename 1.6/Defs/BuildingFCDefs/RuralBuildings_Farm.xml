@@ -60,9 +60,6 @@
 				<inputs>
 					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>irrigation offline</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -86,9 +83,6 @@
 				<inputs>
 					<li><resource>RTD_Power</resource><amount>1.0</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>greenhouse offline</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -162,9 +156,6 @@
 				<inputs>
 					<li><resource>RTD_Research</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>research supply disrupted</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -206,9 +197,6 @@
 				<inputs>
 					<li><resource>RTD_Research</resource><amount>0.1</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>research supply disrupted</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>

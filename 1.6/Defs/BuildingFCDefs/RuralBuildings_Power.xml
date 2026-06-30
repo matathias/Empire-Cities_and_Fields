@@ -45,9 +45,6 @@
 				<inputs>
 					<li><resource>RTD_Chemfuel</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>fuel shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -70,9 +67,6 @@
 				<inputs>
 					<li><resource>RTD_Chemfuel</resource><amount>0.5</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.5</penaltyPerUnit><label>fuel shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -151,9 +145,6 @@
 				<inputs>
 					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -176,9 +167,6 @@
 				<inputs>
 					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>material shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>

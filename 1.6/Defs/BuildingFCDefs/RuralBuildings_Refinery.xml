@@ -44,9 +44,6 @@
 				<inputs>
 					<li><resource>RTD_Power</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -70,10 +67,6 @@
 					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
 					<li><resource>RTD_Mining</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>material shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -98,9 +91,6 @@
 				<inputs>
 					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>feedstock shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -124,10 +114,6 @@
 					<li><resource>RTD_Food</resource><amount>0.4</amount></li>
 					<li><resource>RTD_Animals</resource><amount>0.2</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>feedstock shortage</label></li>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>organic material shortage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -172,9 +158,6 @@
 				<inputs>
 					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>1.5</penaltyPerUnit><label>power outage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
@@ -197,9 +180,6 @@
 				<inputs>
 					<li><resource>RTD_Power</resource><amount>0.5</amount></li>
 				</inputs>
-				<penalties>
-					<li><stat>happinessLostBase</stat><penaltyPerUnit>2.0</penaltyPerUnit><label>power outage</label></li>
-				</penalties>
 			</li>
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>

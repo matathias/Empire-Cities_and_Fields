@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_3_0</defName>
+		<label>Daily Cadence Update</label>
+		<description>Updates the mod to match the base mod&apos;s new Daily Cadence.</description>
+		<releaseDate>2026-06-30</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Updates needs and tool usage to reflect the new daily production cadence</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+</Defs>
