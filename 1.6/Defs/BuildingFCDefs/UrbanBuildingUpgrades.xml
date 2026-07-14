@@ -6,7 +6,7 @@
 	     Each upgrade is a complete replacement def (not additive).
 	     =========================================================== -->
 
-	<!-- -- Merchant Quarter upgrades ---------------------------- -->
+	<!--  Merchant Quarter upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Market_GrandBazaar</defName>
@@ -85,7 +85,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Town Hall upgrades ----------------------------------- -->
+	<!--  Town Hall upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_TownHall_Courthouse</defName>
@@ -131,7 +131,7 @@
 		<iconPath>Buildings/UR_TownHall</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Armory upgrades -------------------------------------- -->
+	<!--  Armory upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Armory_AdvancedForge</defName>
@@ -201,7 +201,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Weaving House upgrades ------------------------------- -->
+	<!--  Weaving House upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_TextileMill_IndustrialLooms</defName>
@@ -271,7 +271,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Manufactory upgrades ---------------------------------- -->
+	<!--  Manufactory upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Manufactory_HeavyIndustry</defName>
@@ -347,7 +347,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Library upgrades -------------------------------------- -->
+	<!--  Library upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Library_GrandArchives</defName>
@@ -423,7 +423,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- University upgrades ----------------------------------- -->
+	<!--  University upgrades  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_University_AdvancedLabs</defName>

@@ -4,7 +4,7 @@
 	     Ranch buildings
 	     =========================================================== -->
 
-	<!-- -- Breeding Pens chain -- -->
+	<!--  Breeding Pens chain  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_BreedingPens</defName>
@@ -85,7 +85,7 @@
 		<iconPath>Buildings/UR_GameReserve</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Veterinary Post chain -- -->
+	<!--  Veterinary Post chain  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Ranch">
 		<defName>UR_VeterinaryPost</defName>

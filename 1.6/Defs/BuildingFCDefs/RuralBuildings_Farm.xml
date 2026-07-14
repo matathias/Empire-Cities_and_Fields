@@ -5,7 +5,7 @@
 	     Farm buildings
 	     =========================================================== -->
 
-	<!-- -- Irrigation Ditch chain -- -->
+	<!--  Irrigation Ditch chain  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_IrrigationDitch</defName>
@@ -102,7 +102,7 @@
 		<iconPath>Buildings/UR_TerracedFields</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- -- Fertile Fields chain -- -->
+	<!--  Fertile Fields chain  -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Farm">
 		<defName>UR_FertileFields</defName>
