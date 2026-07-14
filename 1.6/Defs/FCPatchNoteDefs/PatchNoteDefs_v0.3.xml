@@ -32,4 +32,19 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_3_2</defName>
+		<label>Various fixes</label>
+		<description>Various fixes and minor changes</description>
+		<releaseDate>2026-07-13</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Updates all of the placeholder art for buildings. It&apos;s still placeholder, but it should be easier to tell the buildings apart from each other, now. Hopefully</li>
+		<li>Add mod version to the mod settings</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
