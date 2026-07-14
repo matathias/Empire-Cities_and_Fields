@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Refinery buildings
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
-	<!-- ── Distillation Column chain ── -->
+	<!-- -- Distillation Column chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_DistillationColumn</defName>
@@ -118,7 +118,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Cracking Tower chain ── -->
+	<!-- -- Cracking Tower chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Refinery">
 		<defName>UR_CrackingTower</defName>

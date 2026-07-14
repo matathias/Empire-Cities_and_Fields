@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     City buildings
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Market</defName>
@@ -109,7 +109,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══ Armory — Weapons from Mining + Chemfuel ═══ -->
+	<!-- === Armory — Weapons from Mining + Chemfuel === -->
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Armory</defName>
 		<label>Armory</label>
@@ -135,7 +135,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══ Weaving House — Apparel from Animals + Logging ═══ -->
+	<!-- === Weaving House — Apparel from Animals + Logging === -->
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_TextileMill</defName>
 		<label>Weaving House</label>
@@ -162,7 +162,7 @@
 		</modExtensions>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══ Manufactory — Tools from Mining + Chemfuel + Power ═══ -->
+	<!-- === Manufactory — Tools from Mining + Chemfuel + Power === -->
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
 		<defName>UR_Manufactory</defName>
 		<label>Manufactory</label>

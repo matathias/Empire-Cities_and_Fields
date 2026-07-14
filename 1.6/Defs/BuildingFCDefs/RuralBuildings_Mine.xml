@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Mine buildings
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
-	<!-- ── Deep Bore chain ── -->
+	<!-- -- Deep Bore chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
 		<defName>UR_DeepMineShaft</defName>
@@ -85,7 +85,7 @@
 		<iconPath>Buildings/UR_SurveyorsOutpost</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Ore Refinery chain ── -->
+	<!-- -- Ore Refinery chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Mine">
 		<defName>UR_OreRefinery</defName>

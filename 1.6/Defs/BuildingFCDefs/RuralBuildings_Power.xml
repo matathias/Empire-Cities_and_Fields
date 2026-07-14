@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Power Plant buildings
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
-	<!-- ── Generator chain ── -->
+	<!-- -- Generator chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
 		<defName>UR_Generator</defName>
@@ -104,7 +104,7 @@
 		<iconPath>Buildings/UR_SolarArray</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Transformer chain ── -->
+	<!-- -- Transformer chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_PowerPlant">
 		<defName>UR_Transformer</defName>

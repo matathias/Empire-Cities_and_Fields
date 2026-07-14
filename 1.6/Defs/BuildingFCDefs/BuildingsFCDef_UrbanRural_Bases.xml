@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══ Rural bases ═══ -->
+	<!-- === Rural bases === -->
 
 	<!-- Any rural settlement type (walks baseSettlementType inheritance chain) -->
 	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Rural" Abstract="true">
@@ -60,7 +60,7 @@
 		<techLevel>Industrial</techLevel>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ═══ Urban base ═══ -->
+	<!-- === Urban base === -->
 
 	<!-- City only -->
 	<FactionColonies.BuildingFCDef Name="BuildingFCDef_Urban" Abstract="true">

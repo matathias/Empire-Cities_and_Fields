@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══ City ═══ -->
+	<!-- === City === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Surface">
 		<defName>WorldSettlementDef_City</defName>
 		<label>city</label>

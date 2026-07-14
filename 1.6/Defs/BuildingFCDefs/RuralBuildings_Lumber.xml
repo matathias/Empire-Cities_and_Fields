@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Lumber Camp buildings
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
-	<!-- ── Sawmill chain ── -->
+	<!-- -- Sawmill chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_Sawmill</defName>
@@ -97,7 +97,7 @@
 		<iconPath>Buildings/UR_NatureReserve</iconPath>
 	</FactionColonies.BuildingFCDef>
 
-	<!-- ── Timber Yard chain ── -->
+	<!-- -- Timber Yard chain -- -->
 
 	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_LumberCamp">
 		<defName>UR_TimberYard</defName>

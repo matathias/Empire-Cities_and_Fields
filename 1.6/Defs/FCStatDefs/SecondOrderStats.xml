@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Production stats for second-order resources.
 	     Two per resource: additive base and multiplier.
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
 	<FactionColonies.FCStatDef>
 		<defName>RTD_ConsumerGoods_ProductionAdditive</defName>

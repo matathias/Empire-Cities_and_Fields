@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══ Rural Base (hidden — used only for building allow/block list inheritance) ═══ -->
+	<!-- === Rural Base (hidden — used only for building allow/block list inheritance) === -->
 	<FactionColonies.WorldSettlementDef Name="WorldSettlementDef_Rural" ParentName="WorldSettlementDef_Surface">
 		<defName>WorldSettlementDef_Rural</defName>
 		<label>rural settlement</label>
@@ -17,7 +17,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Farming Hamlet ═══ -->
+	<!-- === Farming Hamlet === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Farm</defName>
 		<label>farming hamlet</label>
@@ -47,7 +47,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Mining Camp ═══ -->
+	<!-- === Mining Camp === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Mine</defName>
 		<label>mining camp</label>
@@ -76,7 +76,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Lumber Camp ═══ -->
+	<!-- === Lumber Camp === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_LumberCamp</defName>
 		<label>lumber camp</label>
@@ -110,7 +110,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Ranch ═══ -->
+	<!-- === Ranch === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Ranch</defName>
 		<label>ranch</label>
@@ -140,7 +140,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Chemfuel Refinery ═══ -->
+	<!-- === Chemfuel Refinery === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Refinery</defName>
 		<label>chemfuel refinery</label>
@@ -174,7 +174,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Herbalist Camp ═══ -->
+	<!-- === Herbalist Camp === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_Herbalist</defName>
 		<label>herbalist camp</label>
@@ -205,7 +205,7 @@
 		</modExtensions>
 	</FactionColonies.WorldSettlementDef>
 
-	<!-- ═══ Power Plant ═══ -->
+	<!-- === Power Plant === -->
 	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Rural">
 		<defName>WorldSettlementDef_PowerPlant</defName>
 		<label>power plant</label>

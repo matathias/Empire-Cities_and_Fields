@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<!-- ═══════════════════════════════════════════════════════════
+	<!-- ===========================================================
 	     Second-order resources: produced only by city buildings
 	     from raw material inputs. Cannot be produced by biomes.
-	     ═══════════════════════════════════════════════════════════ -->
+	     =========================================================== -->
 
 	<FactionColonies.ResourceTypeDef>
 		<defName>RTD_ConsumerGoods</defName>
