@@ -27,9 +27,18 @@ namespace FactionColonies.UrbanRural
         private string cachedCityName;
 
         // Static coordinator: prevents multiple rurals from independently draining the same city.
-        // Key = city tile (PlanetTile preserves orbit/surface layer), Value = per-rural multiplier fraction for this tax cycle.
+        // Key = city tile (PlanetTile preserves orbit/surface layer), Value = per-rural multiplier fraction for the current day.
         private static Dictionary<PlanetTile, double> cityMultiplierCache = new Dictionary<PlanetTile, double>();
         private static Dictionary<PlanetTile, string> cityNameCache = new Dictionary<PlanetTile, string>();
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            // Persist the cached multiplier so a rural keeps its Tools bonus immediately on load,
+            // rather than reverting to 1.0 until the next daily RecalculateAllCities pass.
+            Scribe_Values.Look(ref cachedMultiplier, "cachedMultiplier", 1.0);
+            Scribe_Values.Look(ref cachedCityName, "cachedCityName");
+        }
 
         /// <summary>
         /// Runs once per day (called from WorldComponent_UrbanRural.PostDailyAccrual).

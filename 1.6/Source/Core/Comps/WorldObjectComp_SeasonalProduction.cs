@@ -98,6 +98,20 @@ namespace FactionColonies.UrbanRural
             }
         }
 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            // Persist the tile-derived growing season and current season cache so the production
+            // multiplier is correct immediately on load, rather than resetting to 1.0 until the next
+            // day-boundary CompTick. The localized label is re-derived from the enum (not scribed).
+            Scribe_Collections.Look(ref growingTwelfths, "growingTwelfths", LookMode.Value);
+            Scribe_Values.Look(ref growingMonthCount, "growingMonthCount", -1);
+            Scribe_Values.Look(ref lastCheckedTwelfth, "lastCheckedTwelfth", Twelfth.Undefined);
+            Scribe_Values.Look(ref cachedSeasonState, "cachedSeasonState");
+            if (Scribe.mode == LoadSaveMode.LoadingVars && growingMonthCount >= 0)
+                cachedSeasonLabel = SeasonLabelKeys[(int)cachedSeasonState].Translate();
+        }
+
         public override void CompTick()
         {
             if (Find.TickManager.TicksGame % CHECK_INTERVAL != 0)
