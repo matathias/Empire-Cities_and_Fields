@@ -14,9 +14,9 @@
 
     <!-- Settings: Tools Section -->
     <UR_SectionTools>Tools &amp; Machinery</UR_SectionTools>
-    <UR_SectionToolsDesc>Cities produce tools that boost production at nearby rural settlements. Tools are consumed from the city's stockpile each tax tick.</UR_SectionToolsDesc>
+    <UR_SectionToolsDesc>Cities produce tools that boost production at nearby rural settlements. Tools are consumed from the city's stockpile each day.</UR_SectionToolsDesc>
     <UR_SettingsToolsRange>Tools proximity range (tiles)</UR_SettingsToolsRange>
-    <UR_SettingsToolsCost>Tools cost per rural per tick</UR_SettingsToolsCost>
+    <UR_SettingsToolsCost>Tools cost per rural per day</UR_SettingsToolsCost>
     <UR_SettingsToolsBonus>Production bonus from Tools</UR_SettingsToolsBonus>
 
     <!-- Season Labels -->
@@ -30,7 +30,6 @@
     <UR_ToolsModifier>Tools: +{0}% (from {1})</UR_ToolsModifier>
 
     <!-- Tile Validation -->
-    <UR_UrbanNoResources>Urban settlements cannot produce raw resources. Supply routes from rural settlements are required to sustain city buildings and population.</UR_UrbanNoResources>
     <UR_RequiresFlatTerrain>Requires flat or gently hilly terrain.</UR_RequiresFlatTerrain>
     <UR_RequiresHillyTerrain>Requires hilly or mountainous terrain.</UR_RequiresHillyTerrain>
 
