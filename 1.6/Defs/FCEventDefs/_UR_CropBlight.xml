@@ -61,7 +61,7 @@
     <statModifiers>
       <li>
         <stat>RTD_Food_ProductionMultiplier</stat>
-        <value>-0.3</value>
+        <value>0.7</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
@@ -75,7 +75,7 @@
     <statModifiers>
       <li>
         <stat>RTD_Food_ProductionMultiplier</stat>
-        <value>-0.15</value>
+        <value>0.85</value>
       </li>
     </statModifiers>
   </FactionColonies.FCEventDef>
@@ -89,7 +89,7 @@
     <statModifiers>
       <li>
         <stat>RTD_Food_ProductionMultiplier</stat>
-        <value>-0.5</value>
+        <value>0.5</value>
       </li>
       <li>
         <stat>happinessLostBase</stat>
