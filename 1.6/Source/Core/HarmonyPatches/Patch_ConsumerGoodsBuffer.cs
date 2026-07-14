@@ -33,6 +33,25 @@ namespace FactionColonies.UrbanRural
 
             if (magnitude <= 0) return;
 
+            WorldComponent_UrbanRural coordinator = Find.World?.GetComponent<WorldComponent_UrbanRural>();
+
+            /* Load-reapply path: statModifiers isn't serialized, so WorldSettlementFC.PostLoadInit
+             * rebuilds it from sources and re-fires this postfix (Scribe.mode != Inactive). Never
+             * draw CG on load — instead re-add the buffer mods using the mitigation fraction that
+             * was persisted when the event first fired, so the player keeps the mitigation they
+             * already paid for. No draw, no worker mutation, no player message during load. */
+            if (Scribe.mode != LoadSaveMode.Inactive)
+            {
+                double storedMitigation;
+                if (coordinator != null
+                    && coordinator.TryGetEventMitigation(__instance.ID, sourceId, out storedMitigation)
+                    && storedMitigation > 0)
+                {
+                    ApplyMitigationMods(__instance, mods, sourceId, storedMitigation);
+                }
+                return;
+            }
+
             // Get Consumer Goods from this settlement's stockpile.
             double cgAvailable = GetConsumerGoodsAmount(__instance);
             if (cgAvailable <= 0) return;
@@ -40,12 +59,41 @@ namespace FactionColonies.UrbanRural
             // Calculate consumption using worker-scaled formula.
             double workerFactor = __instance.GetTotalWorkers() / (double)FCURSettings.cgBaseWorkers;
             double cgRequired = magnitude * FCURSettings.cgConversionRate * workerFactor;
+            // With 0 assigned workers cgRequired is 0; guard here so mitigation never divides by zero
+            // (a NaN result would slip past the mitigation <= 0 check below and poison stat aggregation).
+            if (cgRequired <= 0) return;
+
             double cgConsumed = Math.Min(cgRequired, cgAvailable);
             double mitigation = (cgConsumed / cgRequired) * FCURSettings.cgMaxMitigation;
 
             if (mitigation <= 0) return;
 
-            // Build compensating stat modifiers that reduce the negative impact.
+            // Apply compensating modifiers and consume the goods, then persist the mitigation
+            // fraction so the load path can re-add the buffer mods without re-drawing CG.
+            ApplyMitigationMods(__instance, mods, sourceId, mitigation);
+            ConsumeConsumerGoods(__instance, cgConsumed);
+            coordinator?.SetEventMitigation(__instance.ID, sourceId, mitigation);
+
+            // Notify the player.
+            double mitigationPct = mitigation * 100.0;
+            string eventName = sourceLabel ?? sourceId.Replace("event_", "");
+            string notification = "UR_ConsumerGoodsConsumed".Translate(
+                cgConsumed.ToString("F1"),
+                __instance.Name,
+                mitigationPct.ToString("F0"),
+                eventName);
+            Messages.Message(notification, MessageTypeDefOf.NeutralEvent, false);
+            LogUR.Message(notification);
+        }
+
+        /// <summary>
+        /// Builds and applies the compensating stat modifiers that reduce the negative event impact
+        /// by the given mitigation fraction. Uses a distinct source ID that won't recurse (doesn't
+        /// start with "event_"). Called from both the in-game and load-reapply paths with the same
+        /// mods, so the buffer is reconstructed identically after a reload.
+        /// </summary>
+        private static void ApplyMitigationMods(WorldSettlementFC settlement, List<FCStatModifier> mods, string sourceId, double mitigation)
+        {
             List<FCStatModifier> mitigationMods = new List<FCStatModifier>();
             foreach (FCStatModifier mod in mods)
             {
@@ -61,23 +109,7 @@ namespace FactionColonies.UrbanRural
                 }
             }
 
-            // Apply compensating modifiers with a distinct source ID (won't recurse — doesn't start with "event_").
-            string bufferSourceId = "cg_buffer_" + sourceId;
-            __instance.AddStatModifiers(mitigationMods, bufferSourceId, "UR_ConsumerGoodsSource".Translate());
-
-            // Consume the Consumer Goods from stockpile.
-            ConsumeConsumerGoods(__instance, cgConsumed);
-
-            // Notify the player.
-            double mitigationPct = mitigation * 100.0;
-            string eventName = sourceLabel ?? sourceId.Replace("event_", "");
-            string notification = "UR_ConsumerGoodsConsumed".Translate(
-                cgConsumed.ToString("F1"),
-                __instance.Name,
-                mitigationPct.ToString("F0"),
-                eventName);
-            Messages.Message(notification, MessageTypeDefOf.NeutralEvent, false);
-            LogUR.Message(notification);
+            settlement.AddStatModifiers(mitigationMods, "cg_buffer_" + sourceId, "UR_ConsumerGoodsSource".Translate());
         }
 
         private static double GetConsumerGoodsAmount(WorldSettlementFC settlement)
@@ -116,6 +148,7 @@ namespace FactionColonies.UrbanRural
             if (!sourceId.StartsWith("event_")) return;
 
             __instance.RemoveStatModifiersBySource("cg_buffer_" + sourceId);
+            Find.World?.GetComponent<WorldComponent_UrbanRural>()?.ClearEventMitigation(__instance.ID, sourceId);
         }
     }
 }
