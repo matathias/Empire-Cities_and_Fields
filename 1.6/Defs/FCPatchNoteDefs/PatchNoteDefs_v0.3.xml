@@ -13,4 +13,23 @@
 		<li>Matathias</li>
 		</authors>
 	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_3_1</defName>
+		<label>Various Bugfixes</label>
+		<description>Numerous bugfixes and minor changes.</description>
+		<releaseDate>2026-07-13</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Bugfix: if a settlement has 0 assigned workers, a Consumer Goods calculation could end up dividing by zero</li>
+		<li>Bugfix: consumer goods would be re-consumed on game load to re-mitigate events that had already been mitigated</li>
+		<li>Bugfix: the event Crop Blight had incorrect penalty multipliers</li>
+		<li>Bugfix: if a rural settlement is within tools range of two cities, both cities would be billed for tools even though the rural only benefits from one</li>
+		<li>Update a couple of translation keys for the new daily cadence</li>
+		<li>Bugfix: the stat modifiers from tools and seasonal production wouldn&apos;t immediately re-apply on game load</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
 </Defs>
