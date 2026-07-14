@@ -23,20 +23,35 @@ namespace FactionColonies.UrbanRural
         public static void CgBuffer_SeededCity_MitigatesAndRoundTripsLedger()
         {
             FactionFC f = DestructiveTestUtil.RequireFaction();
-            WorldSettlementFC city = URDestructiveTestUtil.FirstCity(f);
-            if (city is null) TestAssert.Skip("No city in faction");
-            if (city.GetTotalWorkers() <= 0) TestAssert.Skip("City has no workers (mitigation would be 0)");
+            WorldSettlementFC city = URDestructiveTestUtil.GetOrCreateCity(f, out bool cityCreated);
+            if (city is null) TestAssert.Skip("No city and could not spawn one");
+
+            // Mitigation scales with worker count; a freshly spawned city has none, so assign a few.
+            // Only mutate worker assignment on a settlement we created, never a live player city.
+            if (city.GetTotalWorkers() <= 0)
+            {
+                if (cityCreated) URDestructiveTestUtil.EnsureWorkers(city, 5);
+                if (city.GetTotalWorkers() <= 0)
+                {
+                    if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
+                    TestAssert.Skip("City has no workers (mitigation would be 0)");
+                }
+            }
 
             WorldComponent_UrbanRural coord = URDestructiveTestUtil.Coordinator();
-            if (coord is null) TestAssert.Skip("No WorldComponent_UrbanRural");
+            if (coord is null)
+            {
+                if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
+                TestAssert.Skip("No WorldComponent_UrbanRural");
+            }
 
             var snap = URTestHelper.SnapshotSettings();
             const string src = "event_urtest_cg";
             List<FCStatModifier> mods = PenaltyMods(10.0);
             try
             {
-                if (!URDestructiveTestUtil.Seed(city, CFResourceDefOf.RTD_ConsumerGoods, 100000.0))
-                    TestAssert.Skip("Could not seed Consumer Goods into the city (cap?)");
+                if (URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_ConsumerGoods) <= 0)
+                    TestAssert.Skip("City could not hold Consumer Goods");
                 coord.ClearEventMitigation(city.ID, src); // clean slate
 
                 double before = city.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
@@ -67,6 +82,7 @@ namespace FactionColonies.UrbanRural
                 city.RemoveStatModifiers(mods, src);
                 coord.ClearEventMitigation(city.ID, src);
                 URTestHelper.RestoreSettings(snap);
+                if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
             }
         }
 

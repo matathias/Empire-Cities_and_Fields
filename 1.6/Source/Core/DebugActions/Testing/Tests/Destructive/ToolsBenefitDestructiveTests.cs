@@ -36,8 +36,8 @@ namespace FactionColonies.UrbanRural
         public static void Rural_WithNoInRangeCity_HasNeutralMultiplier()
         {
             FactionFC f = DestructiveTestUtil.RequireFaction();
-            WorldSettlementFC rural = URDestructiveTestUtil.FirstRural(f);
-            if (rural is null) TestAssert.Skip("No rural settlement in faction");
+            WorldSettlementFC rural = URDestructiveTestUtil.GetOrCreateRural(f, out bool ruralCreated);
+            if (rural is null) TestAssert.Skip("No rural settlement and could not spawn one");
 
             var snap = URTestHelper.SnapshotSettings();
             try
@@ -52,6 +52,7 @@ namespace FactionColonies.UrbanRural
             finally
             {
                 URTestHelper.RestoreSettings(snap);
+                if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
                 WorldObjectComp_ToolsBenefit.RecalculateAllCities(f); // restore the real multipliers
             }
         }
@@ -60,12 +61,22 @@ namespace FactionColonies.UrbanRural
         public static void Rural_NearSuppliedCities_GetsToolsBonus()
         {
             FactionFC f = DestructiveTestUtil.RequireFaction();
-            WorldSettlementFC rural = URDestructiveTestUtil.FirstRural(f);
-            if (rural is null) TestAssert.Skip("No rural settlement in faction");
+            WorldSettlementFC rural = URDestructiveTestUtil.GetOrCreateRural(f, out bool ruralCreated);
+            if (rural is null) TestAssert.Skip("No rural settlement and could not spawn one");
+
+            WorldSettlementFC spawnedCity = null;
+            if (URDestructiveTestUtil.FirstCity(f) is null)
+            {
+                spawnedCity = URDestructiveTestUtil.GetOrCreateCity(f, out bool _);
+                if (spawnedCity is null)
+                {
+                    if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
+                    TestAssert.Skip("No city and could not spawn one");
+                }
+            }
 
             List<WorldSettlementFC> cities = f.settlements
                 .Where(s => s.settlementDef == CFSettlementDefOf.WorldSettlementDef_City).ToList();
-            if (cities.Count == 0) TestAssert.Skip("No city in faction");
 
             var snap = URTestHelper.SnapshotSettings();
             try
@@ -78,8 +89,8 @@ namespace FactionColonies.UrbanRural
 
                 bool seededAny = false;
                 foreach (WorldSettlementFC city in cities)
-                    seededAny |= URDestructiveTestUtil.Seed(city, CFResourceDefOf.RTD_Tools, 100000.0);
-                if (!seededAny) TestAssert.Skip("Could not seed Tools into any city (cap?)");
+                    seededAny |= URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_Tools) > 0;
+                if (!seededAny) TestAssert.Skip("No city could hold Tools");
 
                 WorldObjectComp_ToolsBenefit.RecalculateAllCities(f);
 
@@ -92,6 +103,8 @@ namespace FactionColonies.UrbanRural
             finally
             {
                 URTestHelper.RestoreSettings(snap);
+                if (spawnedCity != null) DestructiveTestUtil.SafeRemoveSettlement(spawnedCity);
+                if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
                 WorldObjectComp_ToolsBenefit.RecalculateAllCities(f); // restore the real multipliers
             }
 
