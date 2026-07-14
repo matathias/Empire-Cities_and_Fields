@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
@@ -58,13 +57,13 @@ namespace FactionColonies.UrbanRural
 
             // Calculate consumption using worker-scaled formula.
             double workerFactor = __instance.GetTotalWorkers() / (double)FCURSettings.cgBaseWorkers;
-            double cgRequired = magnitude * FCURSettings.cgConversionRate * workerFactor;
+            double cgRequired = ConsumerGoodsMath.Required(magnitude, FCURSettings.cgConversionRate, workerFactor);
             // With 0 assigned workers cgRequired is 0; guard here so mitigation never divides by zero
             // (a NaN result would slip past the mitigation <= 0 check below and poison stat aggregation).
             if (cgRequired <= 0) return;
 
-            double cgConsumed = Math.Min(cgRequired, cgAvailable);
-            double mitigation = (cgConsumed / cgRequired) * FCURSettings.cgMaxMitigation;
+            double cgConsumed = ConsumerGoodsMath.Consumed(cgRequired, cgAvailable);
+            double mitigation = ConsumerGoodsMath.Mitigation(cgConsumed, cgRequired, FCURSettings.cgMaxMitigation);
 
             if (mitigation <= 0) return;
 

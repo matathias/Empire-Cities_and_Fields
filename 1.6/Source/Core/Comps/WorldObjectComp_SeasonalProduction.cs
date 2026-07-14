@@ -59,14 +59,6 @@ namespace FactionColonies.UrbanRural
     /// </summary>
     public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProductionModifier
     {
-        private enum SeasonState
-        {
-            InGrowing,
-            OutOfGrowing,
-            YearRound,
-            NoGrowing
-        }
-
         private static readonly string[] SeasonLabelKeys =
         {
             "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing"
@@ -83,7 +75,7 @@ namespace FactionColonies.UrbanRural
         private List<Twelfth> growingTwelfths;
         private int growingMonthCount = -1;
         private Twelfth lastCheckedTwelfth = Twelfth.Undefined;
-        private SeasonState cachedSeasonState;
+        private SeasonalMath.SeasonState cachedSeasonState;
         private string cachedSeasonLabel;
         private const int CHECK_INTERVAL = GenDate.TicksPerDay;
 
@@ -151,12 +143,9 @@ namespace FactionColonies.UrbanRural
             LogUR.Message($"Initialized seasonal production for tile {parent.Tile}: {growingMonthCount}/12 growing twelfths");
         }
 
-        private SeasonState GetSeasonState()
+        private SeasonalMath.SeasonState GetSeasonState()
         {
-            if (growingMonthCount == 0) return SeasonState.NoGrowing;
-            if (growingMonthCount == 12) return SeasonState.YearRound;
-            if (growingTwelfths.Contains(lastCheckedTwelfth)) return SeasonState.InGrowing;
-            return SeasonState.OutOfGrowing;
+            return SeasonalMath.ResolveState(growingMonthCount, lastCheckedTwelfth, growingTwelfths);
         }
 
         /// <summary>
@@ -189,26 +178,14 @@ namespace FactionColonies.UrbanRural
 
         private double GetMultiplier(SeasonalMultiplierEntry entry)
         {
-            switch (cachedSeasonState)
-            {
-                case SeasonState.InGrowing: return entry.inGrowing;
-                case SeasonState.OutOfGrowing: return entry.outOfGrowing;
-                case SeasonState.YearRound: return entry.yearRound;
-                case SeasonState.NoGrowing: return entry.noGrowing;
-                default: return 1.0;
-            }
+            return SeasonalMath.SelectMultiplier(cachedSeasonState,
+                entry.inGrowing, entry.outOfGrowing, entry.yearRound, entry.noGrowing);
         }
 
         private double GetMultiplier(SeasonalMultiplierDef def)
         {
-            switch (cachedSeasonState)
-            {
-                case SeasonState.InGrowing: return def.inGrowing;
-                case SeasonState.OutOfGrowing: return def.outOfGrowing;
-                case SeasonState.YearRound: return def.yearRound;
-                case SeasonState.NoGrowing: return def.noGrowing;
-                default: return 1.0;
-            }
+            return SeasonalMath.SelectMultiplier(cachedSeasonState,
+                def.inGrowing, def.outOfGrowing, def.yearRound, def.noGrowing);
         }
 
         // IResourceProductionModifier

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -104,9 +103,9 @@ namespace FactionColonies.UrbanRural
                 double totalDemand = count * costPerRural;
 
                 // Fraction of each rural's entitlement the city can actually cover (0.0 to 1.0).
-                double fraction = totalDemand > 0 ? Math.Min(available / totalDemand, 1.0) : 0;
+                double fraction = ToolsDistributionMath.Coverage(available, totalDemand);
 
-                double toConsume = Math.Min(available, totalDemand);
+                double toConsume = ToolsDistributionMath.ToConsume(available, totalDemand);
                 if (toConsume > 0)
                     ConsumeFromStockpile(city, toolsDef, toConsume);
 
@@ -126,7 +125,7 @@ namespace FactionColonies.UrbanRural
                 if (ruralAssignment.TryGetValue(rural, out WorldSettlementFC assignedCity)
                     && cityMultiplierCache.TryGetValue(assignedCity.Tile, out double mult))
                 {
-                    comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
+                    comp.cachedMultiplier = ToolsDistributionMath.Multiplier(mult, FCURSettings.toolsProductionBonus);
                     cityNameCache.TryGetValue(assignedCity.Tile, out string cityName);
                     comp.cachedCityName = cityName;
                 }
