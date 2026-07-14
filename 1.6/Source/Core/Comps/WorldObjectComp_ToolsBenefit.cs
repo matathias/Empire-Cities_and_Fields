@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using FactionColonies;
+using System;
 using RimWorld;
 using RimWorld.Planet;
 using Verse;
@@ -33,8 +33,9 @@ namespace FactionColonies.UrbanRural
 
         /// <summary>
         /// Runs once per day (called from WorldComponent_UrbanRural.PostDailyAccrual).
-        /// For each city, counts nearby rurals, calculates fair share, consumes Tools from
-        /// city stockpile, assigns each rural to its nearest city, and updates cached multipliers.
+        /// Assigns each rural to its single nearest in-range city, then bills each city once for
+        /// only its assigned rurals (so a rural in overlapping city ranges is never double-billed),
+        /// consumes Tools from that city's stockpile, and updates cached per-rural multipliers.
         /// </summary>
         public static void RecalculateAllCities(FactionFC faction)
         {
@@ -50,68 +51,74 @@ namespace FactionColonies.UrbanRural
             float toolsRange = FCURSettings.toolsRange;
             float costPerRural = FCURSettings.toolsCostPerRural;
 
-            // Find all cities and their nearby rurals.
+            // Collect cities.
+            List<WorldSettlementFC> cities = new List<WorldSettlementFC>();
             foreach (WorldSettlementFC settlement in faction.settlements)
             {
-                if (settlement.settlementDef != cityDef) continue;
-
-                // Count rurals within range of this city.
-                int ruralCount = 0;
-                foreach (WorldSettlementFC other in faction.settlements)
-                {
-                    if (other == settlement) continue;
-                    if (!IsRuralSettlement(other)) continue;
-
-                    float dist = Find.WorldGrid.ApproxDistanceInTiles(settlement.Tile, other.Tile);
-                    if (dist <= toolsRange)
-                        ruralCount++;
-                }
-
-                if (ruralCount == 0) continue;
-
-                // Get city's Tools stockpile.
-                double available = GetToolsStockpile(settlement, toolsDef);
-                double totalDemand = ruralCount * costPerRural;
-
-                // Calculate how much each rural gets (0.0 to 1.0 fraction of costPerRural).
-                double fraction = totalDemand > 0 ? System.Math.Min(available / totalDemand, 1.0) : 0;
-
-                // Consume Tools from city stockpile.
-                double toConsume = System.Math.Min(available, totalDemand);
-                if (toConsume > 0)
-                    ConsumeFromStockpile(settlement, toolsDef, toConsume);
-
-                cityMultiplierCache[settlement.Tile] = fraction;
-                cityNameCache[settlement.Tile] = settlement.Name;
+                if (settlement.settlementDef == cityDef)
+                    cities.Add(settlement);
             }
 
-            // Assign each rural to its nearest city within range and update cached multipliers.
-            foreach (WorldSettlementFC settlement in faction.settlements)
+            // Assign each rural to its single nearest in-range city, tallying per-city demand.
+            // A rural counts toward exactly one city, so overlapping ranges never double-bill.
+            Dictionary<WorldSettlementFC, WorldSettlementFC> ruralAssignment = new Dictionary<WorldSettlementFC, WorldSettlementFC>();
+            Dictionary<WorldSettlementFC, int> assignedRuralCount = new Dictionary<WorldSettlementFC, int>();
+            foreach (WorldSettlementFC rural in faction.settlements)
             {
-                if (!IsRuralSettlement(settlement)) continue;
+                if (!IsRuralSettlement(rural)) continue;
 
-                WorldObjectComp_ToolsBenefit comp = settlement.GetComponent<WorldObjectComp_ToolsBenefit>();
-                if (comp is null) continue;
-
-                PlanetTile assignedCityTile = PlanetTile.Invalid;
+                WorldSettlementFC nearestCity = null;
                 float bestDist = float.MaxValue;
-
-                foreach (PlanetTile cityTile in cityMultiplierCache.Keys)
+                foreach (WorldSettlementFC city in cities)
                 {
-                    float dist = Find.WorldGrid.ApproxDistanceInTiles(settlement.Tile, cityTile);
+                    float dist = Find.WorldGrid.ApproxDistanceInTiles(rural.Tile, city.Tile);
                     if (dist <= toolsRange && dist < bestDist)
                     {
                         bestDist = dist;
-                        assignedCityTile = cityTile;
+                        nearestCity = city;
                     }
                 }
 
-                // Update the comp's cached multiplier.
+                if (nearestCity is null) continue;
+
+                ruralAssignment[rural] = nearestCity;
+                assignedRuralCount.TryGetValue(nearestCity, out int count);
+                assignedRuralCount[nearestCity] = count + 1;
+            }
+
+            // Bill each city once from its assigned rurals only, and cache the resulting fraction.
+            foreach (WorldSettlementFC city in cities)
+            {
+                if (!assignedRuralCount.TryGetValue(city, out int count) || count == 0) continue;
+
+                double available = GetToolsStockpile(city, toolsDef);
+                double totalDemand = count * costPerRural;
+
+                // Fraction of each rural's entitlement the city can actually cover (0.0 to 1.0).
+                double fraction = totalDemand > 0 ? Math.Min(available / totalDemand, 1.0) : 0;
+
+                double toConsume = Math.Min(available, totalDemand);
+                if (toConsume > 0)
+                    ConsumeFromStockpile(city, toolsDef, toConsume);
+
+                cityMultiplierCache[city.Tile] = fraction;
+                cityNameCache[city.Tile] = city.Name;
+            }
+
+            // Apply cached multipliers to each rural from its assigned city.
+            foreach (WorldSettlementFC rural in faction.settlements)
+            {
+                if (!IsRuralSettlement(rural)) continue;
+
+                WorldObjectComp_ToolsBenefit comp = rural.GetComponent<WorldObjectComp_ToolsBenefit>();
+                if (comp is null) continue;
+
                 double oldMultiplier = comp.cachedMultiplier;
-                if (assignedCityTile.Valid && cityMultiplierCache.TryGetValue(assignedCityTile, out double mult))
+                if (ruralAssignment.TryGetValue(rural, out WorldSettlementFC assignedCity)
+                    && cityMultiplierCache.TryGetValue(assignedCity.Tile, out double mult))
                 {
                     comp.cachedMultiplier = 1.0 + mult * FCURSettings.toolsProductionBonus;
-                    cityNameCache.TryGetValue(assignedCityTile, out string cityName);
+                    cityNameCache.TryGetValue(assignedCity.Tile, out string cityName);
                     comp.cachedCityName = cityName;
                 }
                 else
@@ -121,7 +128,7 @@ namespace FactionColonies.UrbanRural
                 }
 
                 if (comp.cachedMultiplier != oldMultiplier)
-                    settlement.InvalidateResourceCaches();
+                    rural.InvalidateResourceCaches();
             }
         }
 
