@@ -3,6 +3,7 @@
 
     <!-- Settings -->
     <UR_SettingsCategory>Empire: Cities &amp; Fields</UR_SettingsCategory>
+    <UR_ModVersion>Cities &amp; Fields Version: {0}</UR_ModVersion>
     <UR_SettingsDebugLog>Enable debug logging</UR_SettingsDebugLog>
 
     <!-- Settings: Consumer Goods Section -->

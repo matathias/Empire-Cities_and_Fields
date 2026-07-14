@@ -42,6 +42,9 @@ namespace FactionColonies.UrbanRural
             ls.Begin(inRect);
             Listing_StandardExtensions.ResetRowStripe();
 
+            ls.Label("UR_ModVersion".Translate(UrbanRuralMod.GetModVersion()));
+            ls.Gap(10f);
+
             ls.CheckboxLabeled("UR_SettingsDebugLog".Translate(), ref printDebug);
             ls.Gap(12f);
 
@@ -103,6 +106,13 @@ namespace FactionColonies.UrbanRural
             {
                 LogUR.MessageForce($"v{modVersion}");
             }
+        }
+
+        public static string GetModVersion()
+        {
+            var mod = LoadedModManager.GetMod<UrbanRuralMod>();
+            string version = mod?.Content?.ModMetaData?.ModVersion;
+            return version.NullOrEmpty() ? "Unknown" : version;
         }
 
         public override string SettingsCategory() => "UR_SettingsCategory".Translate();
