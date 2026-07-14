@@ -78,7 +78,7 @@
 		<constructionDuration>120000</constructionDuration>
 		<statModifiers>
 			<li><stat>RTD_Mining_ProductionAdditive</stat><value>1.5</value></li>
-			<li><stat>unrestGainedBase</stat><value>-0.5</value></li>
+			<li><stat>unrestLostBase</stat><value>0.5</value></li>
 		</statModifiers>
 		<upkeep>50</upkeep>
 		<baseBuilding>false</baseBuilding>
