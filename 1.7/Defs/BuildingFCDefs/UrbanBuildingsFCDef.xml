@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- ===========================================================
+	     City buildings
+	     =========================================================== -->
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Market</defName>
+		<label>Merchant Quarter</label>
+		<desc>A bustling quarter of shops and stalls that trades raw goods into consumer products. Also increases tax revenue and trade variability.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>taxBasePercentage</stat><value>10</value></li>
+			<li><stat>taxBaseRandomModifier</stat><value>10</value></li>
+			<li><stat>RTD_ConsumerGoods_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>Buildings/UR_Market</iconPath>
+		<upgrades>
+			<li>UR_Market_GrandBazaar</li>
+			<li>UR_Market_TradeNetwork</li>
+			<li>UR_Market_MerchantGuild</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Medicine</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_TownHall</defName>
+		<label>Town Hall</label>
+		<desc>A civic building that allows more workers to be employed in the settlement.</desc>
+		<cost>500</cost>
+		<constructionDuration>90000</constructionDuration>
+		<statModifiers>
+			<li><stat>workerBaseMax</stat><value>4</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<iconPath>Buildings/UR_TownHall</iconPath>
+		<upgrades>
+			<li>UR_TownHall_Courthouse</li>
+			<li>UR_TownHall_CensusOffice</li>
+			<li>UR_TownHall_GovernorsMansion</li>
+		</upgrades>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Library</defName>
+		<label>Library</label>
+		<desc>A repository of knowledge that contributes to research output. Requires a steady supply of base resources for analysis.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>Buildings/UR_Library</iconPath>
+		<upgrades>
+			<li>UR_Library_GrandArchives</li>
+			<li>UR_Library_ScholarshipProgram</li>
+			<li>UR_Library_DebateForum</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Mining</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Logging</resource><amount>0.1</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.1</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_University</defName>
+		<label>University</label>
+		<desc>An advanced institution of learning and research. Requires a reliable power supply to operate its equipment.</desc>
+		<cost>2000</cost>
+		<constructionDuration>180000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Research_ProductionAdditive</stat><value>2.5</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<iconPath>Buildings/UR_University</iconPath>
+		<upgrades>
+			<li>UR_University_AdvancedLabs</li>
+			<li>UR_University_ResearchInstitute</li>
+			<li>UR_University_DiplomaticAcademy</li>
+		</upgrades>
+		<requiredBuildings>
+			<li>UR_Library</li>
+		</requiredBuildings>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- === Armory — Weapons from Mining + Chemfuel === -->
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Armory</defName>
+		<label>Armory</label>
+		<desc>A weapons forge that converts ore and fuel into armaments. Requires a supply of mined materials.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Weapons_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_Armory</iconPath>
+		<upgrades>
+			<li>UR_Armory_AdvancedForge</li>
+			<li>UR_Armory_QualityControl</li>
+			<li>UR_Armory_SiegeWorkshop</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- === Weaving House — Apparel from Animals + Logging === -->
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_TextileMill</defName>
+		<label>Weaving House</label>
+		<desc>A cloth and leather processing facility that produces apparel from animal products and plants.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Apparel_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>75</upkeep>
+		<iconPath>Buildings/UR_TextileMill</iconPath>
+		<upgrades>
+			<li>UR_TextileMill_IndustrialLooms</li>
+			<li>UR_TextileMill_FashionHouse</li>
+			<li>UR_TextileMill_LuxuryTextiles</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Animals</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Food</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<!-- === Manufactory — Tools from Mining + Chemfuel + Power === -->
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Manufactory</defName>
+		<label>Manufactory</label>
+		<desc>An industrial facility producing tools and machinery from raw ore, fuel, and power. Its output boosts production at nearby rural settlements.</desc>
+		<cost>600</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Tools_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>125</upkeep>
+		<iconPath>Buildings/UR_Manufactory</iconPath>
+		<upgrades>
+			<li>UR_Manufactory_HeavyIndustry</li>
+			<li>UR_Manufactory_PrecisionEngineering</li>
+			<li>UR_Manufactory_InnovationLab</li>
+		</upgrades>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Clinic</defName>
+		<label>Clinic</label>
+		<desc>A small medical facility that produces basic medicine from food and animal products.</desc>
+		<cost>400</cost>
+		<constructionDuration>60000</constructionDuration>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>1.0</value></li>
+		</statModifiers>
+		<upkeep>100</upkeep>
+		<iconPath>Buildings/UR_Clinic</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Food</resource><amount>0.2</amount></li>
+					<li><resource>RTD_Animals</resource><amount>0.2</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_Hospital</defName>
+		<label>Hospital</label>
+		<desc>A full-scale medical facility with advanced equipment. Requires a reliable power supply.</desc>
+		<cost>600</cost>
+		<constructionDuration>120000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Medicine_ProductionAdditive</stat><value>2.0</value></li>
+		</statModifiers>
+		<upkeep>200</upkeep>
+		<iconPath>Buildings/UR_Hospital</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Power</resource><amount>0.3</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+	<FactionColonies.BuildingFCDef ParentName="BuildingFCDef_Urban">
+		<defName>UR_PowerStation</defName>
+		<label>Power Station</label>
+		<desc>A city-scale power generation facility that burns fuel and uses mined materials.</desc>
+		<cost>500</cost>
+		<constructionDuration>90000</constructionDuration>
+		<techLevel>Industrial</techLevel>
+		<statModifiers>
+			<li><stat>RTD_Power_ProductionAdditive</stat><value>1.5</value></li>
+		</statModifiers>
+		<upkeep>150</upkeep>
+		<iconPath>Buildings/UR_PowerStation</iconPath>
+		<modExtensions>
+			<li Class="FactionColonies.SupplyChain.BuildingNeedExtension">
+				<inputs>
+					<li><resource>RTD_Mining</resource><amount>0.3</amount></li>
+					<li><resource>RTD_Chemfuel</resource><amount>0.2</amount></li>
+				</inputs>
+			</li>
+		</modExtensions>
+	</FactionColonies.BuildingFCDef>
+
+</Defs>

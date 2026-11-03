@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_0</defName>
+		<label>Settlement cost update</label>
+		<description>Updates the new settlements to use the new distance-based cost calculations from Routes &amp; Resources.</description>
+		<releaseDate>2026-04-05</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>SettlementTypeExtension_Urban and SettlementTypeExtension_Rural now extend SCSettlementTypeExtension instead of SettlementTypeExtension</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_1</defName>
+		<label>Minor Tweaks</label>
+		<description>Couple of minor code/UI tweaks.</description>
+		<releaseDate>2026-04-08</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Couple of minor code/UI tweaks</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_2</defName>
+		<label>City Need Update</label>
+		<description>Updates the city need to use Routes &amp; Resources updated needDef</description>
+		<releaseDate>2026-04-14</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Updates the city need to use Routes &amp; Resources&apos; updated needDef</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_3</defName>
+		<label>Founding Costs</label>
+		<description>Adds specialized founding costs for each settlement type.</description>
+		<releaseDate>2026-04-14</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>City: 12 food, 9 logging, 9 mining</li>
+		<li>Farm: 2 food, 9 logging, 4 mining</li>
+		<li>Mining Camp: 6 food, 9 logging</li>
+		<li>Lumber Camp: 8 food, 7 mining</li>
+		<li>Ranch: 5 food, 8 logging, 2 mining</li>
+		<li>Refinery: 4 food, 6 logging, 10 mining, 2 research</li>
+		<li>Herbalist Camp: 5 food, 4 logging, 3 mining, 3 research</li>
+		<li>Power Plant: 3 food, 4 logging, 6 mining, 2 chemfuel</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_4</defName>
+		<label>Icon Fix</label>
+		<description>Fixes a typo for the Manufactory icon.</description>
+		<releaseDate>2026-04-22</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>UR_Manufatury -&gt; UR_Manufactory</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_5</defName>
+		<label>Base mod API update</label>
+		<description>Update to handle API changes in the base mod.</description>
+		<releaseDate>2026-05-18</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Update to handle API changes in the base mod</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_6</defName>
+		<label>Event Updates</label>
+		<description>Removes a handful of events that are redundant or that really need a more robust/specialized implementation to make sense. The remaining events are edited and cleaned up.</description>
+		<releaseDate>2026-06-01</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Remove a handful of redundant or inadequate events</li>
+		<li>Update and edit the rest</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_7</defName>
+		<label>PlanetTile Update</label>
+		<description>Forces PlanetTile semantics wherever possible, to eliminate the possibility of a layer clash caused by casting a PlanetTile to an int and losing layer info.</description>
+		<releaseDate>2026-06-03</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Updates WorldObjectComp_ToolsBenefit.RecalculateAllCities and WorldObjectComp_SeasonalProduction.InitGrowingSeason to use PlanetTile instead of int</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_8</defName>
+		<label>Empire Naming Update</label>
+		<description>Updates event text to use the player&apos;s faction&apos;s name and title more, instead of generic phrases like &quot;your empire&quot;.</description>
+		<releaseDate>2026-06-14</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Updates Mine Collapse event to reference the player&apos;s faction&apos;s title instead of saying &quot;empire&quot;</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_2_9</defName>
+		<label>Codex Entries</label>
+		<description>Adds entries for the Empire Codex.</description>
+		<releaseDate>2026-06-15</releaseDate>
+		<patchNoteType>Minor</patchNoteType>
+		<patchNoteLines>
+		<li>Adds entries for the codex</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+</Defs>

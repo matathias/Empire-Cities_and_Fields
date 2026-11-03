@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- === City === -->
+	<FactionColonies.WorldSettlementDef ParentName="WorldSettlementDef_Surface">
+		<defName>WorldSettlementDef_City</defName>
+		<label>city</label>
+		<description>A large urban center with no biome resource production. Depends on supply routes from rural settlements to satisfy its needs, but can produce mid-tier resources via specialized buildings.</description>
+		<available>true</available>
+		<accentColor>(0.45, 0.45, 0.45)</accentColor>
+		<baseSettlementType>WorldSettlementDef_Surface</baseSettlementType>
+		<baseUnlockedBuildings>0</baseUnlockedBuildings>
+		<perLevelUnlockedBuildings>1</perLevelUnlockedBuildings>
+		<maxBuildingCount>16</maxBuildingCount>
+		<resources>
+			<li>
+				<resourceDef>RTD_Chemfuel</resourceDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_ConsumerGoods</resourceDef>
+				<multiplier>1</multiplier>
+			</li>
+			<li>
+				<resourceDef>RTD_Tools</resourceDef>
+				<multiplier>1</multiplier>
+			</li>
+		</resources>
+		<biomeResourceOverride>UrbanRural_EmptyBiome</biomeResourceOverride>
+		<modExtensions>
+			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Urban">
+				<foundingResourceCosts>
+					<li><resource>RTD_Food</resource><amount>12</amount></li>
+					<li><resource>RTD_Logging</resource><amount>9</amount></li>
+					<li><resource>RTD_Mining</resource><amount>9</amount></li>
+				</foundingResourceCosts>
+			</li>
+		</modExtensions>
+	</FactionColonies.WorldSettlementDef>
+
+</Defs>

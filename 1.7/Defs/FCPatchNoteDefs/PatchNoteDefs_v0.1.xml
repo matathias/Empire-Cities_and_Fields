@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_1_0</defName>
+		<label>Initial version</label>
+		<description>Initial version. Mod already in alpha.</description>
+		<releaseDate>2026-04-03</releaseDate>
+		<patchNoteType>Major</patchNoteType>
+		<patchNoteLines>
+		<li>Initial version</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+
+	<FactionColonies.PatchNoteDef ParentName="URPatchBase">
+		<defName>UR_0_1_1</defName>
+		<label>Town Title Update</label>
+		<description>Addes town titles for the two new resources</description>
+		<releaseDate>2026-04-04</releaseDate>
+		<patchNoteType>Patch</patchNoteType>
+		<patchNoteLines>
+		<li>Adds town titles for consumer goods and tool resources</li>
+		</patchNoteLines>
+		<authors>
+		<li>Matathias</li>
+		</authors>
+	</FactionColonies.PatchNoteDef>
+</Defs>
