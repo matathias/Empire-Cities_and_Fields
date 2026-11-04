@@ -9,8 +9,8 @@ public static class DefIntegrityTests
 {
     private static WorldSettlementDef[] RuralSpecializations()
     {
-        return new[]
-        {
+        return
+        [
             CFSettlementDefOf.WorldSettlementDef_Farm,
             CFSettlementDefOf.WorldSettlementDef_Mine,
             CFSettlementDefOf.WorldSettlementDef_LumberCamp,
@@ -18,7 +18,7 @@ public static class DefIntegrityTests
             CFSettlementDefOf.WorldSettlementDef_Refinery,
             CFSettlementDefOf.WorldSettlementDef_Herbalist,
             CFSettlementDefOf.WorldSettlementDef_PowerPlant,
-        };
+        ];
     }
 
     private static bool InheritsRural(WorldSettlementDef def)

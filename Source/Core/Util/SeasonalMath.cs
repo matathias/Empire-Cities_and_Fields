@@ -32,13 +32,13 @@ public static class SeasonalMath
     /// <summary>Picks the multiplier field matching the given season state.</summary>
     public static double SelectMultiplier(SeasonState state, double inGrowing, double outOfGrowing, double yearRound, double noGrowing)
     {
-        switch (state)
+        return state switch
         {
-            case SeasonState.InGrowing: return inGrowing;
-            case SeasonState.OutOfGrowing: return outOfGrowing;
-            case SeasonState.YearRound: return yearRound;
-            case SeasonState.NoGrowing: return noGrowing;
-            default: return 1.0;
-        }
+            SeasonState.InGrowing => inGrowing,
+            SeasonState.OutOfGrowing => outOfGrowing,
+            SeasonState.YearRound => yearRound,
+            SeasonState.NoGrowing => noGrowing,
+            _ => 1.0,
+        };
     }
 }

@@ -31,8 +31,8 @@ public static class URDebugActions
 
         // The 8 concrete, foundable types. WorldSettlementDef_Rural is the hidden base (available=false)
         // and is intentionally excluded.
-        List<WorldSettlementDef> types = new List<WorldSettlementDef>
-        {
+        List<WorldSettlementDef> types =
+        [
             CFSettlementDefOf.WorldSettlementDef_City,
             CFSettlementDefOf.WorldSettlementDef_Farm,
             CFSettlementDefOf.WorldSettlementDef_Mine,
@@ -41,11 +41,11 @@ public static class URDebugActions
             CFSettlementDefOf.WorldSettlementDef_Refinery,
             CFSettlementDefOf.WorldSettlementDef_Herbalist,
             CFSettlementDefOf.WorldSettlementDef_PowerPlant,
-        };
+        ];
 
         int created = 0;
         int skipped = 0;
-        StringBuilder summary = new StringBuilder();
+        StringBuilder summary = new();
 
         foreach (WorldSettlementDef def in types)
         {

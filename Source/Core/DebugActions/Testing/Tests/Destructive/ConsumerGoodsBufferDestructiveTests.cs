@@ -11,10 +11,10 @@ public static class ConsumerGoodsBufferDestructiveTests
 {
     private static List<FCStatModifier> PenaltyMods(double amount)
     {
-        return new List<FCStatModifier>
-        {
-            new FCStatModifier { stat = FCStatDefOf.happinessLostBase, value = amount }
-        };
+        return
+        [
+            new() { stat = FCStatDefOf.happinessLostBase, value = amount }
+        ];
     }
 
     [EmpireDestructiveTest("CF.Destructive.ConsumerGoods")]

@@ -22,8 +22,8 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
 
     // Static coordinator: prevents multiple rurals from independently draining the same city.
     // Key = city tile (PlanetTile preserves orbit/surface layer), Value = per-rural multiplier fraction for the current day.
-    private static Dictionary<PlanetTile, double> cityMultiplierCache = new Dictionary<PlanetTile, double>();
-    private static Dictionary<PlanetTile, string> cityNameCache = new Dictionary<PlanetTile, string>();
+    private static Dictionary<PlanetTile, double> cityMultiplierCache = [];
+    private static Dictionary<PlanetTile, string> cityNameCache = [];
 
     public override void PostExposeData()
     {
@@ -55,7 +55,7 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
         float costPerRural = FCURSettings.toolsCostPerRural;
 
         // Collect cities.
-        List<WorldSettlementFC> cities = new List<WorldSettlementFC>();
+        List<WorldSettlementFC> cities = [];
         foreach (WorldSettlementFC settlement in faction.settlements)
         {
             if (settlement.settlementDef == cityDef)
@@ -64,8 +64,8 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
 
         // Assign each rural to its single nearest in-range city, tallying per-city demand.
         // A rural counts toward exactly one city, so overlapping ranges never double-bill.
-        Dictionary<WorldSettlementFC, WorldSettlementFC> ruralAssignment = new Dictionary<WorldSettlementFC, WorldSettlementFC>();
-        Dictionary<WorldSettlementFC, int> assignedRuralCount = new Dictionary<WorldSettlementFC, int>();
+        Dictionary<WorldSettlementFC, WorldSettlementFC> ruralAssignment = [];
+        Dictionary<WorldSettlementFC, int> assignedRuralCount = [];
         foreach (WorldSettlementFC rural in faction.settlements)
         {
             if (!IsRuralSettlement(rural)) continue;

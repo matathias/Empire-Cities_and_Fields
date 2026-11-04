@@ -14,36 +14,22 @@ public class SettlementTypeExtension_Rural : SCSettlementTypeExtension
 {
     public override int GetBuildingSlots(int level, int maxCount)
     {
-        switch (level)
+        return level switch
         {
-            case 0:
-            case 1:
-                return 0;
-            case 2:
-            case 3:
-                return 1;
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-                return 4;
-            default: //Levels 8 and above: 8 buildings
-                return 8;
-        }
+            0 or 1 => 0,
+            2 or 3 => 1,
+            4 or 5 or 6 or 7 => 4,
+            _ => 8, //Levels 8 and above: 8 buildings
+        };
     }
 
     public override int GetRequiredLevelForSlot(int slotIndex, int maxCount)
     {
-        switch (slotIndex)
+        return slotIndex switch
         {
-            case 0:
-                return 2;
-            case 1:
-            case 2:
-            case 3:
-                return 4;
-            default: //Slots 4 and above: need level 8
-                return 8;
-        }
+            0 => 2,
+            1 or 2 or 3 => 4,
+            _ => 8, //Slots 4 and above: need level 8
+        };
     }
 }

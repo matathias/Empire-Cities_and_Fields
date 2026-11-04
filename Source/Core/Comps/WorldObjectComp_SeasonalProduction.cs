@@ -55,9 +55,9 @@ public class WorldObjectCompProperties_SeasonalProduction : WorldObjectCompPrope
 public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProductionModifier
 {
     private static readonly string[] SeasonLabelKeys =
-    {
+    [
         "UR_SeasonGrowing", "UR_SeasonOffSeason", "UR_SeasonYearRound", "UR_SeasonNoGrowing"
-    };
+    ];
 
     // Static lookup: ResourceTypeDef → SeasonalMultiplierDef, built lazily from DefDatabase.
     private static Dictionary<ResourceTypeDef, SeasonalMultiplierDef> defLookup;
@@ -77,7 +77,7 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
     private static void EnsureDefLookup()
     {
         if (defLookup is not null) return;
-        defLookup = new Dictionary<ResourceTypeDef, SeasonalMultiplierDef>();
+        defLookup = [];
         foreach (SeasonalMultiplierDef def in DefDatabase<SeasonalMultiplierDef>.AllDefs)
         {
             if (def.resource is not null)
@@ -127,7 +127,7 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
     {
         if (!parent.Tile.Valid)
         {
-            growingTwelfths = new List<Twelfth>();
+            growingTwelfths = [];
             growingMonthCount = 12;
             return;
         }

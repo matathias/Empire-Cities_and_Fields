@@ -16,7 +16,7 @@ public static class SettlementTerrainTests
         int count = surface.TilesCount;
         for (int i = 0; i < count; i++)
         {
-            PlanetTile pt = new PlanetTile(i, surface);
+            PlanetTile pt = new(i, surface);
             Tile t = pt.Tile;
             if (t is not null && match(t.hilliness))
                 return pt;

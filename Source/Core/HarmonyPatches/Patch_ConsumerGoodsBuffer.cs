@@ -90,7 +90,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
     /// </summary>
     private static void ApplyMitigationMods(WorldSettlementFC settlement, List<FCStatModifier> mods, string sourceId, double mitigation)
     {
-        List<FCStatModifier> mitigationMods = new List<FCStatModifier>();
+        List<FCStatModifier> mitigationMods = [];
         foreach (FCStatModifier mod in mods)
         {
             bool isNegative = (mod.stat == FCStatDefOf.happinessLostBase && mod.value > 0)

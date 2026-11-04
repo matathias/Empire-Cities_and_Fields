@@ -36,7 +36,7 @@ public class FCURSettings : ModSettings
 
     public void DoWindowContents(Rect inRect)
     {
-        Listing_Standard ls = new Listing_Standard();
+        Listing_Standard ls = new();
         ls.Begin(inRect);
         Listing_StandardExtensions.ResetRowStripe();
 

@@ -22,7 +22,7 @@ public class WorldComponent_UrbanRural : WorldComponent, IDailyAccrualParticipan
      * The buffer's cg_buffer_* stat modifiers live in the non-serialized statModifiers list,
      * so we record the mitigation fraction here to re-add them on load without re-drawing CG.
      * See Patch_ConsumerGoodsBuffer. */
-    private Dictionary<string, double> eventMitigations = new Dictionary<string, double>();
+    private Dictionary<string, double> eventMitigations = [];
 
     public WorldComponent_UrbanRural(World world) : base(world)
     {
@@ -32,7 +32,7 @@ public class WorldComponent_UrbanRural : WorldComponent, IDailyAccrualParticipan
     {
         base.ExposeData();
         Scribe_Collections.Look(ref eventMitigations, "eventMitigations", LookMode.Value, LookMode.Value);
-        if (eventMitigations is null) eventMitigations = new Dictionary<string, double>();
+        eventMitigations ??= [];
     }
 
     private static string MitigationKey(int settlementId, string sourceId) => settlementId + "|" + sourceId;
