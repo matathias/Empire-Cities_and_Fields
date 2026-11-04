@@ -172,19 +172,9 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
     }
 
     // IResourceProductionModifier
-    public double GetResourceAdditiveModifier(ResourceFC resource)
-    {
-        return 0;
-    }
-
     public double GetResourceMultiplierModifier(ResourceFC resource)
     {
         return cachedMultiplier;
-    }
-
-    public string GetResourceAdditiveDesc(ResourceFC resource)
-    {
-        return null;
     }
 
     public string GetResourceMultiplierDesc(ResourceFC resource)

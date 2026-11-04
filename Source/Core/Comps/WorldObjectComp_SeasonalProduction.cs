@@ -185,22 +185,12 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
 
     // IResourceProductionModifier
 
-    public double GetResourceAdditiveModifier(ResourceFC resource)
-    {
-        return 0;
-    }
-
     public double GetResourceMultiplierModifier(ResourceFC resource)
     {
         if (resource.def.isPoolResource)
             return 1.0;
 
         return ResolveMultiplier(resource.def);
-    }
-
-    public string GetResourceAdditiveDesc(ResourceFC resource)
-    {
-        return null;
     }
 
     public string GetResourceMultiplierDesc(ResourceFC resource)
