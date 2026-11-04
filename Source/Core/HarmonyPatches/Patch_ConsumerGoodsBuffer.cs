@@ -14,7 +14,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
     [HarmonyPostfix]
     public static void Postfix(WorldSettlementFC __instance, List<FCStatModifier> mods, string sourceId, string sourceLabel)
     {
-        if (mods == null || string.IsNullOrEmpty(sourceId)) return;
+        if (mods is null || string.IsNullOrEmpty(sourceId)) return;
         if (!sourceId.StartsWith("event_")) return;
 
         // Sum penalty magnitude from the event's stat modifiers.
@@ -39,7 +39,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
         if (Scribe.mode != LoadSaveMode.Inactive)
         {
             double storedMitigation;
-            if (coordinator != null
+            if (coordinator is not null
                 && coordinator.TryGetEventMitigation(__instance.ID, sourceId, out storedMitigation)
                 && storedMitigation > 0)
             {
@@ -111,7 +111,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
     private static double GetConsumerGoodsAmount(WorldSettlementFC settlement)
     {
         IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
-        if (stockpile == null) return 0;
+        if (stockpile is null) return 0;
 
         return stockpile.GetAmount(CFResourceDefOf.RTD_ConsumerGoods);
     }
@@ -119,7 +119,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
     private static void ConsumeConsumerGoods(WorldSettlementFC settlement, double amount)
     {
         IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
-        if (stockpile == null) return;
+        if (stockpile is null) return;
 
         stockpile.TryDraw(CFResourceDefOf.RTD_ConsumerGoods, amount, out double drawn);
 

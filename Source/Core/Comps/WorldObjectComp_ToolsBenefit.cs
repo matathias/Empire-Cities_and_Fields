@@ -141,7 +141,7 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
         if (ruralDef is null) return false;
 
         WorldSettlementDef def = settlement.settlementDef;
-        while (def != null)
+        while (def is not null)
         {
             if (def == ruralDef) return true;
             def = def.baseSettlementType;

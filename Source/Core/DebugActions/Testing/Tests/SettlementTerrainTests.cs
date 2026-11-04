@@ -18,7 +18,7 @@ public static class SettlementTerrainTests
         {
             PlanetTile pt = new PlanetTile(i, surface);
             Tile t = pt.Tile;
-            if (t != null && match(t.hilliness))
+            if (t is not null && match(t.hilliness))
                 return pt;
         }
         return PlanetTile.Invalid;

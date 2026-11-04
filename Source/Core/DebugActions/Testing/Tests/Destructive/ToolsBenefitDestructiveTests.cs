@@ -100,7 +100,7 @@ public static class ToolsBenefitDestructiveTests
         finally
         {
             URTestHelper.RestoreSettings(snap);
-            if (spawnedCity != null) DestructiveTestUtil.SafeRemoveSettlement(spawnedCity);
+            if (spawnedCity is not null) DestructiveTestUtil.SafeRemoveSettlement(spawnedCity);
             if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
             WorldObjectComp_ToolsBenefit.RecalculateAllCities(f); // restore the real multipliers
         }

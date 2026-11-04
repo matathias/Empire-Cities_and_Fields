@@ -18,7 +18,7 @@ public class SettlementTypeExtension_Ranch : SettlementTypeExtension_Rural
 
     private static bool CheckTerrain(PlanetTile tile, StringBuilder reason)
     {
-        if (tile.Tile != null && tile.Tile.hilliness > Hilliness.SmallHills)
+        if (tile.Tile is not null && tile.Tile.hilliness > Hilliness.SmallHills)
         {
             reason?.Append("UR_RequiresFlatTerrain".Translate());
             return false;

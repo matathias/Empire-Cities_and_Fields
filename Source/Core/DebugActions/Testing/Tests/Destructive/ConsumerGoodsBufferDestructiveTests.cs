@@ -96,7 +96,7 @@ public static class ConsumerGoodsBufferDestructiveTests
         List<FCStatModifier> mods = PenaltyMods(10.0);
         try
         {
-            if (coord != null) coord.ClearEventMitigation(s.ID, src);
+            if (coord is not null) coord.ClearEventMitigation(s.ID, src);
 
             double before = s.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
             // A bare transient settlement has no seeded CG, so the patch must no-op cleanly.
@@ -106,7 +106,7 @@ public static class ConsumerGoodsBufferDestructiveTests
 
             TestAssert.AreEqual(before + 10.0, after, 0.001,
                 "With no Consumer Goods the full penalty applies (no mitigation)");
-            if (coord != null)
+            if (coord is not null)
                 TestAssert.IsFalse(coord.TryGetEventMitigation(s.ID, src, out _),
                     "No Consumer Goods should mean no recorded mitigation");
 

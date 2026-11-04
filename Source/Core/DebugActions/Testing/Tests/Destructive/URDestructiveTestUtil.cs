@@ -16,7 +16,7 @@ public static class URDestructiveTestUtil
         WorldSettlementDef rural = CFSettlementDefOf.WorldSettlementDef_Rural;
         if (rural is null || settlement is null) return false;
         WorldSettlementDef def = settlement.settlementDef;
-        while (def != null)
+        while (def is not null)
         {
             if (def == rural) return true;
             def = def.baseSettlementType;
@@ -43,11 +43,11 @@ public static class URDestructiveTestUtil
     public static WorldSettlementFC GetOrCreateCity(FactionFC f, out bool created)
     {
         WorldSettlementFC existing = FirstCity(f);
-        if (existing != null) { created = false; return existing; }
+        if (existing is not null) { created = false; return existing; }
 
         WorldSettlementFC made = DestructiveTestUtil.CreateTransientSettlement(
             def: CFSettlementDefOf.WorldSettlementDef_City);
-        created = made != null;
+        created = made is not null;
         return made;
     }
 
@@ -59,11 +59,11 @@ public static class URDestructiveTestUtil
     public static WorldSettlementFC GetOrCreateRural(FactionFC f, out bool created)
     {
         WorldSettlementFC existing = FirstRural(f);
-        if (existing != null) { created = false; return existing; }
+        if (existing is not null) { created = false; return existing; }
 
         WorldSettlementFC made = DestructiveTestUtil.CreateTransientSettlement(
             def: CFSettlementDefOf.WorldSettlementDef_Farm);
-        created = made != null;
+        created = made is not null;
         return made;
     }
 
@@ -78,7 +78,7 @@ public static class URDestructiveTestUtil
         if (settlement.GetTotalWorkers() > 0) return settlement.GetTotalWorkers();
 
         ResourceFC target = settlement.Resources?.FirstOrDefault();
-        if (target != null)
+        if (target is not null)
         {
             for (int i = 0; i < count; i++)
             {

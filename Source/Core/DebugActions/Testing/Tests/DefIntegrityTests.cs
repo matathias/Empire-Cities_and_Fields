@@ -24,7 +24,7 @@ public static class DefIntegrityTests
     private static bool InheritsRural(WorldSettlementDef def)
     {
         WorldSettlementDef rural = CFSettlementDefOf.WorldSettlementDef_Rural;
-        while (def != null)
+        while (def is not null)
         {
             if (def == rural) return true;
             def = def.baseSettlementType;

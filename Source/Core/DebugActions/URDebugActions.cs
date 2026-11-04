@@ -110,7 +110,7 @@ public static class URDebugActions
             ? null
             : s.Resources.FirstOrDefault(r => r.def == primaryDef);
 
-        if (primary != null)
+        if (primary is not null)
             s.IncreaseWorkers(primary, total / 2);
 
         // Spread the remainder randomly across all resources (with replacement).

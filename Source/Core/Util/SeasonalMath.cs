@@ -25,7 +25,7 @@ public static class SeasonalMath
     {
         if (growingMonthCount == 0) return SeasonState.NoGrowing;
         if (growingMonthCount == 12) return SeasonState.YearRound;
-        if (growingTwelfths != null && growingTwelfths.Contains(current)) return SeasonState.InGrowing;
+        if (growingTwelfths is not null && growingTwelfths.Contains(current)) return SeasonState.InGrowing;
         return SeasonState.OutOfGrowing;
     }
 

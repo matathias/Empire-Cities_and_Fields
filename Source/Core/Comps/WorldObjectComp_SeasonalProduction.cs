@@ -16,7 +16,7 @@ public class SeasonalMultiplierDef : Def
     {
         foreach (string error in base.ConfigErrors())
             yield return error;
-        if (resource == null)
+        if (resource is null)
             yield return defName + ": resource is null";
     }
 }
@@ -76,11 +76,11 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
 
     private static void EnsureDefLookup()
     {
-        if (defLookup != null) return;
+        if (defLookup is not null) return;
         defLookup = new Dictionary<ResourceTypeDef, SeasonalMultiplierDef>();
         foreach (SeasonalMultiplierDef def in DefDatabase<SeasonalMultiplierDef>.AllDefs)
         {
-            if (def.resource != null)
+            if (def.resource is not null)
                 defLookup[def.resource] = def;
         }
     }
@@ -154,7 +154,7 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
             return 1.0;
 
         // Per-settlement overrides take priority.
-        if (Props.overrides != null)
+        if (Props.overrides is not null)
         {
             for (int i = 0; i < Props.overrides.Count; i++)
             {
