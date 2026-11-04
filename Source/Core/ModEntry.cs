@@ -4,119 +4,118 @@ using HarmonyLib;
 using UnityEngine;
 using Verse;
 
-namespace FactionColonies.UrbanRural
+namespace FactionColonies.UrbanRural;
+
+public class FCURSettings : ModSettings
 {
-    public class FCURSettings : ModSettings
+    private static bool printDebug = false;
+    public static bool PrintDebug => printDebug;
+
+    // Consumer Goods auto-consume settings
+    public static float cgConversionRate = 2.0f;
+    public static float cgMaxMitigation = 0.5f;
+    public static float cgBaseWorkers = 10.0f;
+
+    // Tools proximity settings
+    public static int toolsRange = 5;
+    // Per-DAY Tools consumed per nearby rural. Consumed daily via WorldComponent_UrbanRural's
+    // IDailyAccrualParticipant hook. Default is the old per-cycle 1.0 ÷ the default 5-day tax
+    // interval, so per-cycle consumption stays ~the same after the daily-cadence rework.
+    public static float toolsCostPerRural = 0.2f;
+    public static float toolsProductionBonus = 0.15f;
+
+    public override void ExposeData()
     {
-        private static bool printDebug = false;
-        public static bool PrintDebug => printDebug;
+        base.ExposeData();
+        Scribe_Values.Look(ref printDebug, "printDebug", false);
+        Scribe_Values.Look(ref cgConversionRate, "cgConversionRate", 2.0f);
+        Scribe_Values.Look(ref cgMaxMitigation, "cgMaxMitigation", 0.5f);
+        Scribe_Values.Look(ref cgBaseWorkers, "cgBaseWorkers", 10.0f);
+        Scribe_Values.Look(ref toolsRange, "toolsRange", 5);
+        Scribe_Values.Look(ref toolsCostPerRural, "toolsCostPerRural", 0.2f);
+        Scribe_Values.Look(ref toolsProductionBonus, "toolsProductionBonus", 0.15f);
+    }
 
-        // Consumer Goods auto-consume settings
-        public static float cgConversionRate = 2.0f;
-        public static float cgMaxMitigation = 0.5f;
-        public static float cgBaseWorkers = 10.0f;
+    public void DoWindowContents(Rect inRect)
+    {
+        Listing_Standard ls = new Listing_Standard();
+        ls.Begin(inRect);
+        Listing_StandardExtensions.ResetRowStripe();
 
-        // Tools proximity settings
-        public static int toolsRange = 5;
-        // Per-DAY Tools consumed per nearby rural. Consumed daily via WorldComponent_UrbanRural's
-        // IDailyAccrualParticipant hook. Default is the old per-cycle 1.0 ÷ the default 5-day tax
-        // interval, so per-cycle consumption stays ~the same after the daily-cadence rework.
-        public static float toolsCostPerRural = 0.2f;
-        public static float toolsProductionBonus = 0.15f;
+        ls.Label("UR_ModVersion".Translate(UrbanRuralMod.GetModVersion()));
+        ls.Gap(10f);
 
-        public override void ExposeData()
+        ls.CheckboxLabeled("UR_SettingsDebugLog".Translate(), ref printDebug);
+        ls.Gap(12f);
+
+        ls.Label("UR_SectionConsumerGoods".Translate());
+        ls.Gap(4f);
+
+        GameFont prev = Text.Font;
+        Text.Font = GameFont.Tiny;
+        ls.Label("UR_SectionConsumerGoodsDesc".Translate());
+        Text.Font = prev;
+        ls.Gap(4f);
+
+        cgConversionRate = ls.SliderTextField("UR_SettingsCGConversionRate", "UR_SettingsCGConversionRate".Translate(), cgConversionRate, 0.5f, 5.0f, 1);
+
+        cgMaxMitigation = ls.SliderTextField("UR_SettingsCGMaxMitigation", "UR_SettingsCGMaxMitigation".Translate(), cgMaxMitigation, 0.1f, 1.0f, 2);
+
+        cgBaseWorkers = ls.SliderTextField("UR_SettingsCGBaseWorkers", "UR_SettingsCGBaseWorkers".Translate(), cgBaseWorkers, 5.0f, 20.0f, 0);
+
+        ls.Gap(12f);
+        ls.Label("UR_SectionTools".Translate());
+        ls.Gap(4f);
+
+        prev = Text.Font;
+        Text.Font = GameFont.Tiny;
+        ls.Label("UR_SectionToolsDesc".Translate());
+        Text.Font = prev;
+        ls.Gap(4f);
+
+        toolsRange = ls.SliderTextField("UR_SettingsToolsRange", "UR_SettingsToolsRange".Translate(), toolsRange, 2, 15);
+
+        toolsCostPerRural = ls.SliderTextField("UR_SettingsToolsCost", "UR_SettingsToolsCost".Translate(), toolsCostPerRural, 0.05f, 1.0f, 2);
+
+        toolsProductionBonus = ls.SliderTextField("UR_SettingsToolsBonus", "UR_SettingsToolsBonus".Translate(), toolsProductionBonus, 0.05f, 0.30f, 2);
+
+
+        ls.Gap(12f);
+        if (ls.ButtonText("UR_OpenPatchNotes".Translate()))
+            Find.WindowStack.Add(new PatchNotesDisplayWindow("matathias.empire.urbanrural", "UR_PatchTitle".Translate()));
+
+        ls.End();
+    }
+}
+
+public class UrbanRuralMod : Mod
+{
+    public FCURSettings settings;
+
+    public UrbanRuralMod(ModContentPack content) : base(content)
+    {
+        settings = GetSettings<FCURSettings>();
+        new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
+        
+        string modVersion = content?.ModMetaData?.ModVersion;
+        if (modVersion.NullOrEmpty())
         {
-            base.ExposeData();
-            Scribe_Values.Look(ref printDebug, "printDebug", false);
-            Scribe_Values.Look(ref cgConversionRate, "cgConversionRate", 2.0f);
-            Scribe_Values.Look(ref cgMaxMitigation, "cgMaxMitigation", 0.5f);
-            Scribe_Values.Look(ref cgBaseWorkers, "cgBaseWorkers", 10.0f);
-            Scribe_Values.Look(ref toolsRange, "toolsRange", 5);
-            Scribe_Values.Look(ref toolsCostPerRural, "toolsCostPerRural", 0.2f);
-            Scribe_Values.Look(ref toolsProductionBonus, "toolsProductionBonus", 0.15f);
+            LogUR.MessageForce("Did not load a mod version");
         }
-
-        public void DoWindowContents(Rect inRect)
+        else
         {
-            Listing_Standard ls = new Listing_Standard();
-            ls.Begin(inRect);
-            Listing_StandardExtensions.ResetRowStripe();
-
-            ls.Label("UR_ModVersion".Translate(UrbanRuralMod.GetModVersion()));
-            ls.Gap(10f);
-
-            ls.CheckboxLabeled("UR_SettingsDebugLog".Translate(), ref printDebug);
-            ls.Gap(12f);
-
-            ls.Label("UR_SectionConsumerGoods".Translate());
-            ls.Gap(4f);
-
-            GameFont prev = Text.Font;
-            Text.Font = GameFont.Tiny;
-            ls.Label("UR_SectionConsumerGoodsDesc".Translate());
-            Text.Font = prev;
-            ls.Gap(4f);
-
-            cgConversionRate = ls.SliderTextField("UR_SettingsCGConversionRate", "UR_SettingsCGConversionRate".Translate(), cgConversionRate, 0.5f, 5.0f, 1);
-
-            cgMaxMitigation = ls.SliderTextField("UR_SettingsCGMaxMitigation", "UR_SettingsCGMaxMitigation".Translate(), cgMaxMitigation, 0.1f, 1.0f, 2);
-
-            cgBaseWorkers = ls.SliderTextField("UR_SettingsCGBaseWorkers", "UR_SettingsCGBaseWorkers".Translate(), cgBaseWorkers, 5.0f, 20.0f, 0);
-
-            ls.Gap(12f);
-            ls.Label("UR_SectionTools".Translate());
-            ls.Gap(4f);
-
-            prev = Text.Font;
-            Text.Font = GameFont.Tiny;
-            ls.Label("UR_SectionToolsDesc".Translate());
-            Text.Font = prev;
-            ls.Gap(4f);
-
-            toolsRange = ls.SliderTextField("UR_SettingsToolsRange", "UR_SettingsToolsRange".Translate(), toolsRange, 2, 15);
-
-            toolsCostPerRural = ls.SliderTextField("UR_SettingsToolsCost", "UR_SettingsToolsCost".Translate(), toolsCostPerRural, 0.05f, 1.0f, 2);
-
-            toolsProductionBonus = ls.SliderTextField("UR_SettingsToolsBonus", "UR_SettingsToolsBonus".Translate(), toolsProductionBonus, 0.05f, 0.30f, 2);
-
-
-            ls.Gap(12f);
-            if (ls.ButtonText("UR_OpenPatchNotes".Translate()))
-                Find.WindowStack.Add(new PatchNotesDisplayWindow("matathias.empire.urbanrural", "UR_PatchTitle".Translate()));
-
-            ls.End();
+            LogUR.MessageForce($"v{modVersion}");
         }
     }
 
-    public class UrbanRuralMod : Mod
+    public static string GetModVersion()
     {
-        public FCURSettings settings;
-
-        public UrbanRuralMod(ModContentPack content) : base(content)
-        {
-            settings = GetSettings<FCURSettings>();
-            new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
-            
-            string modVersion = content?.ModMetaData?.ModVersion;
-            if (modVersion.NullOrEmpty())
-            {
-                LogUR.MessageForce("Did not load a mod version");
-            }
-            else
-            {
-                LogUR.MessageForce($"v{modVersion}");
-            }
-        }
-
-        public static string GetModVersion()
-        {
-            var mod = LoadedModManager.GetMod<UrbanRuralMod>();
-            string version = mod?.Content?.ModMetaData?.ModVersion;
-            return version.NullOrEmpty() ? "Unknown" : version;
-        }
-
-        public override string SettingsCategory() => "UR_SettingsCategory".Translate();
-
-        public override void DoSettingsWindowContents(Rect inRect) => settings.DoWindowContents(inRect);
+        var mod = LoadedModManager.GetMod<UrbanRuralMod>();
+        string version = mod?.Content?.ModMetaData?.ModVersion;
+        return version.NullOrEmpty() ? "Unknown" : version;
     }
+
+    public override string SettingsCategory() => "UR_SettingsCategory".Translate();
+
+    public override void DoSettingsWindowContents(Rect inRect) => settings.DoWindowContents(inRect);
 }
