@@ -1,8 +1,6 @@
 using System.Reflection;
-using FactionColonies;
 using HarmonyLib;
 using UnityEngine;
-using Verse;
 
 namespace FactionColonies.UrbanRural;
 

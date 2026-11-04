@@ -1,6 +1,3 @@
-using System.Text;
-using RimWorld.Planet;
-
 namespace FactionColonies.UrbanRural;
 
 public class SettlementTypeExtension_Refinery : SettlementTypeExtension_Rural

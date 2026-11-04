@@ -1,6 +1,4 @@
-﻿using RimWorld;
-
-namespace FactionColonies.UrbanRural;
+﻿namespace FactionColonies.UrbanRural;
 
 [DefOf]
 public class CFSettlementDefOf

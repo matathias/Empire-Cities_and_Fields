@@ -1,6 +1,3 @@
-using System.Text;
-using Verse;
-using RimWorld.Planet;
 using FactionColonies.SupplyChain;
 
 namespace FactionColonies.UrbanRural;

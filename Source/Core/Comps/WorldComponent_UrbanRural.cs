@@ -1,8 +1,3 @@
-using System.Collections.Generic;
-using FactionColonies;
-using RimWorld.Planet;
-using Verse;
-
 namespace FactionColonies.UrbanRural;
 
 /// <summary>
