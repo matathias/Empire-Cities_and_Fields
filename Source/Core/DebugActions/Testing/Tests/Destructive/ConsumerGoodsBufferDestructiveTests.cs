@@ -22,34 +22,18 @@ public static class ConsumerGoodsBufferDestructiveTests
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
         WorldSettlementFC city = URDestructiveTestUtil.GetOrCreateCity(f, out bool cityCreated);
-        if (city is null) TestAssert.Skip("No city and could not spawn one");
 
-        // Mitigation scales with worker count; a freshly spawned city has none, so assign a few.
-        // Only mutate worker assignment on a settlement we created, never a live player city.
-        if (city.GetTotalWorkers() <= 0)
-        {
-            if (cityCreated) URDestructiveTestUtil.EnsureWorkers(city, 5);
-            if (city.GetTotalWorkers() <= 0)
-            {
-                if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
-                TestAssert.Skip("City has no workers (mitigation would be 0)");
-            }
-        }
-
+        // Mitigation scales with worker count; a freshly spawned (or idle) city has none, so assign a few.
+        URDestructiveTestUtil.EnsureWorkers(city, 5);
         WorldComponent_UrbanRural coord = URDestructiveTestUtil.Coordinator();
-        if (coord is null)
-        {
-            if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
-            TestAssert.Skip("No WorldComponent_UrbanRural");
-        }
 
         var snap = URTestHelper.SnapshotSettings();
         const string src = "event_urtest_cg";
         List<FCStatModifier> mods = PenaltyMods(10.0);
         try
         {
-            if (URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_ConsumerGoods) <= 0)
-                TestAssert.Skip("City could not hold Consumer Goods");
+            TestAssert.GreaterThan(URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_ConsumerGoods), 0.0,
+                "City could not hold Consumer Goods (missing SupplyChain stockpile or Consumer Goods cap)");
             coord.ClearEventMitigation(city.ID, src); // clean slate
 
             double before = city.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
@@ -88,15 +72,14 @@ public static class ConsumerGoodsBufferDestructiveTests
     public static void CgBuffer_NoConsumerGoods_NoMitigation()
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
-        WorldSettlementFC s = DestructiveTestUtil.CreateTransientSettlement();
-        if (s is null) TestAssert.Skip("No valid tile for a transient settlement");
+        WorldSettlementFC s = DestructiveTestUtil.RequireTransientSettlement();
 
         WorldComponent_UrbanRural coord = URDestructiveTestUtil.Coordinator();
         const string src = "event_urtest_nocg";
         List<FCStatModifier> mods = PenaltyMods(10.0);
         try
         {
-            if (coord is not null) coord.ClearEventMitigation(s.ID, src);
+            coord.ClearEventMitigation(s.ID, src);
 
             double before = s.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
             // A bare transient settlement has no seeded CG, so the patch must no-op cleanly.
@@ -106,9 +89,8 @@ public static class ConsumerGoodsBufferDestructiveTests
 
             TestAssert.AreEqual(before + 10.0, after, 0.001,
                 "With no Consumer Goods the full penalty applies (no mitigation)");
-            if (coord is not null)
-                TestAssert.IsFalse(coord.TryGetEventMitigation(s.ID, src, out _),
-                    "No Consumer Goods should mean no recorded mitigation");
+            TestAssert.IsFalse(coord.TryGetEventMitigation(s.ID, src, out _),
+                "No Consumer Goods should mean no recorded mitigation");
 
             s.RemoveStatModifiers(mods, src);
             DestructiveTestUtil.AssertEmpireInvariants(f, "CgBuffer_NoConsumerGoods");

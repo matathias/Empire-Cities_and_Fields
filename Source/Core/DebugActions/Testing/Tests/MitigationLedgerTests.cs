@@ -3,15 +3,11 @@ namespace FactionColonies.UrbanRural;
 /// <summary>
 /// Coverage for the Consumer-Goods mitigation ledger on <see cref="WorldComponent_UrbanRural"/>
 /// (Set / TryGet / Clear and settlement+source key isolation). Uses a throwaway component
-/// instance so nothing on the live world is mutated; skips if no world is loaded.
+/// instance (bound to the loaded world) so nothing on the live world is mutated.
 /// </summary>
 public static class MitigationLedgerTests
 {
-    private static WorldComponent_UrbanRural NewLedger()
-    {
-        if (Find.World is null) TestAssert.Skip("No world loaded");
-        return new WorldComponent_UrbanRural(Find.World);
-    }
+    private static WorldComponent_UrbanRural NewLedger() => new(Find.World);
 
     [EmpireTest("CF.Ledger")]
     public static void SetThenTryGet_ReturnsStoredValue()

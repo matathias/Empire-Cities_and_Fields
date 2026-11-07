@@ -53,7 +53,7 @@ public static class DefIntegrityTests
     {
         foreach (WorldSettlementDef def in RuralSpecializations())
         {
-            if (def is null) TestAssert.Skip("A rural specialization def failed to resolve");
+            TestAssert.NotNull(def, "A rural specialization def failed to resolve");
             TestAssert.IsTrue(InheritsRural(def),
                 $"{def.defName} should chain to WorldSettlementDef_Rural via baseSettlementType");
         }
@@ -62,8 +62,7 @@ public static class DefIntegrityTests
     [EmpireTest("CF.Defs")]
     public static void City_DoesNotInheritRural()
     {
-        WorldSettlementDef city = CFSettlementDefOf.WorldSettlementDef_City;
-        if (city is null) TestAssert.Skip("City def failed to resolve");
+        WorldSettlementDef city = TestAssert.NotNull(CFSettlementDefOf.WorldSettlementDef_City, "City def failed to resolve");
         TestAssert.IsFalse(InheritsRural(city), "City must not be classified as a rural settlement");
     }
 
@@ -87,13 +86,11 @@ public static class DefIntegrityTests
     [EmpireTest("CF.Defs")]
     public static void Refinery_CreationCost_IsDoubleAPlainRural()
     {
-        WorldSettlementDef refinery = CFSettlementDefOf.WorldSettlementDef_Refinery;
-        WorldSettlementDef farm = CFSettlementDefOf.WorldSettlementDef_Farm;
-        if (refinery is null || farm is null) TestAssert.Skip("Refinery/Farm def failed to resolve");
+        WorldSettlementDef refinery = TestAssert.NotNull(CFSettlementDefOf.WorldSettlementDef_Refinery, "Refinery def failed to resolve");
+        WorldSettlementDef farm = TestAssert.NotNull(CFSettlementDefOf.WorldSettlementDef_Farm, "Farm def failed to resolve");
 
-        SettlementTypeExtension refineryExt = refinery.GetSettlementTypeExtension();
-        SettlementTypeExtension farmExt = farm.GetSettlementTypeExtension();
-        if (refineryExt is null || farmExt is null) TestAssert.Skip("Settlement type extension missing");
+        SettlementTypeExtension refineryExt = TestAssert.NotNull(refinery.GetSettlementTypeExtension(), "Refinery settlement type extension missing");
+        SettlementTypeExtension farmExt = TestAssert.NotNull(farm.GetSettlementTypeExtension(), "Farm settlement type extension missing");
 
         // Refinery's override doubles whatever the base rural cost resolves to under identical
         // faction/window state, so the x2 relationship holds regardless of any distance surcharge.
@@ -106,7 +103,7 @@ public static class DefIntegrityTests
     {
         foreach (WorldSettlementDef def in RuralSpecializations())
         {
-            if (def is null) TestAssert.Skip("A rural specialization def failed to resolve");
+            TestAssert.NotNull(def, "A rural specialization def failed to resolve");
             SettlementTypeExtension ext = def.GetSettlementTypeExtension();
             TestAssert.IsNotNull(ext, $"{def.defName}: no settlement type extension");
             TestAssert.IsTrue(ext is SettlementTypeExtension_Rural,

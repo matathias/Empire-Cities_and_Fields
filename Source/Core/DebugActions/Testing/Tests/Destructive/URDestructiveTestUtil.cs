@@ -38,16 +38,15 @@ public static class URDestructiveTestUtil
     /// Returns the faction's first city, or spawns a transient one if none exists.
     /// <paramref name="created"/> is true when a new settlement was made (caller must
     /// <see cref="DestructiveTestUtil.SafeRemoveSettlement"/> it) and false when a live one was reused.
-    /// May still return null if no valid tile could be found for the new settlement.
+    /// Fails the test if no valid tile could be found for the new settlement.
     /// </summary>
     public static WorldSettlementFC GetOrCreateCity(FactionFC f, out bool created)
     {
         WorldSettlementFC existing = FirstCity(f);
         if (existing is not null) { created = false; return existing; }
 
-        WorldSettlementFC made = DestructiveTestUtil.CreateTransientSettlement(
-            def: CFSettlementDefOf.WorldSettlementDef_City);
-        created = made is not null;
+        WorldSettlementFC made = DestructiveTestUtil.RequireTransientSettlement(CFSettlementDefOf.WorldSettlementDef_City);
+        created = true;
         return made;
     }
 
@@ -61,31 +60,33 @@ public static class URDestructiveTestUtil
         WorldSettlementFC existing = FirstRural(f);
         if (existing is not null) { created = false; return existing; }
 
-        WorldSettlementFC made = DestructiveTestUtil.CreateTransientSettlement(
-            def: CFSettlementDefOf.WorldSettlementDef_Farm);
-        created = made is not null;
+        WorldSettlementFC made = DestructiveTestUtil.RequireTransientSettlement(CFSettlementDefOf.WorldSettlementDef_Farm);
+        created = true;
         return made;
     }
 
     /// <summary>
     /// Ensures the settlement has at least one assigned worker (a freshly spawned settlement starts
-    /// with none), assigning up to <paramref name="count"/> to its first resource. Returns the
-    /// resulting total worker count. Intended for transient settlements the caller will discard.
+    /// with none), assigning up to <paramref name="count"/> across its resources. Returns the
+    /// resulting total worker count; fails the test if no worker could be assigned.
     /// </summary>
     public static int EnsureWorkers(WorldSettlementFC settlement, int count)
     {
-        if (settlement is null) return 0;
+        TestAssert.NotNull(settlement, "EnsureWorkers: settlement is null");
         if (settlement.GetTotalWorkers() > 0) return settlement.GetTotalWorkers();
 
-        ResourceFC target = settlement.Resources?.FirstOrDefault();
-        if (target is not null)
+        foreach (ResourceFC target in settlement.Resources ?? [])
         {
-            for (int i = 0; i < count; i++)
+            for (int i = settlement.GetTotalWorkers(); i < count; i++)
             {
                 if (!settlement.IncreaseWorkers(target, 1)) break;
             }
+            if (settlement.GetTotalWorkers() >= count) break;
         }
-        return settlement.GetTotalWorkers();
+
+        int total = settlement.GetTotalWorkers();
+        TestAssert.GreaterThan(total, 0, $"EnsureWorkers: could not assign any worker to '{settlement.Name}'");
+        return total;
     }
 
     /// <summary>
@@ -116,8 +117,10 @@ public static class URDestructiveTestUtil
         return sp is null ? 0.0 : sp.GetAmount(res);
     }
 
+    /// <summary>The live Cities &amp; Fields world component; this mod always adds it, so a missing one fails the test.</summary>
     public static WorldComponent_UrbanRural Coordinator()
     {
-        return Verse.Find.World?.GetComponent<WorldComponent_UrbanRural>();
+        return TestAssert.NotNull(Verse.Find.World?.GetComponent<WorldComponent_UrbanRural>(),
+            "No WorldComponent_UrbanRural on the world");
     }
 }

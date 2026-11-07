@@ -10,14 +10,14 @@ namespace FactionColonies.UrbanRural;
 public static class ToolsBenefitDestructiveTests
 {
     // GetResourceMultiplierModifier ignores the specific resource, so any of the rural's resources works.
-    private static bool TryReadMultiplier(WorldSettlementFC rural, out double multiplier)
+    // Every rural def carries the ToolsBenefit comp and produces resources, so a missing one is a failure.
+    private static double ReadMultiplier(WorldSettlementFC rural)
     {
-        multiplier = 1.0;
-        WorldObjectComp_ToolsBenefit comp = rural.GetComponent<WorldObjectComp_ToolsBenefit>();
-        ResourceFC anyResource = rural.Resources?.FirstOrDefault();
-        if (comp is null || anyResource is null) return false;
-        multiplier = comp.GetResourceMultiplierModifier(anyResource);
-        return true;
+        WorldObjectComp_ToolsBenefit comp = TestAssert.NotNull(rural.GetComponent<WorldObjectComp_ToolsBenefit>(),
+            $"Rural '{rural.Name}' has no ToolsBenefit comp");
+        ResourceFC anyResource = TestAssert.NotNull(rural.Resources?.FirstOrDefault(),
+            $"Rural '{rural.Name}' has no resources");
+        return comp.GetResourceMultiplierModifier(anyResource);
     }
 
     [EmpireDestructiveTest("CF.Destructive.Tools")]
@@ -34,7 +34,6 @@ public static class ToolsBenefitDestructiveTests
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
         WorldSettlementFC rural = URDestructiveTestUtil.GetOrCreateRural(f, out bool ruralCreated);
-        if (rural is null) TestAssert.Skip("No rural settlement and could not spawn one");
 
         var snap = URTestHelper.SnapshotSettings();
         try
@@ -42,8 +41,7 @@ public static class ToolsBenefitDestructiveTests
             FCURSettings.toolsRange = 0; // nothing is in range -> every rural falls back to 1.0
             WorldObjectComp_ToolsBenefit.RecalculateAllCities(f);
 
-            if (!TryReadMultiplier(rural, out double mult))
-                TestAssert.Skip("Rural has no ToolsBenefit comp / resources");
+            double mult = ReadMultiplier(rural);
             TestAssert.AreEqual(1.0, mult, 0.0001, "Out-of-range rural should have a neutral (1.0) multiplier");
         }
         finally
@@ -59,18 +57,9 @@ public static class ToolsBenefitDestructiveTests
     {
         FactionFC f = DestructiveTestUtil.RequireFaction();
         WorldSettlementFC rural = URDestructiveTestUtil.GetOrCreateRural(f, out bool ruralCreated);
-        if (rural is null) TestAssert.Skip("No rural settlement and could not spawn one");
 
-        WorldSettlementFC spawnedCity = null;
-        if (URDestructiveTestUtil.FirstCity(f) is null)
-        {
-            spawnedCity = URDestructiveTestUtil.GetOrCreateCity(f, out bool _);
-            if (spawnedCity is null)
-            {
-                if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
-                TestAssert.Skip("No city and could not spawn one");
-            }
-        }
+        WorldSettlementFC firstCity = URDestructiveTestUtil.GetOrCreateCity(f, out bool cityCreated);
+        WorldSettlementFC spawnedCity = cityCreated ? firstCity : null;
 
         List<WorldSettlementFC> cities = f.settlements
             .Where(s => s.settlementDef == CFSettlementDefOf.WorldSettlementDef_City).ToList();
@@ -87,12 +76,11 @@ public static class ToolsBenefitDestructiveTests
             bool seededAny = false;
             foreach (WorldSettlementFC city in cities)
                 seededAny |= URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_Tools) > 0;
-            if (!seededAny) TestAssert.Skip("No city could hold Tools");
+            TestAssert.IsTrue(seededAny, "No city could hold Tools (missing SupplyChain stockpile or Tools cap)");
 
             WorldObjectComp_ToolsBenefit.RecalculateAllCities(f);
 
-            if (!TryReadMultiplier(rural, out double mult))
-                TestAssert.Skip("Rural has no ToolsBenefit comp / resources");
+            double mult = ReadMultiplier(rural);
             TestAssert.GreaterThan(mult, 1.0, "A rural near a well-supplied city should get a Tools bonus");
             TestAssert.LessThanOrEqual(mult, 1.0 + FCURSettings.toolsProductionBonus + 0.0001,
                 "Bonus must not exceed the full production-bonus ceiling");
