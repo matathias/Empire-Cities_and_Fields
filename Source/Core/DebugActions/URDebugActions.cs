@@ -18,7 +18,7 @@ public static class URDebugActions
     /// For a rural, half the workers go to its specialty resource and the rest are spread randomly;
     /// the City has no specialty, so all its workers are spread randomly.
     /// </summary>
-    [DebugAction(DebugCategory, "Spawn one of each settlement type (leveled, staffed)",
+    [EmpireDebugAction(DebugCategory, "Spawn one of each settlement type (leveled, staffed)",
         allowedGameStates = AllowedGameStates.Playing)]
     public static void SpawnOneOfEachSettlementType()
     {
