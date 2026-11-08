@@ -6,7 +6,7 @@ namespace FactionColonies.UrbanRural;
 /// Cities &amp; Fields destructive-tier helpers, layered on the base mod's
 /// <see cref="DestructiveTestUtil"/>. Provides get-or-create city/rural fixtures (reusing a live
 /// settlement when present, otherwise spawning a transient one the caller tears down), a stockpile
-/// seeder (which forces the SupplyChain local stockpile to exist and credits into it), a worker
+/// seeder (which credits into the stockpile the mod reads for the settlement), a worker
 /// seeder, and the shared rural-classification used by the Tools coordinator.
 /// </summary>
 public static class URDestructiveTestUtil
@@ -90,20 +90,25 @@ public static class URDestructiveTestUtil
     }
 
     /// <summary>
-    /// Forces the settlement's SupplyChain local stockpile to exist (so the mod's GetStockpile()
-    /// reads it) and fills the resource up to its cap. Returns the amount now available. The
-    /// SupplyChain per-resource cap (localCapBase, 50 by default; higher with Market/Manufactory
-    /// capBonuses) clamps how much can be stored — far more than these tests consume — so callers
-    /// should require a POSITIVE return, not a specific amount. Returns 0 if the settlement has no
-    /// SupplyChain comp or the resource has no cap.
+    /// The stockpile the mod's Tools and Consumer-Goods code reads for this settlement: the shared
+    /// faction pile in SupplyChain Simple mode, the settlement's own (created on demand) in Complex
+    /// mode. Null when SupplyChain has no stockpile for it.
+    /// </summary>
+    public static IStockpile StockpileOf(WorldSettlementFC settlement)
+    {
+        return WorldComponent_SupplyChain.StockpileFor(settlement);
+    }
+
+    /// <summary>
+    /// Fills the resource in the settlement's stockpile (see <see cref="StockpileOf"/>) up to its
+    /// cap and returns the amount now available. The cap clamps how much can be stored, far more
+    /// than these tests consume, so callers should require a POSITIVE return, not a specific
+    /// amount. Returns 0 if there is no stockpile or the resource has no cap.
     /// </summary>
     public static double FillResource(WorldSettlementFC settlement, ResourceTypeDef res)
     {
-        WorldObjectComp_SupplyChain comp = settlement?.GetComponent<WorldObjectComp_SupplyChain>();
-        if (comp is null || res is null) return 0.0;
-
-        IStockpile sp = comp.EnsureLocalStockpile();
-        if (sp is null) return 0.0;
+        IStockpile sp = StockpileOf(settlement);
+        if (sp is null || res is null) return 0.0;
 
         // Credit clamps to the remaining space, so requesting the full cap tops the resource off.
         double cap = sp.GetCap(res);
@@ -113,8 +118,29 @@ public static class URDestructiveTestUtil
 
     public static double StockpileAmount(WorldSettlementFC settlement, ResourceTypeDef res)
     {
-        IStockpile sp = settlement?.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
+        IStockpile sp = StockpileOf(settlement);
         return sp is null ? 0.0 : sp.GetAmount(res);
+    }
+
+    /// <summary>
+    /// Draws every unit of the resource out of the settlement's stockpile and returns how much was
+    /// taken, so the caller can put it back with <see cref="Restore"/>.
+    /// </summary>
+    public static double Drain(WorldSettlementFC settlement, ResourceTypeDef res)
+    {
+        IStockpile sp = StockpileOf(settlement);
+        if (sp is null || res is null) return 0.0;
+        double amount = sp.GetAmount(res);
+        if (amount <= 0) return 0.0;
+        sp.TryDraw(res, amount, out double drawn);
+        return drawn;
+    }
+
+    /// <summary>Credits back an amount taken by <see cref="Drain"/>.</summary>
+    public static void Restore(WorldSettlementFC settlement, ResourceTypeDef res, double amount)
+    {
+        if (amount <= 0) return;
+        StockpileOf(settlement)?.Credit(res, amount);
     }
 
     /// <summary>The live Cities &amp; Fields world component; this mod always adds it, so a missing one fails the test.</summary>

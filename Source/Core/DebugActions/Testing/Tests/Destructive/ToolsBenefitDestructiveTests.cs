@@ -95,4 +95,62 @@ public static class ToolsBenefitDestructiveTests
 
         DestructiveTestUtil.AssertEmpireInvariants(f, "Rural_NearSuppliedCities");
     }
+
+    // Total Tools across the distinct stockpiles the cities read. In SupplyChain Simple mode every
+    // city reads the same shared pile, which is counted once.
+    private static double TotalCityTools(List<WorldSettlementFC> cities)
+    {
+        HashSet<SupplyChain.IStockpile> seen = [];
+        double total = 0.0;
+        foreach (WorldSettlementFC city in cities)
+        {
+            SupplyChain.IStockpile sp = URDestructiveTestUtil.StockpileOf(city);
+            if (sp is not null && seen.Add(sp))
+                total += sp.GetAmount(CFResourceDefOf.RTD_Tools);
+        }
+        return total;
+    }
+
+    // The billed city's Tools come out of the stockpile it reads (the shared faction pile in
+    // SupplyChain Simple mode), so supplying a rural always costs Tools somewhere.
+    [EmpireDestructiveTest("CF.Destructive.Tools")]
+    public static void SuppliedRural_DrawsToolsFromCityStockpile()
+    {
+        FactionFC f = DestructiveTestUtil.RequireFaction();
+        WorldSettlementFC rural = URDestructiveTestUtil.GetOrCreateRural(f, out bool ruralCreated);
+        WorldSettlementFC firstCity = URDestructiveTestUtil.GetOrCreateCity(f, out bool cityCreated);
+        WorldSettlementFC spawnedCity = cityCreated ? firstCity : null;
+
+        List<WorldSettlementFC> cities = f.settlements
+            .Where(s => s.settlementDef == CFSettlementDefOf.WorldSettlementDef_City).ToList();
+
+        var snap = URTestHelper.SnapshotSettings();
+        try
+        {
+            FCURSettings.toolsRange = 99999;
+            FCURSettings.toolsProductionBonus = 0.15f;
+            FCURSettings.toolsCostPerRural = 0.2f;
+
+            bool seededAny = false;
+            foreach (WorldSettlementFC city in cities)
+                seededAny |= URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_Tools) > 0;
+            TestAssert.IsTrue(seededAny, "No city could hold Tools (no SupplyChain stockpile or no Tools cap)");
+
+            double before = TotalCityTools(cities);
+            WorldObjectComp_ToolsBenefit.RecalculateAllCities(f);
+            double after = TotalCityTools(cities);
+
+            TestAssert.GreaterThan(ReadMultiplier(rural), 1.0, "The rural should be supplied");
+            TestAssert.LessThan(after, before, "Supplying a rural should draw Tools from a city's stockpile");
+        }
+        finally
+        {
+            URTestHelper.RestoreSettings(snap);
+            if (spawnedCity is not null) DestructiveTestUtil.SafeRemoveSettlement(spawnedCity);
+            if (ruralCreated) DestructiveTestUtil.SafeRemoveSettlement(rural);
+            WorldObjectComp_ToolsBenefit.RecalculateAllCities(f);
+        }
+
+        DestructiveTestUtil.AssertEmpireInvariants(f, "SuppliedRural_DrawsToolsFromCityStockpile");
+    }
 }

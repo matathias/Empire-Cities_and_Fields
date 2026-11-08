@@ -77,12 +77,18 @@ public static class ConsumerGoodsBufferDestructiveTests
         WorldComponent_UrbanRural coord = URDestructiveTestUtil.Coordinator();
         const string src = "event_urtest_nocg";
         List<FCStatModifier> mods = PenaltyMods(10.0);
+        // In SupplyChain Simple mode the settlement reads the shared faction pile, which may hold
+        // Consumer Goods; empty it for the test and put the goods back afterwards.
+        double drained = 0.0;
         try
         {
             coord.ClearEventMitigation(s.ID, src);
+            drained = URDestructiveTestUtil.Drain(s, CFResourceDefOf.RTD_ConsumerGoods);
+            TestAssert.AreEqual(0.0, URDestructiveTestUtil.StockpileAmount(s, CFResourceDefOf.RTD_ConsumerGoods), 0.0001,
+                "Could not empty the settlement's Consumer Goods");
 
             double before = s.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
-            // A bare transient settlement has no seeded CG, so the patch must no-op cleanly.
+            // With no Consumer Goods to draw, the patch must no-op cleanly.
             TestAssert.DoesNotThrow(() => s.AddStatModifiers(mods, src, "UR Test Event"),
                 "CG buffer patch threw on a settlement with no Consumer Goods");
             double after = s.GetSettlementStatValue(FCStatDefOf.happinessLostBase);
@@ -97,7 +103,43 @@ public static class ConsumerGoodsBufferDestructiveTests
         }
         finally
         {
+            URDestructiveTestUtil.Restore(s, CFResourceDefOf.RTD_ConsumerGoods, drained);
             DestructiveTestUtil.SafeRemoveSettlement(s);
+        }
+    }
+
+    // The buffer draws the goods it uses from the stockpile the settlement reads (the shared
+    // faction pile in SupplyChain Simple mode, the settlement's own in Complex mode).
+    [EmpireDestructiveTest("CF.Destructive.ConsumerGoods")]
+    public static void CgBuffer_DrawsFromTheSettlementsStockpile()
+    {
+        FactionFC f = DestructiveTestUtil.RequireFaction();
+        WorldSettlementFC city = URDestructiveTestUtil.GetOrCreateCity(f, out bool cityCreated);
+        URDestructiveTestUtil.EnsureWorkers(city, 5);
+        WorldComponent_UrbanRural coord = URDestructiveTestUtil.Coordinator();
+
+        const string src = "event_urtest_cgdraw";
+        List<FCStatModifier> mods = PenaltyMods(10.0);
+        try
+        {
+            TestAssert.GreaterThan(URDestructiveTestUtil.FillResource(city, CFResourceDefOf.RTD_ConsumerGoods), 0.0,
+                "City could not hold Consumer Goods (no SupplyChain stockpile or no Consumer Goods cap)");
+            coord.ClearEventMitigation(city.ID, src);
+
+            double before = URDestructiveTestUtil.StockpileAmount(city, CFResourceDefOf.RTD_ConsumerGoods);
+            city.AddStatModifiers(mods, src, "UR Test Event");
+            double after = URDestructiveTestUtil.StockpileAmount(city, CFResourceDefOf.RTD_ConsumerGoods);
+
+            TestAssert.IsTrue(coord.TryGetEventMitigation(city.ID, src, out _),
+                "The seeded city should have mitigated the event");
+            TestAssert.LessThan(after, before, "Mitigating the event should draw Consumer Goods from the stockpile");
+            DestructiveTestUtil.AssertEmpireInvariants(f, "CgBuffer_DrawsFromTheSettlementsStockpile");
+        }
+        finally
+        {
+            city.RemoveStatModifiers(mods, src);
+            coord.ClearEventMitigation(city.ID, src);
+            if (cityCreated) DestructiveTestUtil.SafeRemoveSettlement(city);
         }
     }
 }

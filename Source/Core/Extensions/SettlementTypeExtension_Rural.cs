@@ -36,7 +36,12 @@ public class SettlementTypeExtension_Rural : SCSettlementTypeExtension
     private bool CheckTerrain(PlanetTile tile, StringBuilder reason)
     {
         if (tile.Tile is null) return true;
-        Hilliness hilliness = tile.Tile.hilliness;
+        return AllowsHilliness(tile.Tile.hilliness, reason);
+    }
+
+    /* True if this type may stand on terrain of the given hilliness; otherwise appends the reason */
+    internal bool AllowsHilliness(Hilliness hilliness, StringBuilder reason = null)
+    {
         if (hilliness > maxHilliness)
         {
             reason?.Append(tooHillyReasonKey.Translate());
