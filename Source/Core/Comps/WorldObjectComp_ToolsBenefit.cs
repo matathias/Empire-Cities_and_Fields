@@ -74,7 +74,8 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
             float bestDist = float.MaxValue;
             foreach (WorldSettlementFC city in cities)
             {
-                float dist = Find.WorldGrid.ApproxDistanceInTiles(rural.Tile, city.Tile);
+                // Infinite across planet layers, so a city never serves a rural settlement on another layer
+                float dist = rural.Tile.ApproxDistanceSameLayer(city.Tile);
                 if (dist <= toolsRange && dist < bestDist)
                 {
                     bestDist = dist;

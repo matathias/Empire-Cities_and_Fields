@@ -95,23 +95,10 @@ public class UrbanRuralMod : Mod
         settings = GetSettings<FCURSettings>();
         new Harmony("empire.urbanrural").PatchAll(Assembly.GetExecutingAssembly());
         
-        string modVersion = content?.ModMetaData?.ModVersion;
-        if (modVersion.NullOrEmpty())
-        {
-            LogUR.MessageForce("Did not load a mod version");
-        }
-        else
-        {
-            LogUR.MessageForce($"v{modVersion}");
-        }
+        ModVersionUtil.LogLoaded(content, LogUR.MessageForce);
     }
 
-    public static string GetModVersion()
-    {
-        var mod = LoadedModManager.GetMod<UrbanRuralMod>();
-        string version = mod?.Content?.ModMetaData?.ModVersion;
-        return version.NullOrEmpty() ? "Unknown" : version;
-    }
+    public static string GetModVersion() => ModVersionUtil.Get<UrbanRuralMod>();
 
     public override string SettingsCategory() => "UR_SettingsCategory".Translate();
 
