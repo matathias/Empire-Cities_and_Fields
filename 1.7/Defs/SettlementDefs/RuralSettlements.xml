@@ -38,6 +38,7 @@
 		</resources>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Farm">
+				<maxHilliness>SmallHills</maxHilliness>
 				<foundingResourceCosts>
 					<li><resource>RTD_Food</resource><amount>2</amount></li>
 					<li><resource>RTD_Logging</resource><amount>9</amount></li>
@@ -68,6 +69,7 @@
 		</resources>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Mine">
+				<minHilliness>SmallHills</minHilliness>
 				<foundingResourceCosts>
 					<li><resource>RTD_Food</resource><amount>6</amount></li>
 					<li><resource>RTD_Logging</resource><amount>9</amount></li>
@@ -131,6 +133,7 @@
 		</resources>
 		<modExtensions>
 			<li Class="FactionColonies.UrbanRural.SettlementTypeExtension_Ranch">
+				<maxHilliness>SmallHills</maxHilliness>
 				<foundingResourceCosts>
 					<li><resource>RTD_Food</resource><amount>5</amount></li>
 					<li><resource>RTD_Logging</resource><amount>8</amount></li>

@@ -1,3 +1,4 @@
+using System.Text;
 using FactionColonies.SupplyChain;
 
 namespace FactionColonies.UrbanRural;
@@ -9,9 +10,46 @@ namespace FactionColonies.UrbanRural;
 ///  - 1 slot at level 2
 ///  - 4 slots at level 4
 ///  - 8 slots at level 8
+/// Optionally restricts the tile hilliness the settlement can be founded on or converted to,
+/// through <see cref="minHilliness"/> and <see cref="maxHilliness"/>.
 /// </summary>
 public class SettlementTypeExtension_Rural : SCSettlementTypeExtension
 {
+    /* Terrain restriction (the defaults allow every tile) */
+    public Hilliness minHilliness = Hilliness.Undefined;
+    public Hilliness maxHilliness = Hilliness.Impassable;
+    public string tooFlatReasonKey = "UR_RequiresHillyTerrain";
+    public string tooHillyReasonKey = "UR_RequiresFlatTerrain";
+
+    public override bool TileIsValidForSettlement(PlanetTile tile, StringBuilder reason = null)
+    {
+        if (!base.TileIsValidForSettlement(tile, reason)) return false;
+        return CheckTerrain(tile, reason);
+    }
+
+    public override bool TileIsValidForTypeTransition(PlanetTile tile, StringBuilder reason = null)
+    {
+        if (!base.TileIsValidForTypeTransition(tile, reason)) return false;
+        return CheckTerrain(tile, reason);
+    }
+
+    private bool CheckTerrain(PlanetTile tile, StringBuilder reason)
+    {
+        if (tile.Tile is null) return true;
+        Hilliness hilliness = tile.Tile.hilliness;
+        if (hilliness > maxHilliness)
+        {
+            reason?.Append(tooHillyReasonKey.Translate());
+            return false;
+        }
+        if (hilliness < minHilliness)
+        {
+            reason?.Append(tooFlatReasonKey.Translate());
+            return false;
+        }
+        return true;
+    }
+
     public override int GetBuildingSlots(int level, int maxCount)
     {
         return level switch

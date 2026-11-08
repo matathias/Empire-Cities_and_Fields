@@ -1,37 +1,48 @@
 namespace FactionColonies.UrbanRural;
 
 /// <summary>
+/// The four seasonal production multipliers, one per <see cref="SeasonalMath.SeasonState"/>.
+/// </summary>
+public class SeasonalMultipliers
+{
+    public double inGrowing = 1.0;
+    public double outOfGrowing = 1.0;
+    public double yearRound = 1.0;
+    public double noGrowing = 1.0;
+
+    public double For(SeasonalMath.SeasonState state)
+    {
+        return SeasonalMath.SelectMultiplier(state, inGrowing, outOfGrowing, yearRound, noGrowing);
+    }
+}
+
+/// <summary>
 /// Defines seasonal production multipliers for a single resource type.
 /// One def per resource. The comp auto-discovers these from DefDatabase.
 /// </summary>
 public class SeasonalMultiplierDef : Def
 {
     public ResourceTypeDef resource;
-    public double inGrowing = 1.0;
-    public double outOfGrowing = 1.0;
-    public double yearRound = 1.0;
-    public double noGrowing = 1.0;
+    public SeasonalMultipliers multipliers = new();
 
     public override IEnumerable<string> ConfigErrors()
     {
         foreach (string error in base.ConfigErrors())
             yield return error;
         if (resource is null)
-            yield return defName + ": resource is null";
+            yield return $"{defName}: resource is null";
+        if (multipliers is null)
+            yield return $"{defName}: multipliers is null";
     }
 }
 
 /// <summary>
 /// Inline seasonal multiplier entry for per-settlement overrides on the comp properties.
-/// Same shape as SeasonalMultiplierDef but not a Def — used in XML lists on the comp.
+/// Not a Def; used in XML lists on the comp.
 /// </summary>
-public class SeasonalMultiplierEntry
+public class SeasonalMultiplierEntry : SeasonalMultipliers
 {
     public ResourceTypeDef resource;
-    public double inGrowing = 1.0;
-    public double outOfGrowing = 1.0;
-    public double yearRound = 1.0;
-    public double noGrowing = 1.0;
 }
 
 public class WorldObjectCompProperties_SeasonalProduction : WorldObjectCompProperties
@@ -166,21 +177,14 @@ public class WorldObjectComp_SeasonalProduction : WorldObjectComp, IResourceProd
         // Fall back to global def lookup.
         EnsureDefLookup();
         if (defLookup.TryGetValue(resourceDef, out SeasonalMultiplierDef def))
-            return GetMultiplier(def);
+            return GetMultiplier(def.multipliers);
 
         return 1.0;
     }
 
-    private double GetMultiplier(SeasonalMultiplierEntry entry)
+    private double GetMultiplier(SeasonalMultipliers multipliers)
     {
-        return SeasonalMath.SelectMultiplier(cachedSeasonState,
-            entry.inGrowing, entry.outOfGrowing, entry.yearRound, entry.noGrowing);
-    }
-
-    private double GetMultiplier(SeasonalMultiplierDef def)
-    {
-        return SeasonalMath.SelectMultiplier(cachedSeasonState,
-            def.inGrowing, def.outOfGrowing, def.yearRound, def.noGrowing);
+        return multipliers?.For(cachedSeasonState) ?? 1.0;
     }
 
     // IResourceProductionModifier

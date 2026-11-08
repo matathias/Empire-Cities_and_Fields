@@ -74,7 +74,8 @@ public static class DefIntegrityTests
         foreach (SeasonalMultiplierDef def in defs)
         {
             TestAssert.IsNotNull(def.resource, $"{def.defName}: resource is null");
-            foreach (double m in new[] { def.inGrowing, def.outOfGrowing, def.yearRound, def.noGrowing })
+            SeasonalMultipliers mults = TestAssert.NotNull(def.multipliers, $"{def.defName}: multipliers is null");
+            foreach (double m in new[] { mults.inGrowing, mults.outOfGrowing, mults.yearRound, mults.noGrowing })
             {
                 TestAssert.IsFalse(double.IsNaN(m), $"{def.defName}: multiplier is NaN");
                 TestAssert.IsFalse(double.IsInfinity(m), $"{def.defName}: multiplier is infinite");
