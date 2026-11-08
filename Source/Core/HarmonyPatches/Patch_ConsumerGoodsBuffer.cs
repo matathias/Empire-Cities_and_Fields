@@ -110,7 +110,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
 
     private static double GetConsumerGoodsAmount(WorldSettlementFC settlement)
     {
-        IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
+        IStockpile stockpile = WorldComponent_SupplyChain.StockpileFor(settlement);
         if (stockpile is null) return 0;
 
         return stockpile.GetAmount(CFResourceDefOf.RTD_ConsumerGoods);
@@ -118,7 +118,7 @@ public static class Patch_AddStatModifiers_ConsumerGoodsBuffer
 
     private static void ConsumeConsumerGoods(WorldSettlementFC settlement, double amount)
     {
-        IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
+        IStockpile stockpile = WorldComponent_SupplyChain.StockpileFor(settlement);
         if (stockpile is null) return;
 
         stockpile.TryDraw(CFResourceDefOf.RTD_ConsumerGoods, amount, out double drawn);

@@ -149,12 +149,11 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
         return false;
     }
 
+    // In SupplyChain Simple mode every city reads the shared faction pile. Cities are billed one at a
+    // time, so each one sees what the previous ones left and the pile is never double-counted.
     private static double GetToolsStockpile(WorldSettlementFC settlement, ResourceTypeDef toolsDef)
     {
-        var comp = settlement.GetComponent<SupplyChain.WorldObjectComp_SupplyChain>();
-        if (comp is null) return 0;
-
-        var stockpile = comp.GetStockpile();
+        SupplyChain.IStockpile stockpile = SupplyChain.WorldComponent_SupplyChain.StockpileFor(settlement);
         if (stockpile is null) return 0;
 
         return stockpile.GetAmount(toolsDef);
@@ -162,10 +161,7 @@ public class WorldObjectComp_ToolsBenefit : WorldObjectComp, IResourceProduction
 
     private static void ConsumeFromStockpile(WorldSettlementFC settlement, ResourceTypeDef toolsDef, double amount)
     {
-        var comp = settlement.GetComponent<SupplyChain.WorldObjectComp_SupplyChain>();
-        if (comp is null) return;
-
-        var stockpile = comp.GetStockpile();
+        SupplyChain.IStockpile stockpile = SupplyChain.WorldComponent_SupplyChain.StockpileFor(settlement);
         if (stockpile is null) return;
 
         stockpile.TryDraw(toolsDef, amount, out _);

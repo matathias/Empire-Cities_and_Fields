@@ -55,7 +55,7 @@ public class CodexProvider_CrisisBuffer : ICodexDynamicProvider
 
     private static double GetConsumerGoods(WorldSettlementFC settlement)
     {
-        IStockpile stockpile = settlement.GetComponent<WorldObjectComp_SupplyChain>()?.GetStockpile();
+        IStockpile stockpile = WorldComponent_SupplyChain.StockpileFor(settlement);
         if (stockpile is null) return 0;
         return stockpile.GetAmount(CFResourceDefOf.RTD_ConsumerGoods);
     }
